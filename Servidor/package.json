@@ -1,0 +1,22 @@
+{
+  "name": "servidor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@types/mongodb": "^3.1.22",
+    "@types/mongoose": "^5.3.24",
+    "@types/restify": "^7.2.9",
+    "@types/restify-cors-middleware": "^1.0.1",
+    "mongodb": "^3.2.2",
+    "mongoose": "^5.4.19",
+    "restify": "^8.2.0",
+    "restify-cors-middleware": "^1.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
