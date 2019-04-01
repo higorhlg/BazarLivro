@@ -23,7 +23,7 @@ class Server {
     }
     initializeDb() {
         mongoose_1.default.Promise = global.Promise;
-        return mongoose_1.default.connect('mongodb://localhost/teste');
+        return mongoose_1.default.connect('mongodb://livreiro:livrad0r@ds161074.mlab.com:61074/bazarlivro');
     }
     initRouters(routers) {
         return new Promise((resolve, reject) => {
