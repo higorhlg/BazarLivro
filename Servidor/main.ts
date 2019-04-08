@@ -1,4 +1,4 @@
-import { Server } from "./Server/Server";
+import { Server } from "./Server/server";
 
 const server:Server = new Server
 

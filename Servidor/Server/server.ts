@@ -12,8 +12,10 @@ export class Server{
 
     initializeDb(): any{
         (<any>mongoose).Promise = global.Promise
-        return mongoose.connect('mongodb://livreiro:livrad0r@ds161074.mlab.com:61074/bazarlivro')
+        return mongoose.connect('mongodb://livreiro:livrad0r@ds161074.mlab.com:61074/bazarlivro', 
+                                { useNewUrlParser: true})
     }
+
     initRouters(routers:Router[]): Promise<any>{
         return new Promise( (resolve,reject) =>{
         try{
