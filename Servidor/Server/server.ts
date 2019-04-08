@@ -3,6 +3,7 @@ import mongoose from 'mongoose'
 import { Router } from '../common/router';
 import corsMiddleware from 'restify-cors-middleware';
 import { handleError } from './error.handler';
+import { environment } from '../common/environment';
 
 export class Server{
     application: restify.Server = restify.createServer({
@@ -12,7 +13,7 @@ export class Server{
 
     initializeDb(): any{
         (<any>mongoose).Promise = global.Promise
-        return mongoose.connect('mongodb://livreiro:livrad0r@ds161074.mlab.com:61074/bazarlivro', 
+        return mongoose.connect(environment.db.url, 
                                 { useNewUrlParser: true})
     }
 
