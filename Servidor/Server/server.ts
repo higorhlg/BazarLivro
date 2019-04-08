@@ -39,7 +39,7 @@ export class Server{
             }
 
 
-            this.application.listen(3001, () =>{
+            this.application.listen(environment.server.port, () =>{
                 resolve(this.application)
             })
 
