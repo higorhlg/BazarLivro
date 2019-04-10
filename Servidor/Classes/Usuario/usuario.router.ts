@@ -31,6 +31,7 @@ class UserRouter extends Router{
         application.post('/users', (req, resp, next) => {
             let user = new User(req.body)
             user.save().then(user=>{
+                user.senha = undefined
                 resp.json(user)
             })
             return next()
