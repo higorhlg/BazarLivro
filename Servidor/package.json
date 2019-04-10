@@ -4,12 +4,16 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "bcrypt": "^3.0.5",
+    "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.2.2",
     "mongoose": "^5.4.19",
     "restify": "^8.2.0",
     "restify-cors-middleware": "^1.1.1"
   },
   "devDependencies": {
+    "@types/jsonwebtoken": "^8.3.2",
+    "@types/bcrypt": "^3.0.0",
     "@types/mongodb": "^3.1.22",
     "@types/mongoose": "^5.3.24",
     "@types/restify": "^7.2.9",

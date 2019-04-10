@@ -2,6 +2,7 @@ import {Router} from '../../common/router'
 import * as restify from 'restify'
 import * as restifyError from 'restify-errors'
 import {User} from './usuario.model'
+import { authenticate } from '../../security/auth.handler';
 
 class UserRouter extends Router{
     applyRouter(application: restify.Server){
@@ -26,6 +27,16 @@ class UserRouter extends Router{
             }).catch(next)
             return next()
         })
+
+        application.post('/users', (req, resp, next) => {
+            let user = new User(req.body)
+            user.save().then(user=>{
+                resp.json(user)
+            })
+            return next()
+        })
+
+        application.post('/users/authenticate', authenticate)
     }
 }
 
