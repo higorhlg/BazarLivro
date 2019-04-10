@@ -9,44 +9,58 @@ export interface User extends mongoose.Document{
     cpf:string,
     endereco:string,
     usuario:string,
-    senha:string,
+    senha: any | string,
     email:string,
     telefone:string,
+    profile: string[],
     matches(senha: string): boolean,
     hasAny(...profiles: string[]): boolean
 }
 const userSchema = new mongoose.Schema({
     nome:{
         type:String,
-        required:true
+        required:true,
+        minlength: 3,
+        maxlength: 45
     },
     dataNacimento:{
-        type:String
+        type:String,
+        match: '^([0]?[1-9]|[1|2][0-9]|[3][0|1])[./-]([0]?[1-9]|[1][0-2])[./-]([0-9]{4}|[0-9]{2})$'
     },
     cpf:{
         type:String,
-        required:true
+        required:true,
+        unique: true,
+        //match: '(^\d{3}\x2E\d{3}\x2E\d{3}\x2D\d{2}$)'
     },
     endereco:{
         type:String
     },
     usuario:{
         type:String,
-        unique:true
+        unique:true,
+        minlength: 3,
+        maxlength: 15
     },
     senha:{
         type:String,
         required:true,
-        select:false
+        select:false,
+        minlength: 8
     },
     email:{
         type:String,
         unique:true,
-        required:true
+        required:true,
+        //match: '^(?:(?:[\w\.\-_]+@[\w\d]+(?:\.[\w]{2,6})+)[,;]?\s?)+$'
     },
     telefone:{
         type:String,
-        required:true
+        required:true,
+        //match: '^(\d{2,3}|\(\d{2,3}\))?[ ]?\d{3,4}[-]?\d{3,4}$'
+    },
+    profiles:{
+        type: [String]
     }
 })
 
