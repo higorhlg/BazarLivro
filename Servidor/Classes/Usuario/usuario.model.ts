@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 
-export interface Usuario extends mongoose.Document{
+export interface User extends mongoose.Document{
     _id:object,
     nome:string,
     dataNacimento: string,
@@ -46,4 +46,4 @@ const usuarioSchema = new mongoose.Schema({
     }
 })
 
-export const Usuario = mongoose.model<Usuario>('Usuario',usuarioSchema)
+export const User = mongoose.model<User>('Usuario',usuarioSchema)
