@@ -11,7 +11,7 @@ export interface User extends mongoose.Document{
     email:string,
     telefone:string
 }
-const usuarioSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
     nome:{
         type:String,
         required:true
@@ -46,4 +46,4 @@ const usuarioSchema = new mongoose.Schema({
     }
 })
 
-export const User = mongoose.model<User>('Usuario',usuarioSchema)
+export const User = mongoose.model<User>('User',userSchema)
