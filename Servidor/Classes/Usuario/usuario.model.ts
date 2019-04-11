@@ -25,7 +25,7 @@ const userSchema = new mongoose.Schema({
     },
     dataNacimento:{
         type:String,
-        match: '^([0]?[1-9]|[1|2][0-9]|[3][0|1])[./-]([0]?[1-9]|[1][0-2])[./-]([0-9]{4}|[0-9]{2})$'
+       // match: '^([0]?[1-9]|[1|2][0-9]|[3][0|1])[./-]([0]?[1-9]|[1][0-2])[./-]([0-9]{4}|[0-9]{2})$'
     },
     cpf:{
         type:String,
@@ -38,19 +38,19 @@ const userSchema = new mongoose.Schema({
     },
     usuario:{
         type:String,
-        unique:true,
-        minlength: 3,
-        maxlength: 15
+        //unique:true,
+        //minlength: 3,
+        //maxlength: 15
     },
     senha:{
         type:String,
         required:true,
         select:false,
-        minlength: 8
+       // minlength: 8
     },
     email:{
         type:String,
-        unique:true,
+       // unique:true,
         required:true,
         //match: '^(?:(?:[\w\.\-_]+@[\w\d]+(?:\.[\w]{2,6})+)[,;]?\s?)+$'
     },

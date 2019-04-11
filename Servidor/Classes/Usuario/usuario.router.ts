@@ -39,8 +39,20 @@ class UserRouter extends Router{
 
         application.post('/users/authenticate', authenticate)
 
+        const options = {overWrite: true}
         application.put('/users/:id', (req, resp, next)=>{
-            //User.update({id:req.params.id}, req.body )
+            User.update({id:req.params.id}, req.body, options)
+            .exec().then(result=>{ 
+                if(result.n){
+                    return User.findById(req.params.id)
+                }
+                else{
+                    resp.send(404)
+                }
+            }).then(user=>{
+                resp.json(user)
+                return next()
+            })
         })
 
     }
