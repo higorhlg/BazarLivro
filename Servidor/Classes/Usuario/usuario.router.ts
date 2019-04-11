@@ -11,8 +11,6 @@ class UserRouter extends Router{
                 if(users)
                     resp.json(users)
                     next()
-                               
-
             }).catch(next)
         })
         application.get('/users/:id', (req, resp, next)=>{
@@ -33,7 +31,7 @@ class UserRouter extends Router{
             user.save().then(user=>{
                 user.senha = undefined
                 resp.json(user)
-            })
+            }).catch(next)
             return next()
         })
 
@@ -44,7 +42,7 @@ class UserRouter extends Router{
             User.update({id:req.params.id}, req.body, options)
             .exec().then(result=>{ 
                 if(result.n){
-                    return User.findById(req.params.id)
+                    return User.findById(req.params.id).catch(next)
                 }
                 else{
                     resp.send(404)
@@ -52,7 +50,7 @@ class UserRouter extends Router{
             }).then(user=>{
                 resp.json(user)
                 return next()
-            })
+            }).catch(next)
         })
 
     }
