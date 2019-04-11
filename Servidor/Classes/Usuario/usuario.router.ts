@@ -38,6 +38,11 @@ class UserRouter extends Router{
         })
 
         application.post('/users/authenticate', authenticate)
+
+        application.put('/users/:id', (req, resp, next)=>{
+            //User.update({id:req.params.id}, req.body )
+        })
+
     }
 }
 
