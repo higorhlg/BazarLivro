@@ -65,6 +65,17 @@ class UserRouter extends Router{
                 next()
             })
         })
+
+        application.del('/users/:id', (req, resp, next)=>{
+            User.remove({_id:req.params.id}).exec().then((user:any)=>{
+                if(user.n){
+                    resp.send(204)
+                }else{
+                    resp.send(404)
+                }
+                next()
+            })
+        })
     }
 }
 
