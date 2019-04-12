@@ -37,7 +37,7 @@ class UserRouter extends Router{
         })
 
         application.post('/users/authenticate', authenticate)
-
+/*
         const options = {overWrite: true}
         application.put('/users/:id', (req, resp, next)=>{
             User.update({_id:req.params.id}, req.body, options)
@@ -53,7 +53,18 @@ class UserRouter extends Router{
                 return next()
             }).catch(next)
         })
-
+*/
+        application.patch('/users/:id', (req, resp, next)=>{
+            const op = {new:true}
+            User.findByIdAndUpdate(req.params.id, req.body, op).then(user=>{
+                if(user){
+                    resp.json(user)
+                    next()
+                }
+                resp.send(404)
+                next()
+            })
+        })
     }
 }
 
