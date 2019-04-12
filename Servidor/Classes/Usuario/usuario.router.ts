@@ -39,7 +39,7 @@ class UserRouter extends Router{
 
         const options = {overWrite: true}
         application.put('/users/:id', (req, resp, next)=>{
-            User.update({id:req.params.id}, req.body, options)
+            User.update({_id:req.params.id}, req.body, options)
             .exec().then(result=>{ 
                 if(result.n){
                     return User.findById(req.params.id).catch(next)
