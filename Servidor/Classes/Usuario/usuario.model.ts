@@ -25,42 +25,46 @@ const userSchema = new mongoose.Schema({
     },
     dataNacimento:{
         type:String,
-       // match: '^([0]?[1-9]|[1|2][0-9]|[3][0|1])[./-]([0]?[1-9]|[1][0-2])[./-]([0-9]{4}|[0-9]{2})$'
+        //required: true
+        match: /^([0]?[1-9]|[1|2][0-9]|[3][0|1])[./-]([0]?[1-9]|[1][0-2])[./-]([0-9]{4})$/
     },
     cpf:{
         type:String,
-        required:true,
+        //required:true,
         unique: true,
-        //match: '(^\d{3}\x2E\d{3}\x2E\d{3}\x2D\d{2}$)'
+        match: /(^\d{3}\x2E\d{3}\x2E\d{3}\x2D\d{2}$)/
     },
     endereco:{
-        type:String
+        type:String,
+        //required: true
     },
     usuario:{
         type:String,
-        //unique:true,
-        //minlength: 3,
-        //maxlength: 15
+        unique:true,
+        required: true,
+        minlength: 3,
+        maxlength: 15
     },
     senha:{
         type:String,
         required:true,
         select:false,
-       // minlength: 8
+        minlength: 8
     },
     email:{
         type:String,
-       // unique:true,
+        unique:true,
         required:true,
-        //match: '^(?:(?:[\w\.\-_]+@[\w\d]+(?:\.[\w]{2,6})+)[,;]?\s?)+$'
+        match: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     },
     telefone:{
         type:String,
-        required:true,
-        //match: '^(\d{2,3}|\(\d{2,3}\))?[ ]?\d{3,4}[-]?\d{3,4}$'
+        //required:true,
+        match: /^(\d{2,3}|\(\d{2,3}\))?[ ]?\d{3,4}[-]?\d{3,4}$/
     },
     profiles:{
-        type: [String]
+        type: [String],
+        default: 'user'
     }
 })
 

@@ -13,6 +13,7 @@ export class Server{
 
     initializeDb(): any{
         (<any>mongoose).Promise = global.Promise
+        mongoose.set('useCreateIndex', true)
         return mongoose.connect(environment.db.url, 
                                 { useNewUrlParser: true})
     }

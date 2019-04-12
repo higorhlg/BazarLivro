@@ -3,6 +3,7 @@ import * as restify from 'restify'
 import * as restifyError from 'restify-errors'
 import {User} from './usuario.model'
 import { authenticate } from '../../security/auth.handler';
+import { authorize } from '../../security/authz.handler';
 
 class UserRouter extends Router{
     applyRouter(application: restify.Server){
@@ -13,7 +14,7 @@ class UserRouter extends Router{
                     next()
             }).catch(next)
         })
-        application.get('/users/:id', (req, resp, next)=>{
+        application.get('/users/:id', /*authorize('user'),*/ (req, resp, next)=>{
             User.findById(req.params.id).then(user=>{
                 if(user){
                     resp.json(user)
