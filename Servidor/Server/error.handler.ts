@@ -20,6 +20,9 @@ export const handleError = (req: restify.Request, resp: restify.Response
         case 'ValidationError':
             err.statusCode = 400
             break
+        case 'CastError':
+            err.statusCode = 400
+            break
     }
 
     done()
