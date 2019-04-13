@@ -1,11 +1,12 @@
 import mongoose from 'mongoose'
 import bcrypt from 'bcrypt'
 import { environment } from '../../common/environment';
+import { validateCPF } from '../../common/validators';
 
 export interface User extends mongoose.Document{
     _id:object,
     nome:string,
-    dataNacimento: string,
+    dataNascimento: string,
     cpf:string,
     endereco:string,
     usuario:string,
@@ -23,20 +24,24 @@ const userSchema = new mongoose.Schema({
         minlength: 3,
         maxlength: 45
     },
-    dataNacimento:{
+    dataNascimento:{
         type:String,
-        //required: true
+        required: true,
         match: /^([0]?[1-9]|[1|2][0-9]|[3][0|1])[./-]([0]?[1-9]|[1][0-2])[./-]([0-9]{4})$/
     },
     cpf:{
         type:String,
-        //required:true,
+        required:true,
         unique: true,
-        match: /(^\d{3}\x2E\d{3}\x2E\d{3}\x2D\d{2}$)/
+        /*validate: {
+            validator: validateCPF,
+            message: '{PATH}: Invalid CPF ({VALUE})'
+        }*/
+        match: /(\d{3}.?\d{3}.?\d{3}-?\d{2})/
     },
     endereco:{
         type:String,
-        //required: true
+        required: true
     },
     usuario:{
         type:String,
@@ -59,8 +64,8 @@ const userSchema = new mongoose.Schema({
     },
     telefone:{
         type:String,
-        //required:true,
-        match: /^(\d{2,3}|\(\d{2,3}\))?[ ]?\d{3,4}[-]?\d{3,4}$/
+        required:true,
+        match: /\(\d{2,}\)( )?\d{4,}\-\d{4}/
     },
     profiles:{
         type: [String],
