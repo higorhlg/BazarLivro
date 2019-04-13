@@ -14,7 +14,10 @@ export const authenticate: restify.RequestHandler = (req, resp, next) =>{
                     sub: user.email,
                     iss: 'api-bazar'
                 },
-                environment.security.apiSecret)
+                environment.security.apiSecret,
+                {
+                    expiresIn: '1h'
+                })
                 resp.json({
                     nome: user.nome,
                     usuario: user.usuario,
