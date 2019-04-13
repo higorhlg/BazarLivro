@@ -10,3 +10,13 @@ export const authorize: (...profiles: string[])=> restify.RequestHandler = (...p
         }
     }
 }
+
+export const authorizeNoProfile: ()=> restify.RequestHandler = (...profiles)=>{
+    return (req, resp, next)=>{
+        if(req.authenticated !== undefined){
+            next()
+        } else {
+            next(new ForbiddenError('Permission denied'))
+        }
+    }
+}

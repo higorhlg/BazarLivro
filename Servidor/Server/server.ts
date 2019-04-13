@@ -4,6 +4,7 @@ import { Router } from '../common/router';
 import corsMiddleware from 'restify-cors-middleware';
 import { handleError } from './error.handler';
 import { environment } from '../common/environment';
+import { tokenParser } from '../security/token.parser';
 
 export class Server{
     application: restify.Server = restify.createServer({
@@ -34,6 +35,7 @@ export class Server{
             this.application.use(cors.actual)
             this.application.use(restify.plugins.queryParser())//geralmente utilizando no get para converter pesquisas
             this.application.use(restify.plugins.bodyParser())// convert json em object automaticamente
+            this.application.use(tokenParser)
         
             for( let router of routers){
                 router.applyRouter(this.application)
