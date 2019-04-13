@@ -1,0 +1,33 @@
+#formato para geração de json para criar "usuario" no site https://www.json-generator.com/
+[
+  '{{repeat(5, 7)}}',
+  {
+    nome: '{{firstName()}} {{surname()}}',
+    dataNascimento: '{{date(new Date(1970, 2, 15), new Date(1990, 9, 20), "dd/MM/YYYY")}}',
+    cpf: '{{phone("xxx.xxx.xxx-")}}{{integer(0,99)}}',
+    endereco: '{{integer(100, 999)}} {{street()}}, {{city()}}, {{state()}}, {{integer(100, 10000)}}',
+    "usuario": '{{surname().toLowerCase()}}',
+    "senha": '{{integer(0,99999999)}}',
+    "email": '{{"email"(true)}}',
+    telefone: '{{phone("(xx) 9xxxx-xxxx")}}'
+  }
+]
+
+#lista de "usuario" cadastrados no banco
+{
+    "usuario": "clemons",
+    "email": "deanapotts@macronaut.com",
+    "senha": "51552741"
+}
+
+{
+    "usuario": "rich",
+    "email": "gailvasquez@exosis.com",
+    "senha": "39855613"
+}
+
+{
+    "usuario": "nicholson",
+    "senha": "21723534",
+    "email": "garretttucker@fibrodyne.com",
+}
