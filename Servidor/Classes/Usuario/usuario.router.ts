@@ -26,7 +26,7 @@ class UserRouter extends Router{
         application.post('/users/authenticate', authenticate)
 
         application.patch('/users/:id', (req, resp, next)=>{
-            const op = {new:true}
+            const op = {runValidators: true, new:true}
             User.findByIdAndUpdate(req.params.id, req.body, op).then(this.render(resp, next))
             .catch(next)
         })
