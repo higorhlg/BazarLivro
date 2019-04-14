@@ -21,13 +21,13 @@ const userSchema = new mongoose.Schema({
     nome:{
         type:String,
         required:true,
-        minlength: 3,
-        maxlength: 45
+        //minlength: 3,
+        //maxlength: 45
     },
     dataNascimento:{
         type:String,
         required: true,
-        match: /^([0]?[1-9]|[1|2][0-9]|[3][0|1])[./-]([0]?[1-9]|[1][0-2])[./-]([0-9]{4})$/
+        //match: /^([0]?[1-9]|[1|2][0-9]|[3][0|1])[./-]([0]?[1-9]|[1][0-2])[./-]([0-9]{4})$/
     },
     cpf:{
         type:String,
@@ -37,7 +37,7 @@ const userSchema = new mongoose.Schema({
             validator: validateCPF,
             message: '{PATH}: Invalid CPF ({VALUE})'
         }*/
-        match: /(\d{3}.?\d{3}.?\d{3}-?\d{2})/
+       // match: /(\d{3}.?\d{3}.?\d{3}-?\d{2})/
     },
     endereco:{
         type:String,
@@ -45,31 +45,31 @@ const userSchema = new mongoose.Schema({
     },
     usuario:{
         type:String,
-        unique:true,
+       // unique:true,
         required: true,
-        minlength: 3,
-        maxlength: 15
+       // minlength: 3,
+        //maxlength: 15
     },
     senha:{
         type:String,
         required:true,
-        select:false,
-        minlength: 8
+        //select:false,
+       // minlength: 8
     },
     email:{
         type:String,
         unique:true,
         required:true,
-        match: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        //match: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     },
     telefone:{
         type:String,
         required:true,
-        match: /\(\d{2,}\)( )?\d{4,}\-\d{4}/
+        //match: /\(\d{2,}\)( )?\d{4,}\-\d{4}/
     },
     profiles:{
         type: [String],
-        default: 'user'
+      //  default: 'user'
     }
 })
 
