@@ -98,7 +98,17 @@ const saveMiddleware = function (this: User,next: () => void) {
     }
 }
 
+const updateMiddleware = function(this: mongoose.Query<User>, next: () => void){
+    if(!this.getUpdate().senha)
+        next()
+    else{
+        hashPassword(this.getUpdate(), next)
+    }
+}
+
 userSchema.pre('save', saveMiddleware)
+userSchema.pre('findOneAndUpdate', updateMiddleware)
+userSchema.pre('update', updateMiddleware)
 
 
 export const User = mongoose.model<User>('User',userSchema)
