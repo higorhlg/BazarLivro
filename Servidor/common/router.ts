@@ -10,9 +10,9 @@ export abstract class Router{
                 response.json(document)
             }
             else{
-                response.send(404)
+                throw new restifyError.NotFoundError('Usuário não encontrado')
             }
-            next(new restifyError.NotFoundError('Usuário não encontrado'))
+            next()
         }
     }
 }
