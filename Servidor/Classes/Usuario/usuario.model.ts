@@ -89,7 +89,7 @@ const hashPassword = (obj: User, next: () => void) => {
         }).catch(next)
 }
 
-const saveMiddleware = function (next: () => void) {
+const saveMiddleware = function (this: User,next: () => void) {
     const user: User = this
     if (!user.isModified('senha')) {
         next()
