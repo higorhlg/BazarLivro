@@ -1,17 +1,22 @@
-import {Router} from '../../common/router'
+import {ModelRouter} from '../../common/model.router'
 import * as restify from 'restify'
 import * as restifyError from 'restify-errors'
 import {User} from './usuario.model'
 import { authenticate } from '../../security/auth.handler';
 import { authorize } from '../../security/authz.handler';
 
-class UserRouter extends Router{
+
+class UserRouter extends ModelRouter<User>{
+    constructor(){
+        super(User)
+        this.on('beforeRender',document=>{
+            document.senha = undefined
+        })
+    }
     
     applyRouter(application: restify.Server){
 
-        application.get('/users', (req, resp, next)=>{
-            User.find().then(this.render(resp, next)).catch(next)
-        })
+        application.get('/users', this.findAll) 
 
         application.get('/users/:id', /*authorize('user'),*/ (req, resp, next)=>{
             User.findById(req.params.id).then(this.render(resp, next)).catch(next)
