@@ -17,7 +17,7 @@ export abstract class ModelRouter<D extends mongoose.Document> extends Router {
         this.model.find().then(this.render(resp, next))
         .catch(next)
     }
-    findBayId = (req: any, resp: any, next: any)=>{
+    findById = (req: any, resp: any, next: any)=>{
         this.model.findById(req.params.id).then(this.render(resp, next)).catch(next)
     }
     save =  (req: any, resp: any, next: any) => {
