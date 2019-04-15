@@ -2,7 +2,7 @@
   "name": "servidor",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/main.js",
   "dependencies": {
     "bcrypt": "^3.0.5",
     "jsonwebtoken": "^8.5.1",
