@@ -1,9 +1,17 @@
 import {Router} from '../common/router'
 import * as mongoose from 'mongoose'
+import { NotFoundError } from 'restify-errors';
 
 export abstract class ModelRouter<D extends mongoose.Document> extends Router {
     constructor( protected model: mongoose.Model<D>) {
         super()
+    }
+    validateId = (req: any, resp: any, next: any)=>{
+        if(!mongoose.Types.ObjectId.isValid(req.params.id)){
+            next(new NotFoundError('Document not found'))
+        } else {
+            next()
+        }
     }
     findAll =  (req: any, resp: any, next: any)=>{
         this.model.find().then(this.render(resp, next))
