@@ -13,7 +13,7 @@ class AnnouncementRouter extends ModelRouter<Announcement>{
         application.get('/announcements/:id', authorizeNoProfile(), this.findBayId)
         application.post('/announcements', authorizeNoProfile(), this.save)
         application.patch('/announcements/:id', authorizeNoProfile(), this.update)
-        application.del('/announcements', authorizeNoProfile(), this.delete)
+        application.del('/announcements/:id', authorizeNoProfile(), this.delete)
     }
 }
 

@@ -25,10 +25,11 @@ const announcementSchema = new mongoose.Schema({
     },
     isbn:{
         type: String,
-        minlength: 13,
-        maxlength: 13,
+        //minlength: 13,
+        //maxlength: 13,
         unique: true,
-        required: false
+        required: false,
+        match: /((978[\--– ])?[0-9][0-9\--– ]{10}[\--– ][0-9xX])|((978)?[0-9]{9}[0-9Xx])/
     },
     nameAuthor:{
         type: String,
