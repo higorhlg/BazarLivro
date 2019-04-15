@@ -8,7 +8,10 @@ export interface Announcement extends mongoose.Document{
     nameAuthor: string,
     price: number,
     availableForExchange: boolean,
-    _id_user: string
+    _id_user: string,
+    announcementDescription: string,
+    photo: string,
+    activityStatus: string
 }
 
 const announcementSchema = new mongoose.Schema({
@@ -18,23 +21,39 @@ const announcementSchema = new mongoose.Schema({
     },
     synopsis:{
         type: String,
-        require: true
+        required: true
     },
     isbn:{
         type: String,
-        unique: true
+        minlength: 13,
+        maxlength: 13,
+        unique: true,
+        required: false
     },
     nameAuthor:{
         type: String,
-        require: true
+        required: true
     },
     price:{
         type: Number,
-        require: true
+        required: true
     },
     availableForExchange:{
         type: Boolean,
-        require: true
+        required: true
+    },
+    announcementDescription:{
+        type: String,
+        required: true
+    },
+    photo:{
+        type: String,
+        required: false
+    },
+    activityStatus:{
+        type: String,
+        required: true,
+        enum: ['Ativo', 'Inativo', 'Pausado']
     }
 })
 
