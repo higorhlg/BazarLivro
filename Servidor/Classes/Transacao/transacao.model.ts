@@ -1,7 +1,4 @@
 import mongoose from 'mongoose'
-import bcrypt from 'bcrypt'
-import { environment } from '../../common/environment';
-import { validateCPF } from '../../common/validators';
 
 export interface Transaction extends mongoose.Document{
     _id:object,
