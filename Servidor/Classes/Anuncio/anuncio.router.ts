@@ -14,6 +14,12 @@ class AnnouncementRouter extends ModelRouter<Announcement>{
             .then(this.render(resp, next)).catch(next)
     }
 
+    findAll = (req: any, resp: any, next: any)=>{
+        this.model.find().populate('user', ['nome', 'email'])
+        .then(this.render(resp, next))
+        .catch(next)
+    }
+
     applyRouter(application: restify.Server){
         
         application.get('/announcements', authorizeNoProfile(), this.findAll)
