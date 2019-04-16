@@ -1,38 +1,43 @@
 import mongoose from 'mongoose'
+import { timezone } from 'timezone-js'
 
+const time: string[] = timezone.getAllZones()
 export interface Transaction extends mongoose.Document{
     _id:object,
-    id_comprador: string,
-    id_vendedor: string,
-    id_anuncio: string,
-    data: Date,    
+    comprador: mongoose.Types.ObjectId,
+    vendedor: mongoose.Types.ObjectId,
+    anuncio: mongoose.Types.ObjectId,
+    data: Date,
     estado: string
 }
 
-
 const transactionSchema = new mongoose.Schema({
-    id_comprador:{
-        type:String,
+    comprador:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
         required:true,       
     },
-    id_vendedor:{
-        type:String,
+    vendedor:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
         required: true,
     },
-    id_anuncio:{
-        type:String,
+    anuncio:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Announcement',
         required: true,
     },
     data:{
         type:Date,
-        required:true,
+        default: Date.now,
+        required:true
     },
     estado:{
         type:String,
         required:true,
+        default: 'A entregar'
     },
 })
-
 
 
 export const Transaction = mongoose.model<Transaction>('Transaction',transactionSchema)
