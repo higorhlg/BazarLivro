@@ -13,6 +13,21 @@
   }
 ]
 
+### para anuncios
+[
+  '{{repeat(5, 7)}}',
+  {
+    title: '{{lorem(5, "words")}}',
+    synopsis: '{{lorem(2)}}',
+    isbn: '{{phone("978-xx-xxx-xxxx-x")}}',
+    nameAuthor: '{{firstName()}} {{surname()}}',
+    price: '{{floating(0,999,2)}}',
+    availableForExchange: '{{bool()}}',
+    announcementDescription: '{{lorem(3)}}',
+    activityStatus: '{{random("Ativo", "Inativo", "Pausado")}}'
+  }
+]
+
 #lista de "usuario" cadastrados no banco
 {
     "usuario": "clemons",
