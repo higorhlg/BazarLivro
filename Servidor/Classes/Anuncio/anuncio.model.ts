@@ -8,7 +8,7 @@ export interface Announcement extends mongoose.Document{
     nameAuthor: string,
     price: number,
     availableForExchange: boolean,
-    _id_user: string,
+    user: mongoose.Types.ObjectId,
     announcementDescription: string,
     photo: string,
     activityStatus: string
@@ -55,6 +55,11 @@ const announcementSchema = new mongoose.Schema({
         type: String,
         required: true,
         enum: ['Ativo', 'Inativo', 'Pausado']
+    },
+    user:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
     }
 })
 

@@ -8,7 +8,14 @@ class AnnouncementRouter extends ModelRouter<Announcement>{
         super(Announcement)
     }
 
+    findById = (req: any, resp: any, next: any)=>{
+        this.model.findById(req.params.id)
+            .populate('user', ['nome', 'email'])
+            .then(this.render(resp, next)).catch(next)
+    }
+
     applyRouter(application: restify.Server){
+        
         application.get('/announcements', authorizeNoProfile(), this.findAll)
         application.get('/announcements/:id', authorizeNoProfile(), this.findById)
         application.post('/announcements', authorizeNoProfile(), this.save)
