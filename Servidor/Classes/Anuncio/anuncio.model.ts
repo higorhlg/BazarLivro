@@ -17,7 +17,8 @@ export interface Announcement extends mongoose.Document{
 const announcementSchema = new mongoose.Schema({
     title:{
         type: String,
-        required: true
+        required: true,
+        maxlength: 60,
     },
     synopsis:{
         type: String,
@@ -33,11 +34,14 @@ const announcementSchema = new mongoose.Schema({
     },
     nameAuthor:{
         type: String,
-        required: true
+        required: true,
+        minlength: 3,
+        maxlength: 50
     },
     price:{
         type: Number,
-        required: true
+        required: true,
+        match: /^[0-9]+([\,|\.]{0,1}[0-9]{2}){0,1}$/
     },
     availableForExchange:{
         type: Boolean,
