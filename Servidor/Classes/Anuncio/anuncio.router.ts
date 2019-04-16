@@ -1,4 +1,5 @@
 import * as restify from 'restify'
+import * as mongoose from 'mongoose'
 import { ModelRouter } from '../../common/model.router';
 import { Announcement } from './anuncio.model';
 import { authorize, authorizeNoProfile } from '../../security/authz.handler';
@@ -14,10 +15,8 @@ class AnnouncementRouter extends ModelRouter<Announcement>{
             .then(this.render(resp, next)).catch(next)
     }
 
-    findAll = (req: any, resp: any, next: any)=>{
-        this.model.find().populate('user', ['nome', 'email'])
-        .then(this.render(resp, next))
-        .catch(next)
+    protected prepareAll(query: mongoose.DocumentQuery<Announcement[], Announcement>): mongoose.DocumentQuery<Announcement[], Announcement>{
+        return query.populate('user', ['nome', 'email'])
     }
 
     applyRouter(application: restify.Server){
