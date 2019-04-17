@@ -1,7 +1,5 @@
 import mongoose from 'mongoose'
-import { timezone } from 'timezone-js'
 
-const time: string[] = timezone.getAllZones()
 export interface Transaction extends mongoose.Document{
     _id:object,
     comprador: mongoose.Types.ObjectId,
