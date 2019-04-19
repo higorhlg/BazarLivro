@@ -37,5 +37,28 @@ const transactionSchema = new mongoose.Schema({
     },
 })
 
+const saveMiddleware = function(this:Transaction,next: any){
+    const transaction: Transaction = this
+    if(!transaction.$isDefault('data')){
+        next()
+    }
+    else {
+        let localNow = new Date(transaction.data.getTime() - (transaction.data.getTimezoneOffset() * 60000  ))
+        transaction.data = localNow
+        next()
+    }
+}
+
+const updateMiddleware = function(this: mongoose.Query<Transaction>, next: any){
+    if(!this.getUpdate().data)
+        next()
+    else {
+        let localNow = new Date(this.getUpdate().getTime() - (this.getUpdate().getTimezoneOffset() * 60000  ))
+        this.getUpdate().data = localNow
+    }
+}
+
+transactionSchema.pre('save', saveMiddleware)
+//transactionSchema.pre('update', updateMiddleware)
 
 export const Transaction = mongoose.model<Transaction>('Transaction',transactionSchema)
