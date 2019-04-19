@@ -27,10 +27,8 @@ export abstract class ModelRouter<D extends mongoose.Document> extends Router {
 
     validateId = (req: any, resp: any, next: any) => {
         if (!this.isValidObjectId(req.params.id)) {
-            console.log('Deu merda')
             next(new NotFoundError('Document not found'))
         } else {
-            console.log('Deu certo')
             next()
         }
     }
