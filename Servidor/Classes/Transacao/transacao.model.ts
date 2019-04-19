@@ -59,6 +59,6 @@ const updateMiddleware = function(this: mongoose.Query<Transaction>, next: any){
 }
 
 transactionSchema.pre('save', saveMiddleware)
-//transactionSchema.pre('update', updateMiddleware)
+transactionSchema.pre('update', updateMiddleware)
 
 export const Transaction = mongoose.model<Transaction>('Transaction',transactionSchema)
