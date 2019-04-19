@@ -7,7 +7,7 @@ import { NotAuthorizedError } from 'restify-errors';
 export const authenticate: restify.RequestHandler = (req, resp, next) =>{
     const {email, senha, usuario} = req.body
     if(usuario !== undefined){
-        User.findOne({usuario}).select('+senha').then(user =>{
+        User.findByEmail(usuario, '+senha').then(user =>{
             console.log('Login with username')
             if(user && user.matches(senha)){
                 const token = jwt.sign({

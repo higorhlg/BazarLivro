@@ -17,6 +17,9 @@ export interface User extends mongoose.Document{
     matches(senha: string): boolean,
     hasAny(...profiles: string[]): boolean
 }
+export interface UserModel extends mongoose.Model<User>{
+    findByEmail(email: string, projection: string) : Promise<User>
+}
 const userSchema = new mongoose.Schema({
     nome:{
         type:String,
@@ -73,6 +76,10 @@ const userSchema = new mongoose.Schema({
     }
 })
 
+userSchema.statics.findByEmail = function(email: string, projection: string) {
+    return this.findOne({email}, projection)
+}
+
 userSchema.methods.matches = function (senha: string): boolean {
     return bcrypt.compareSync(senha, this.senha)
 }
@@ -111,4 +118,4 @@ userSchema.pre('findOneAndUpdate', updateMiddleware)
 userSchema.pre('update', updateMiddleware)
 
 
-export const User = mongoose.model<User>('User',userSchema)
+export const User = mongoose.model<User, UserModel>('User',userSchema)
