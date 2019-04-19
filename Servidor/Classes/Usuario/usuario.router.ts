@@ -15,11 +15,11 @@ class UserRouter extends ModelRouter<User>{
     applyRouter(application: restify.Server){
 
         application.get('/users', this.findAll) 
-        application.get('/users/:id',  /*authorize('user'),*/ this.findById)
+        application.get('/users/:id',  /*authorize('user'),*/ [this.validateId, this.findById])
         application.post('/users', this.save)
         application.post('/users/authenticate', authenticate)
-        application.patch('/users/:id', this.update)
-        application.del('/users/:id', this.delete)
+        application.patch('/users/:id', [this.validateId, this.update])
+        application.del('/users/:id', [this.validateId, this.delete])
     }
 }
 export const usersRouter = new UserRouter()

@@ -27,9 +27,6 @@ export const handleError = (req: restify.Request, resp: restify.Response
                 errors: messages
             })
             break
-        case 'CastError':
-            err.statusCode = 400
-            break
     }
 
     done()

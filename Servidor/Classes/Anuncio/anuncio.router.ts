@@ -22,10 +22,10 @@ class AnnouncementRouter extends ModelRouter<Announcement>{
     applyRouter(application: restify.Server){
         
         application.get('/announcements', authorizeNoProfile(), this.findAll)
-        application.get('/announcements/:id', authorizeNoProfile(), this.findById)
+        application.get('/announcements/:id', authorizeNoProfile(), [this.validateId, this.findById])
         application.post('/announcements', authorizeNoProfile(), this.save)
-        application.patch('/announcements/:id', authorizeNoProfile(), this.update)
-        application.del('/announcements/:id', authorizeNoProfile(), this.delete)
+        application.patch('/announcements/:id', authorizeNoProfile(), [this.validateId, this.update])
+        application.del('/announcements/:id', authorizeNoProfile(), [this.validateId, this.delete])
     }
 }
 
