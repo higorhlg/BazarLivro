@@ -24,11 +24,11 @@ class TransactionRouter extends ModelRouter<Transaction>{
     
     applyRouter(application: restify.Server){
 
-        application.get('/transactions', this.findAll) 
-        application.get('/transactions/:id', [this.validateId, this.findById])
-        application.post('/transactions', this.save)     
-        application.patch('/transactions/:id', [this.validateId, this.update])
-        application.del('/transactions/:id', [this.validateId, this.delete])
+        application.get('/transactions', /* authorizeNoProfile(), */ this.findAll) 
+        application.get('/transactions/:id', /* authorizeNoProfile(), */[this.validateId, this.findById])
+        application.post('/transactions', /* authorizeNoProfile(), */this.save)     
+        application.patch('/transactions/:id', /* authorizeNoProfile(), */[this.validateId, this.update])
+        application.del('/transactions/:id', /* authorizeNoProfile(), */[this.validateId, this.delete])
         
     }
 }
