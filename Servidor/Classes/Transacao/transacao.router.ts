@@ -12,7 +12,9 @@ class TransactionRouter extends ModelRouter<Transaction>{
 
     findById = (req: any, resp: any, next: any)=>{
         this.model.findById(req.params.id)
-            .populate('user', ['nome', 'email'])
+            .populate('vendedor', ['nome', 'email'])
+            .populate('comprador', ['nome', 'email'])
+            .populate('anuncio', ['title', 'price'])
             .then(this.render(resp, next)).catch(next)
     }
 
