@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.component';
 import { CriarAnuncioComponent } from './criar-anuncio/criar-anuncio.component';
 import { TelaPrincipalComponent } from './tela-principal/tela-principal.component';
+import { MinhaContaComponent } from './minha-conta/minha-conta.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { TelaPrincipalComponent } from './tela-principal/tela-principal.componen
     LoginComponent,
     CadastroUsuarioComponent,
     CriarAnuncioComponent,
-    TelaPrincipalComponent
+    TelaPrincipalComponent,
+    MinhaContaComponent
   ],
   imports: [
     BrowserModule,
