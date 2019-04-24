@@ -66,7 +66,7 @@ class TransactionRouter extends ModelRouter<Transaction>{
 
         application.get('/transactions', /* authorizeNoProfile(), */ this.findAll) 
         application.get('/transactions/:id', /* authorizeNoProfile(), */[this.validateId, this.findById])
-        application.post('/transactions', /* authorizeNoProfile(), */[this.validateId,this.save])     
+        application.post('/transactions', /* authorizeNoProfile(), */[this.validateId,this.saveTransacao])     
         application.patch('/transactions/:id', /* authorizeNoProfile(), */[this.validateId, this.update])
         application.del('/transactions/:id', /* authorizeNoProfile(), */[this.validateId, this.delete])
         

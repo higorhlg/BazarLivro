@@ -44,9 +44,26 @@ export abstract class ModelRouter<D extends mongoose.Document> extends Router {
         document.save().then(this.render(resp, next)).catch(next)
         return next()
     }
+    saveAnuncio = (req: any, resp: any, next: any)=>{
+        let document = new this.model(req.body)
+        console.log(document.id)
+        document.save().then(document=>{
+            this.model.findById(document.id)
+            .populate('user', ['nome', 'email'])
+            .then(this.render(resp, next)).catch(next)
+        }).catch(next)
+        return next()
+    }
     saveTransacao = (req: any, resp: any, next: any) => {
         let document = new this.model(req.body)
-        document.save().then(this.render(resp, next)).catch(next)
+        console.log(document.id)
+        document.save().then(document=>{
+            this.model.findById(document.id)
+            .populate('vendedor', ['nome', 'email'])
+            .populate('comprador', ['nome', 'email'])
+            .populate('anuncio', ['title', 'price'])
+            .then(this.render(resp, next)).catch(next)
+        }).catch(next)
         return next()
     }
     update = (req: any, resp: any, next: any) => {

@@ -38,7 +38,7 @@ class AnnouncementRouter extends ModelRouter<Announcement>{
         
         application.get('/announcements', authorizeNoProfile(), this.findAll)
         application.get('/announcements/:id', authorizeNoProfile(), [this.validateId, this.findById])
-        application.post('/announcements', authorizeNoProfile(), [this.validateId, this.save])
+        application.post('/announcements', authorizeNoProfile(), [this.validateId, this.saveAnuncio])
         application.patch('/announcements/:id', authorizeNoProfile(), [this.validateId, this.update])
         application.del('/announcements/:id', authorizeNoProfile(), [this.validateId, this.delete])
     }
