@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.component';
-import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
+import { CriarAnuncioComponent } from './criar-anuncio/criar-anuncio.component';
+import { TelaPrincipalComponent } from './tela-principal/tela-principal.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,14 @@ const routes: Routes = [
   {
     path:"",
     component:LoginComponent
+  },
+  {
+    path:"criar-anuncio",
+    component:CriarAnuncioComponent
+  },
+  {
+    path:"tela-inicial",
+    component:TelaPrincipalComponent
   }
 
 
