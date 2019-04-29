@@ -1,78 +1,84 @@
+<div class="container">
+  <!-- Titulo Pagina -->
+  <h2 class="">Cadastrar Anúncio</h2>
+  <form>
 
-      <div class="container">
-        <!-- Titulo Pagina -->
-        <h2 class="card-title">Cadastrar Anúncio</h2>
-        <form>
-
-        <div class="form-group">
-        <label for="exampleInputEmail1">Título</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="O Pequeno Príncipe">
-        </div>
-
-        <!-- wtf? -->
-        <div class="form-group">
-        <label for="exampleInputEmail1">SBN</label>
-        <input type="text" class="form-control" id="exampleInputSBN" aria-describedby="SBNlHelp" placeholder="***********">
-        </div>
-
-          <!-- procurar gambiarra pra botar numero -->
-        <div class="form-group">
-        <label for="exampleInputpreço">Preço</label>
-        <input type="number" class="form-control" id="exampleInputPreco" step="0.50" aria-describedby="precoHelp" placeholder="R$ 10,00">
-        </div>
-
-
-        <div class="form-group">
-        <label for="exampleInputAutor">Autor</label>
-        <input type="text" class="form-control" id="exampleInputautor" aria-describedby="SBNlautor" placeholder="Antoine de Saint-Exupéry">
-        </div>
-
-
-        <div class="form-group">
-        <label for="exampleInputPassword1">Sinopse</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Um piloto cai com seu avião no deserto e ali encontra uma criança loura e frágil. Ela diz ter vindo de um pequeno planeta distante. E ali, na convivência com o piloto perdido, os dois repensam os seus valores e encontram o sentido da vida."></textarea>
-        </div>
-
-
-        <div class="form-group">
-        <label for="exampleInputAutor">Disponibilidade de Troca</label>
-
-        <div class="form-check">
-        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-        <label class="form-check-label" for="exampleRadios1">
-        Disponível para Troca
-        </label>
-        </div>
-        <div class="form-check">
-        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-        <label class="form-check-label" for="exampleRadios2">
-        Indisponível para Troca
-        </label>
-        </div>
-
-        <label class="form-check-label" for="exampleRadios2">
-                       
-        </label>
-
-        <div class="form-group">
-        <label for="exampleInputPassword1">Descrição do Anúncio</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Nesta clássica história que marcou gerações de leitores em todo o mundo, um piloto cai com seu avião no deserto do Saara e encontra um pequeno príncipe, que o leva a uma jornada filosófica e poética através de planetas que encerram a solidão humana. A edição conta com a clássica tradução do poeta imortal dom Marcos Barbosa, e é a versão mais consagrada da obra, publicada no Brasil desde 1952. "></textarea>
-        </div>
-
-
-
-
-
-    
-        <form action="upload.php" method="post" enctype="multipart/form-data">
-        Selecione uma imagem
-        <input type="file" class="btn btn-primary" name="fileToUpload" id="fileToUpload">  
-        </form>
-    
-
-
-    
+    <div class="form-group">
+      <label for="exampleInputEmail1">Título</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+        placeholder="O Pequeno Príncipe">
     </div>
-    <button type="submit" class="btn btn-primary">Criar Anúncio</button>
-    </form>
+
+    <!-- wtf? -->
+    <div class="form-group">
+      <label for="exampleInputEmail1">SBN</label>
+      <input type="text" class="form-control" id="exampleInputSBN" aria-describedby="SBNlHelp"
+        placeholder="***********">
+    </div>
+
+    <!-- procurar gambiarra pra botar numero -->
+    <div class="form-group">
+      <label for="exampleInputpreço">Preço</label>
+      <input type="number" class="form-control" id="exampleInputPreco" step="0.50" aria-describedby="precoHelp"
+        placeholder="R$ 10,00">
+    </div>
+
+
+    <div class="form-group">
+      <label for="exampleInputAutor">Autor</label>
+      <input type="text" class="form-control" id="exampleInputautor" aria-describedby="SBNlautor"
+        placeholder="Antoine de Saint-Exupéry">
+    </div>
+
+
+    <div class="form-group">
+      <label for="exampleInputPassword1">Sinopse</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+        placeholder="Um piloto cai com seu avião no deserto e ali encontra uma criança loura e frágil. Ela diz ter vindo de um pequeno planeta distante. E ali, na convivência com o piloto perdido, os dois repensam os seus valores e encontram o sentido da vida."></textarea>
+    </div>
+
+    <label for="exampleInputAutor">Disponibilidade de Troca</label>
+
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+      <label class="form-check-label" for="exampleRadios1">
+        Default radio
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+      <label class="form-check-label" for="exampleRadios2">
+        Second default radio
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" disabled>
+      <label class="form-check-label" for="exampleRadios3">
+        Disabled radio
+      </label>
+    </div>
+      
+      <div class="form-group">
+        <label for="exampleInputPassword1">Descrição do Anúncio</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+          placeholder="Nesta clássica história que marcou gerações de leitores em todo o mundo, um piloto cai com seu avião no deserto do Saara e encontra um pequeno príncipe, que o leva a uma jornada filosófica e poética através de planetas que encerram a solidão humana. A edição conta com a clássica tradução do poeta imortal dom Marcos Barbosa, e é a versão mais consagrada da obra, publicada no Brasil desde 1952. "></textarea>
+      </div>
+
+
+
+
+
+      <div class="form-group">
+
+      <form action="upload.php" method="post" enctype="multipart/form-data">
+        Selecione uma imagem
+        <input type="file" class="btn btn-primary" name="fileToUpload" id="fileToUpload">
+      </form>
+
+
+
+
+    </div>
+    <button type="submit" class="btn btn-lg btn-success">Criar Anúncio</button>
+  </form>
 </div>
