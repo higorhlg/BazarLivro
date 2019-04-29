@@ -10,6 +10,7 @@ import { CriarAnuncioComponent } from './criar-anuncio/criar-anuncio.component';
 import { TelaPrincipalComponent } from './tela-principal/tela-principal.component';
 import { MinhaContaComponent } from './minha-conta/minha-conta.component';
 import { CookieService } from 'angular2-cookie/services/cookies.service';
+import { CartaoLoginComponent } from './login/cartao-login/cartao-login.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { CookieService } from 'angular2-cookie/services/cookies.service';
     CadastroUsuarioComponent,
     CriarAnuncioComponent,
     TelaPrincipalComponent,
-    MinhaContaComponent
+    MinhaContaComponent,
+    CartaoLoginComponent
   ],
   imports: [
     BrowserModule,
