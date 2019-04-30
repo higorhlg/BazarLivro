@@ -1,7 +1,11 @@
 import {
   Component,
-  OnInit
+  OnInit,
+  Input
 } from '@angular/core';
+
+
+
 
 @Component({
   selector: 'app-carrossel-ofertas-de-credito',
@@ -9,84 +13,89 @@ import {
   styleUrls: ['./carrossel-ofertas-de-credito.component.scss']
 })
 export class CarrosselOfertasDeCreditoComponent implements OnInit {
-
   linhaCarrosselInicial = [{
-      src: "http://placehold.it/350x260",
-      descricao: "Some Text",
-      preco: "$199.99"
-    },
-    {
-      src: "http://placehold.it/350x260",
-      descricao: "Some Text",
-      preco: "$199.99"
-    },
-    {
-      src: "http://placehold.it/350x260",
-      descricao: "Some Text",
-      preco: "$199.99"
-    },
-    {
-      src: "http://placehold.it/350x260",
-      descricao: "Some Text",
-      preco: "$199.99"
-    },
+    src: "../../../assets/img/1.png",
+    descricao: "Harry Porco",
+    preco: "R$199.99"
+  },
+  {
+    src: "../../../assets/img/3.png",
+    descricao: "A corna",
+    preco: "R$199.99"
+  },
+  {
+    src: "../../../assets/img/1.png",
+    descricao: "Harry Porco",
+    preco: "R$199.99"
+  },
+  {
+    src: "../../../assets/img/3.png",
+    descricao: "A corna",
+    preco: "R$199.99"
+  },
 
 
 
 
 
-  ];
-
-  linhasCarrossel = [
-    [
-      {
-        src: "http://placehold.it/350x260",
-        descricao: "Some Text",
-        preco: "$199.99"
-      },
-      {
-        src: "http://placehold.it/350x260",
-        descricao: "Some Text",
-        preco: "$199.99"
-      },
-      {
-        src: "http://placehold.it/350x260",
-        descricao: "Some Text",
-        preco: "$199.99"
-      },
-      {
-        src: "http://placehold.it/350x260",
-        descricao: "Some Text",
-        preco: "$199.99"
-      },
-  ],
-  [
-    {
-      src: "http://placehold.it/350x260",
-      descricao: "Some Text",
-      preco: "$199.99"
-    },
-    {
-      src: "http://placehold.it/350x260",
-      descricao: "Some Text",
-      preco: "$199.99"
-    },
-    {
-      src: "http://placehold.it/350x260",
-      descricao: "Some Text",
-      preco: "$199.99"
-    },
-    {
-      src: "http://placehold.it/350x260",
-      descricao: "Some Text",
-      preco: "$199.99"
-    },
 ]
-];
+
+
+
+linhasCarrossel =[
+  [{
+    src: "../../../assets/img/1.png",
+    descricao: "Harry Porco",
+    preco: "R$199.99"
+  },
+  {
+    src: "../../../assets/img/3.png",
+    descricao: "A corna",
+    preco: "R$199.99"
+  },
+  {
+    src: "../../../assets/img/1.png",
+    descricao: "Harry Porco",
+    preco: "R$199.99"
+  },
+  {
+    src: "../../../assets/img/3.png",
+    descricao: "A corna",
+    preco: "R$199.99"
+  },
 
 
 
 
+
+],
+[{
+  src: "../../../assets/img/1.png",
+  descricao: "Harry Porco",
+  preco: "R$199.99"
+},
+{
+  src: "../../../assets/img/3.png",
+  descricao: "A corna",
+  preco: "R$199.99"
+},
+{
+  src: "../../../assets/img/1.png",
+  descricao: "Harry Porco",
+  preco: "R$199.99"
+},
+{
+  src: "../../../assets/img/3.png",
+  descricao: "A corna",
+  preco: "R$199.99"
+},
+
+
+
+
+
+]
+]
 
 
 
