@@ -12,6 +12,9 @@ import { MinhaContaComponent } from './minha-conta/minha-conta.component';
 import { CookieService } from 'angular2-cookie/services/cookies.service';
 import { CartaoLoginComponent } from './login/cartao-login/cartao-login.component';
 import { CartaoCadastroUsuarioComponent } from './cadastro-usuario/cartao-cadastro-usuario/cartao-cadastro-usuario.component';
+import { CarrosselOfertasQuentesComponent } from './tela-principal/carrossel-ofertas-quentes/carrossel-ofertas-quentes.component';
+import { CarrosselOfertasDeCreditoComponent } from './tela-principal/carrossel-ofertas-de-credito/carrossel-ofertas-de-credito.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,11 @@ import { CartaoCadastroUsuarioComponent } from './cadastro-usuario/cartao-cadast
     TelaPrincipalComponent,
     MinhaContaComponent,
     CartaoLoginComponent,
-    CartaoCadastroUsuarioComponent
+    CartaoCadastroUsuarioComponent,
+    CarrosselOfertasQuentesComponent,
+    CarrosselOfertasDeCreditoComponent,
+    NavBarComponent,
+    
   ],
   imports: [
     BrowserModule,
