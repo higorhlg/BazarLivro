@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit
+} from '@angular/core';
 
 @Component({
   selector: 'app-carrossel-ofertas-de-credito',
@@ -7,9 +10,93 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarrosselOfertasDeCreditoComponent implements OnInit {
 
-  constructor() { }
+  linhaCarrosselInicial = [{
+      src: "http://placehold.it/350x260",
+      descricao: "Some Text",
+      preco: "$199.99"
+    },
+    {
+      src: "http://placehold.it/350x260",
+      descricao: "Some Text",
+      preco: "$199.99"
+    },
+    {
+      src: "http://placehold.it/350x260",
+      descricao: "Some Text",
+      preco: "$199.99"
+    },
+    {
+      src: "http://placehold.it/350x260",
+      descricao: "Some Text",
+      preco: "$199.99"
+    },
 
-  ngOnInit() {
+
+
+
+
+  ];
+
+  linhasCarrossel = [
+    [
+      {
+        src: "http://placehold.it/350x260",
+        descricao: "Some Text",
+        preco: "$199.99"
+      },
+      {
+        src: "http://placehold.it/350x260",
+        descricao: "Some Text",
+        preco: "$199.99"
+      },
+      {
+        src: "http://placehold.it/350x260",
+        descricao: "Some Text",
+        preco: "$199.99"
+      },
+      {
+        src: "http://placehold.it/350x260",
+        descricao: "Some Text",
+        preco: "$199.99"
+      },
+  ],
+  [
+    {
+      src: "http://placehold.it/350x260",
+      descricao: "Some Text",
+      preco: "$199.99"
+    },
+    {
+      src: "http://placehold.it/350x260",
+      descricao: "Some Text",
+      preco: "$199.99"
+    },
+    {
+      src: "http://placehold.it/350x260",
+      descricao: "Some Text",
+      preco: "$199.99"
+    },
+    {
+      src: "http://placehold.it/350x260",
+      descricao: "Some Text",
+      preco: "$199.99"
+    },
+]
+];
+
+
+
+
+
+
+
+  constructor() {
+
+
+
+
   }
+
+  ngOnInit() {}
 
 }
