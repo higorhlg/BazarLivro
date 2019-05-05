@@ -1,0 +1,56 @@
+@charset "utf-8";
+/* CSS Document */
+
+ .social-icons-ql li{
+	   list-style:none;
+	   float:left;
+	   width:40px;
+	   height:40px;
+	   line-height:45px;
+	   background:#000;
+	   text-align:center;
+	   margin:10px 5px;
+   }
+  
+   .social-icons-ql li:nth-child(1){
+	   width:50px;
+	   height:50px;
+	   line-height:57px;	   
+	   margin:5px 5px;
+	   background:#34558E;
+   }
+   
+   .social-icons-ql li:nth-child(1) i{
+	   font-size:25px;
+	   
+   }
+  .social-icons-ql li:nth-child(2) {
+   background:#25B8E6;
+}
+
+.social-icons-ql li:nth-child(3) {
+   background:rgba(0, 122, 181, 1);
+}
+.social-icons-ql li:nth-child(4) {
+   background:#DC4A38;
+}
+.social-icons-ql li:nth-child(5) {
+   background:#CC2028;
+}
+
+.social-icons-ql li:nth-child(6) {
+   background:#E05929;
+}
+.social-icons-ql li:nth-child(7) {
+   background:#EB4924;
+}
+
+   
+   
+   .social-icons-ql li i{
+	   color:#fff;
+	   font-size:20px;
+   }
+
+
+

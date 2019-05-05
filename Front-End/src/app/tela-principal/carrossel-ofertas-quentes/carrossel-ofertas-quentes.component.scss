@@ -1,11 +1,18 @@
-.col-item
-{
-    border: 1px solid #E1E1E1;
-    border-radius: 5px;
-    background: #FFF;
-}
-.col-item .photo img
-{
+$type:river;
+
+
+@if $type==river{
+
+    #slider-top{
+        
+        .col-item
+        {
+            border: 1px solid #E1E1E1;
+            border-radius: 5px;
+            background: #FFF;
+        }
+        .col-item .photo img
+        {
     margin: 0 auto;
     width: 100%;
 }
@@ -100,4 +107,7 @@
 [data-slide="prev"]
 {
     margin-right: 10px;
+}
+}
+
 }

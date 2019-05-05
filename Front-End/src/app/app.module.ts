@@ -15,6 +15,7 @@ import { CartaoCadastroUsuarioComponent } from './cadastro-usuario/cartao-cadast
 import { CarrosselOfertasQuentesComponent } from './tela-principal/carrossel-ofertas-quentes/carrossel-ofertas-quentes.component';
 import { CarrosselOfertasDeCreditoComponent } from './tela-principal/carrossel-ofertas-de-credito/carrossel-ofertas-de-credito.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { RodapeComponent } from './rodape/rodape.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     CarrosselOfertasQuentesComponent,
     CarrosselOfertasDeCreditoComponent,
     NavBarComponent,
+    RodapeComponent,
     
   ],
   imports: [
