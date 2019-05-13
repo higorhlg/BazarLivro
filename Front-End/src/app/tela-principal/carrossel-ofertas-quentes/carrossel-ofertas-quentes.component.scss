@@ -1,10 +1,7 @@
 $type:river;
 
-
 @if $type==river{
-
     #slider-top{
-        
         .col-item
         {
             border: 1px solid #E1E1E1;
@@ -110,4 +107,39 @@ $type:river;
 }
 }
 
+    p.btn-add, p.btn-details {
+        i {
+            font-size: 2rem;
+        }
+        a {
+            font-size: 1.6rem;
+        }
+    }
+
+    div.controls {
+        a.btn.btn-success {
+            font-weight: bolder;
+            font-size: 1.6rem !important;
+        }
+    }
+
+    h2 {
+        font-weight: bolder;
+    }
+
+    a.btn.btn-success i.fa.fa-chevron-left {
+        padding-right: 10px;
+    }
+
+    a.btn.btn-success i.fa.fa-chevron-right {
+        padding-left: 10px;
+    }
+
+    h5 {
+        font-size: 1.5rem;
+    }
+
+    .item-nome {
+        font-weight: bolder;
+    }
 }
