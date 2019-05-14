@@ -57,7 +57,6 @@ export class Server{
         return this.initializeDb().then( 
             () =>  this.initRouters(routers).then( 
             () => this) )
-        
-     }
+    }
 
 }

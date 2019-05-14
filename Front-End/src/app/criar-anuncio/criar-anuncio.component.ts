@@ -6,10 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./criar-anuncio.component.scss']
 })
 export class CriarAnuncioComponent implements OnInit {
-
   constructor() { }
 
   ngOnInit() {
   }
-
 }

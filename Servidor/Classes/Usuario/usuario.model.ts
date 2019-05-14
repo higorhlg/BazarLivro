@@ -4,16 +4,16 @@ import { environment } from '../../common/environment';
 import { validateCPF } from '../../common/validators';
 
 export interface User extends mongoose.Document{
-    _id:object,
-    nome:string,
+    _id: object,
+    nome: string,
     dataNascimento: string,
-    cpf:string,
-    endereco:string,
-    usuario:string,
-    senha: any | string,
-    email:string,
-    telefone:string,
-    profile: string[],
+    cpf: string,
+    endereco: string,
+    usuario: string,
+    senha:  any | string,
+    email: string,
+    telefone: string,
+    profile:  string[],
     matches(senha: string): boolean,
     hasAny(...profiles: string[]): boolean
 }
@@ -22,19 +22,19 @@ export interface UserModel extends mongoose.Model<User>{
 }
 const userSchema = new mongoose.Schema({
     nome:{
-        type:String,
-        required:true,
+        type: String,
+        required: true,
         //minlength: 3,
         //maxlength: 45
     },
     dataNascimento:{
-        type:String,
+        type: String,
         required: true,
         //match: /^([0]?[1-9]|[1|2][0-9]|[3][0|1])[./-]([0]?[1-9]|[1][0-2])[./-]([0-9]{4})$/
     },
     cpf:{
-        type:String,
-        required:true,
+        type: String,
+        required: true,
         unique: true,
         /*validate: {
             validator: validateCPF,
@@ -43,31 +43,31 @@ const userSchema = new mongoose.Schema({
        // match: /(\d{3}.?\d{3}.?\d{3}-?\d{2})/
     },
     endereco:{
-        type:String,
+        type: String,
         required: true
     },
     usuario:{
-        type:String,
+        type: String,
        // unique:true,
         required: true,
        // minlength: 3,
         //maxlength: 15
     },
     senha:{
-        type:String,
-        required:true,
+        type: String,
+        required: true,
         //select:false,
        // minlength: 8
     },
     email:{
-        type:String,
-        unique:true,
-        required:true,
+        type: String,
+        unique: true,
+        required: true,
         //match: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     },
     telefone:{
-        type:String,
-        required:true,
+        type: String,
+        required: true,
         //match: /\(\d{2,}\)( )?\d{4,}\-\d{4}/
     },
     profiles:{

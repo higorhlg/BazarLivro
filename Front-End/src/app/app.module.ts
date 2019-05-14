@@ -31,7 +31,6 @@ import { RodapeComponent } from './rodape/rodape.component';
     CarrosselOfertasDeCreditoComponent,
     NavBarComponent,
     RodapeComponent,
-    
   ],
   imports: [
     BrowserModule,

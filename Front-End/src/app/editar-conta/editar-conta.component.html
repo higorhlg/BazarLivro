@@ -1,25 +1,23 @@
 <div class="container" style="height: 100%;">
-  <div class="">
-    <h1 class="mt-5">Minha Conta</h1>
-  </div>
-  <form class="">
+  <h1 class="mt-5">Minha Conta</h1>
+  <form>
     <div class="form-row">
       <div class="form-group col-md-8">
         <label>Nome Completo</label>
         <div class="form-row">
           <div class="form-group col-md-6">
-            <input type="text" id="input_editar_nome_completo" class="form-control" value="Marcelo Alverado Costa"
-              disabled>
+            <input type="text" id="input_editar_nome_completo" class="form-control" value="Marcelo Alverado Costa" disabled>
           </div>
           <div class="form-group col-md-2">
-            <button type="button" id="button_editar_nome_completo" onclick="
-                    if(getElementById('input_editar_nome_completo').disabled){
-                      getElementById('input_editar_nome_completo').disabled = false
-                      getElementById('button_editar_nome_completo').innerHTML = 'Editando'
-                    }else{
-                      getElementById('input_editar_nome_completo').disabled = true
-                      getElementById('button_editar_nome_completo').innerHTML = 'Editar'
-                    } " class="btn btn-primary">Editar</button>
+            <button type="button" id="button_editar_nome_completo" 
+            onclick="
+            if(getElementById('input_editar_nome_completo').disabled){
+              getElementById('input_editar_nome_completo').disabled = false
+              getElementById('button_editar_nome_completo').innerHTML = 'Editando'
+            }else{
+              getElementById('input_editar_nome_completo').disabled = true
+              getElementById('button_editar_nome_completo').innerHTML = 'Editar'
+            }" class="btn btn-primary">Editar</button>
           </div>
         </div>
       </div>
@@ -32,19 +30,19 @@
             <input type="date" id="input_editar_data_nascimento" class="form-control" value="2013-01-08" disabled>
           </div>
           <div class="form-group col-md-2">
-            <button type="button" id="button_editar_data_nascimento" onclick="
-                    if(getElementById('input_editar_data_nascimento').disabled){
-                      getElementById('input_editar_data_nascimento').disabled = false
-                      getElementById('button_editar_data_nascimento').innerHTML = 'Editando'
-                    }else{
-                      getElementById('input_editar_data_nascimento').disabled = true
-                      getElementById('button_editar_data_nascimento').innerHTML = 'Editar'
-                    }" class="btn btn-primary">Editar</button>
+            <button type="button" id="button_editar_data_nascimento"
+            onclick="
+            if(getElementById('input_editar_data_nascimento').disabled){
+              getElementById('input_editar_data_nascimento').disabled = false
+              getElementById('button_editar_data_nascimento').innerHTML = 'Editando'
+            }else{
+              getElementById('input_editar_data_nascimento').disabled = true
+              getElementById('button_editar_data_nascimento').innerHTML = 'Editar'
+            }" class="btn btn-primary">Editar</button>
           </div>
         </div>
       </div>
     </div>
-
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="inputPassword4">CPF</label>
@@ -53,14 +51,15 @@
             <input type="text" id="input_editar_cpf" class="form-control" value="245.763.123-78" disabled>
           </div>
           <div class="form-group col-md-2">
-            <button type="button" id="button_editar_cpf" onclick="
-                    if(getElementById('input_editar_cpf').disabled){
-                      getElementById('input_editar_cpf').disabled = false
-                      getElementById('button_editar_cpf').innerHTML = 'Editando'
-                    }else{
-                      getElementById('input_editar_cpf').disabled = true
-                      getElementById('button_editar_cpf').innerHTML = 'Editar'
-                    }" class="btn btn-primary">Editar</button>
+            <button type="button" id="button_editar_cpf" 
+            onclick="
+            if(getElementById('input_editar_cpf').disabled){
+              getElementById('input_editar_cpf').disabled = false
+              getElementById('button_editar_cpf').innerHTML = 'Editando'
+            }else{
+              getElementById('input_editar_cpf').disabled = true
+              getElementById('button_editar_cpf').innerHTML = 'Editar'
+            }" class="btn btn-primary">Editar</button>
           </div>
         </div>
       </div>
@@ -213,7 +212,6 @@
                         }" class="btn btn-primary">Editar</button>
           </div>
         </div>
-
       </div>
     </div>
     <div class="text-center">

@@ -6,10 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cartao-cadastro-usuario.component.scss']
 })
 export class CartaoCadastroUsuarioComponent implements OnInit {
-
   constructor() { }
 
   ngOnInit() {
   }
-
 }

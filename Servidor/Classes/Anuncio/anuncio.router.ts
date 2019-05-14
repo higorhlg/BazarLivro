@@ -35,7 +35,6 @@ class AnnouncementRouter extends ModelRouter<Announcement>{
     }
 
     applyRouter(application: restify.Server){
-        
         application.get('/announcements', authorizeNoProfile(), this.findAll)
         application.get('/announcements/:id', authorizeNoProfile(), [this.validateId, this.findById])
         application.post('/announcements', authorizeNoProfile(), [this.validateId, this.saveAnuncio])
