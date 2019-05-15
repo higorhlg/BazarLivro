@@ -7,7 +7,6 @@ import { User } from '../Usuario/usuario.model';
 import { Announcement } from '../Anuncio/anuncio.model';
 import { NotFoundError } from 'restify-errors';
 
-
 class TransactionRouter extends ModelRouter<Transaction>{
     constructor(){
         super(Transaction)
@@ -63,13 +62,11 @@ class TransactionRouter extends ModelRouter<Transaction>{
     }
     
     applyRouter(application: restify.Server){
-
         application.get('/transactions', /* authorizeNoProfile(), */ this.findAll) 
         application.get('/transactions/:id', /* authorizeNoProfile(), */[this.validateId, this.findById])
         application.post('/transactions', /* authorizeNoProfile(), */[this.validateId,this.saveTransacao])     
         application.patch('/transactions/:id', /* authorizeNoProfile(), */[this.validateId, this.update])
         application.del('/transactions/:id', /* authorizeNoProfile(), */[this.validateId, this.delete])
-        
     }
 }
 

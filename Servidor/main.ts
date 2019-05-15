@@ -3,8 +3,7 @@ import { usersRouter } from "./Classes/Usuario/usuario.router";
 import { announcementRouter } from "./Classes/Anuncio/anuncio.router";
 import { transactionsRouter } from "./Classes/Transacao/transacao.router";
 
-
-const server:Server = new Server
+const server: Server = new Server
 
 
 server.bootstrap([

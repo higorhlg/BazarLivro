@@ -32,7 +32,6 @@ import {FormsModule} from '@angular/forms';
     CarrosselOfertasDeCreditoComponent,
     NavBarComponent,
     RodapeComponent,
-    
   ],
   imports: [
     BrowserModule,
