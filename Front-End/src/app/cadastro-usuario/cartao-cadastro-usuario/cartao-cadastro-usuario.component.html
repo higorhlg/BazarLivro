@@ -54,16 +54,13 @@
         placeholder="">
       </div>
 
-
-
-
       <div class="form-group">
         <label for="exampleInputEmail1">Email*</label>
 
         <input type="email" class="form-control" required #Email="ngModel" [(ngModel)]="novouser.email"
         id="Email" name="Email"
         pattern="/^[a-z0-9.]+@[a-z0-9]+\.[a-z]+\.([a-z]+)?$/i" placeholder="">
-
+        <div [hidden]="Email.valid || Email.pristine" class="alert alert-danger"> Email inválido</div>
       </div>
       <div class="form-group">
         <label for="exampleInputEmail1">Senha</label>
