@@ -6,7 +6,6 @@ import { transactionsRouter } from "./Classes/Transacao/transacao.router";
 
 const server:Server = new Server
 
-//comentei aqui e sai correndo
 
 server.bootstrap([
     usersRouter,
