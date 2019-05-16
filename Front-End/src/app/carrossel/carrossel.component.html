@@ -1,0 +1,81 @@
+
+<h3 class="mt-2">Ofertas quentes</h3>
+
+
+<div class = "bg-light mt-3 p-1 ">
+
+    <div id="carouselExampleIndicators1" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators1" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators1" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators1" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+  
+  <div class="row ml-5 mb-5 ">
+    <div *ngFor="let item of itemsIniciais" class="col-4" >
+          <div class="card " style="width: 10rem;">
+              <img [src]="item.src" class="d-block w-100" alt="...">
+              
+            <div class="card-body">
+              <h5 class="card-title">{{item.titulo}}</h5>
+              <div class="card text-center">
+                  <div class="card-body">
+                    Preço 
+                    <div class="preco">
+                      R$ {{item.preco}}
+                    </div>
+                  </div>
+                </div>
+              <button type="button" class="btn btn-success btn-lg btn-block">Comprar</button>
+            </div>
+          </div>     
+        
+        </div>
+
+        
+      </div>
+      </div>
+
+
+
+      <div *ngFor="let itemFinal of itemsFinais" class="carousel-item ">
+  
+          <div class="row ml-5 mb-5 ">
+              <div *ngFor="let item of itemFinal" class="col-4" >
+                    <div class="card " style="width: 10rem;">
+                        <img [src]="item.src" class="d-block w-100" alt="...">
+                        
+                      <div class="card-body">
+                        <h5 class="card-title">{{item.titulo}}</h5>
+                        <div class="card text-center">
+                            <div class="card-body">
+                              Preço 
+                              <div class="preco">
+                                R$ {{item.preco}}
+                              </div>
+                            </div>
+                          </div>
+                        <button type="button" class="btn btn-success btn-lg btn-block">Comprar</button>
+                      </div>
+                    </div>     
+                  
+                  </div>
+          
+                  
+                </div>
+              </div>
+        
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators1" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators1" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  
+  </div>

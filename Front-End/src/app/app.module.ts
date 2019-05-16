@@ -17,7 +17,7 @@ import { CarrosselOfertasDeCreditoComponent } from './tela-principal/carrossel-o
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { RodapeComponent } from './rodape/rodape.component';
 
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +37,8 @@ import {FormsModule} from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule 
   ],
   providers: [
     CookieService
