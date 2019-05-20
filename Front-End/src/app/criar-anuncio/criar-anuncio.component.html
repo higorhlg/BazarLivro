@@ -3,29 +3,24 @@
   <form [formGroup]="anuncioForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="exampleInputEmail1">Título</label>
-      <input [ngClass]="{'is-valid': anuncioForm.get('titulo').valid &&  anuncioForm.get('titulo').touched,
-      'is-invalid': !anuncioForm.get('titulo').valid &&  anuncioForm.get('titulo').touched}" formControlName="titulo" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="O Pequeno Príncipe">
+      <input [ngClass]="{'is-valid': isValid('titulo'),'is-invalid': isInvalid('titulo')}" formControlName="titulo" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="O Pequeno Príncipe">
     </div>
     <div class="form-group">
       <label for="exampleInputEmail1">ISBN</label>
-      <input  [ngClass]="{'is-valid': anuncioForm.get('ISBN').valid &&  anuncioForm.get('ISBN').touched,
-      'is-invalid': !anuncioForm.get('ISBN').valid &&  anuncioForm.get('ISBN').touched}" formControlName="ISBN" type="text" class="form-control" id="exampleInputSBN" aria-describedby="SBNlHelp" placeholder="***********">
+      <input   [ngClass]="{'is-valid': isValid('ISBN'),'is-invalid': isInvalid('ISBN')}" formControlName="ISBN" type="text" class="form-control" id="exampleInputSBN" aria-describedby="SBNlHelp" placeholder="***********">
     </div>
     <!-- procurar gambiarra pra botar numero -->
     <div class="form-group">
       <label for="exampleInputpreço">Preço</label>
-        <input  [ngClass]="{'is-valid': anuncioForm.get('preco').valid &&  anuncioForm.get('preco').touched,
-                            'is-invalid': !anuncioForm.get('preco').valid &&  anuncioForm.get('preco').touched}"  formControlName="preco" type="number" class="form-control" id="exampleInputPreco" step="0.50" aria-describedby="precoHelp" placeholder="R$ 10,00">
+        <input   [ngClass]="{'is-valid': isValid('preco'),'is-invalid': isInvalid('preco')}" formControlName="preco" type="number" class="form-control" id="exampleInputPreco" step="0.50" aria-describedby="precoHelp" placeholder="R$ 10,00">
       </div>
     <div class="form-group">
       <label for="exampleInputAutor">Autor</label>
-      <input   [ngClass]="{'is-valid': anuncioForm.get('autor').valid &&  anuncioForm.get('autor').touched,
-      'is-invalid': !anuncioForm.get('autor').valid &&  anuncioForm.get('autor').touched}" formControlName="autor" type="text" class="form-control" id="exampleInputautor" aria-describedby="SBNlautor" placeholder="Antoine de Saint-Exupéry">
+      <input   [ngClass]="{'is-valid': isValid('autor'),'is-invalid': isInvalid('autor')}" formControlName="autor" type="text" class="form-control" id="exampleInputautor" aria-describedby="SBNlautor" placeholder="Antoine de Saint-Exupéry">
     </div>
     <div class="form-group">
       <label for="exampleInputPassword1">Sinopse</label>
-      <textarea [ngClass]="{'is-valid': anuncioForm.get('sipnose').valid &&  anuncioForm.get('sipnose').touched,
-      'is-invalid': !anuncioForm.get('sipnose').valid &&  anuncioForm.get('sipnose').touched}"  formControlName ="sipnose" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Um piloto cai com seu avião no deserto e ali encontra uma criança loura e frágil. Ela diz ter vindo de um pequeno planeta distante. E ali, na convivência com o piloto perdido, os dois repensam os seus valores e encontram o sentido da vida."></textarea>
+      <textarea  [ngClass]="{'is-valid': isValid('sipnose'),'is-invalid': isInvalid('sipnose')}"formControlName ="sipnose" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Um piloto cai com seu avião no deserto e ali encontra uma criança loura e frágil. Ela diz ter vindo de um pequeno planeta distante. E ali, na convivência com o piloto perdido, os dois repensam os seus valores e encontram o sentido da vida."></textarea>
     </div>
 
     <label for="exampleInputAutor">Disponibilidade de Troca</label>

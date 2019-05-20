@@ -18,6 +18,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { RodapeComponent } from './rodape/rodape.component';
 
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { CriarAnuncioDirective } from './criar-anuncio/criar-anuncio.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +33,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     CarrosselOfertasDeCreditoComponent,
     NavBarComponent,
     RodapeComponent,
+    CriarAnuncioDirective,
   ],
   imports: [
     BrowserModule,

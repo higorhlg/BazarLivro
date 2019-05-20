@@ -11,10 +11,10 @@ export class CriarAnuncioComponent implements OnInit {
 
 
   anuncioForm = this.fb.group({
-    titulo:[null,[Validators.required]],
+    titulo:[null,[Validators.required,]],
     ISBN:[null,[Validators.required]],
     preco:["1",[Validators.required]],
-    autor:[null,[Validators.required]],
+    autor:[null,[Validators.required,]],
     sipnose:[null]
   })
 
@@ -24,6 +24,18 @@ export class CriarAnuncioComponent implements OnInit {
   constructor(private fb:FormBuilder) {
     
 
+
+
+   }
+
+
+   isValid(campo){
+
+        return this.anuncioForm.get(campo).valid &&  this.anuncioForm.get(campo).touched
+
+   }
+   isInvalid(campo){
+   return !this.anuncioForm.get(campo).valid &&  this.anuncioForm.get(campo).touched
 
 
    }
