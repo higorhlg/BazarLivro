@@ -8,35 +8,30 @@ import { MinhaContaComponent } from './minha-conta/minha-conta.component';
 
 const routes: Routes = [
   {
-    path:"cadastro-usuario",
-    component:CadastroUsuarioComponent
+    path: 'cadastro-usuario',
+    component: CadastroUsuarioComponent
   },
   {
-    path:"",
-    component:LoginComponent
+    path: '',
+    component: LoginComponent
   },
   {
-    path:"criar-anuncio",
-    component:CriarAnuncioComponent
+    path: 'criar-anuncio',
+    component: CriarAnuncioComponent
   },
   {
-    path:"tela-inicial",
-    component:TelaPrincipalComponent
+    path: 'tela-inicial',
+    component: TelaPrincipalComponent
   },
   {
-    path:"minha-conta",
-    component:MinhaContaComponent
-
-
+    path: 'minha-conta',
+    component: MinhaContaComponent
   }
-
-
 ];
-
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }

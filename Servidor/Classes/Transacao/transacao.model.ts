@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 
 export interface Transaction extends mongoose.Document{
-    _id:object,
+    _id: object,
     comprador: mongoose.Types.ObjectId,
     vendedor: mongoose.Types.ObjectId,
     anuncio: mongoose.Types.ObjectId,
@@ -26,13 +26,13 @@ const transactionSchema = new mongoose.Schema({
         required: true,
     },
     data:{
-        type:Date,
+        type: Date,
         default: Date.now,
-        required:true
+        required: true
     },
     estado:{
-        type:String,
-        required:true,
+        type: String,
+        required: true,
         default: 'A entregar'
     },
 })

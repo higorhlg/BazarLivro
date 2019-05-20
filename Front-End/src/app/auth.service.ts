@@ -7,11 +7,12 @@ import { User } from 'model/usuario.model';
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthService {
   private usuarioAutenticado = false;
   private usuarioLogado: User;
   mostrarMenu = new EventEmitter<boolean>();
-  constructor(private usuarioService: UsuarioService, private router: Router, private cookieService:CookieService) { }
+  constructor(private usuarioService: UsuarioService, private router: Router, private cookieService: CookieService) { }
 
   verificaUsuarioLogado() {
     if (this.getCookies() !== null /*&& this.getLocalStorage() != null && this.getSessionStorage() != null*/) {
@@ -31,8 +32,8 @@ export class AuthService {
     }
   }
 
-  logIn(user: User){
-    this.usuarioService.authenticate(user)
+  logIn(user: User) {
+    this.usuarioService.authenticate(user);
   }
 
   usuarioEstaAutenticado() {

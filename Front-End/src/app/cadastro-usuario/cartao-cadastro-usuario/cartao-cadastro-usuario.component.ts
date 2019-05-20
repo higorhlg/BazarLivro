@@ -6,10 +6,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cartao-cadastro-usuario.component.scss']
 })
 export class CartaoCadastroUsuarioComponent implements OnInit {
-
+  
+  novouser = {
+    nome:'',
+    datanascimento:'',
+    cpf:'',
+    endereco:'',
+    usuario:'',
+    telefone:'',
+    celular:'',
+    email:'',
+    senha:''
+  }
   constructor() { }
 
   ngOnInit() {
   }
 
+  onSubmit(e){
+    console.log(e);
+  }
 }
