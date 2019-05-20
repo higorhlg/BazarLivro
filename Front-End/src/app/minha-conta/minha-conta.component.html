@@ -1,49 +1,51 @@
-<div class="container" style="height: 100%;">
-  <h1 class="mt-5">Minha Conta</h1>
-  <form class="mt-5">
-    <h3 class="mt-5">Dados Cadastrais</h3>
-    <div class="form-group">
-      <label for="inputAddress">Nome Completo</label>
-      <input type="text" class="form-control" id="inputAddress">
-    </div>
-    <div class="form-row">
-      <div class="form-group col-md-6">
-        <label >Data Nascimento</label>
-        <input type="date" class="form-control">
+<form [formGroup]="formForm" >
+
+  <div class="container" style="height: 100%;">
+    <h1 class="mt-5">Minha Conta</h1>
+    <div class="mt-5">
+      <h3 class="mt-5">Dados Cadastrais</h3>
+      <div class="form-group">
+        <label for="inputAddress">Nome Completo</label>
+        <input [ngClass]="{'is-valid': isValid('nomeCompleto'),'is-invalid': isInvalid('nomeCompleto')}" formControlName="nomeCompleto" type="text" class="form-control" id="inputAddress">
       </div>
-      <div class="form-group col-md-6">
-        <label for="inputPassword4">CPF</label>
-        <input type="text" class="form-control">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label >Data Nascimento</label>
+          <input [ngClass]="{'is-valid': isValid('dataNascimento'),'is-invalid': isInvalid('dataNascimento')}" formControlName="dataNascimento" type="date" class="form-control">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">CPF</label>
+          <input [ngClass]="{'is-valid': isValid('CPF'),'is-invalid': isInvalid('CPF')}" formControlName="CPF" type="text" class="form-control">
+        </div>
       </div>
-    </div>
-    <div class="form-group">
-      <label for="inputAddress2">Endereço</label>
-      <input type="text" class="form-control" >
-    </div>
-    <div class="form-row">
-      <div class="form-group col-md-6">
+      <div class="form-group">
+        <label for="inputAddress2">Endereço</label>
+        <input [ngClass]="{'is-valid': isValid('endereco'),'is-invalid': isInvalid('endereco')}" formControlName="endereco" type="text" class="form-control" >
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
         <label >Nome de usuário</label>
-        <input type="text" class="form-control">
+        <input [ngClass]="{'is-valid': isValid('nomeDeUsuario'),'is-invalid': isInvalid('nomeDeUsuario')}" formControlName="nomeDeUsuario" type="text" class="form-control">
       </div>
       <div class="form-group col-md-6">
         <label >Password</label>
-        <input type="password" class="form-control">
+        <input [ngClass]="{'is-valid': isValid('senha'),'is-invalid': isInvalid('senha')}" formControlName="senha" type="password" class="form-control">
       </div>
     </div>
     <div class="form-row">
       <div class="form-group col-md-6">
         <label >Email</label>
-        <input type="email" class="form-control">
+        <input [ngClass]="{'is-valid': isValid('email'),'is-invalid': isInvalid('email')}" formControlName="email" type="email" class="form-control">
       </div>
       <div class="form-group col-md-6">
         <label >Telefone</label>
-        <input type="text" class="form-control">
+        <input [ngClass]="{'is-valid': isValid('telefone'),'is-invalid': isInvalid('telefone')}" formControlName="telefone" type="text" class="form-control">
       </div>
     </div>
     <div class="form-row">
       <div class="form-group col-md-12">
         <label >Celular</label>
-        <input type="text" class="form-control">
+        <input [ngClass]="{'is-valid': isValid('celular'),'is-invalid': isInvalid('celular')}" formControlName="celular" type="text" class="form-control">
       </div> 
     </div>
     <div class="form-row">
@@ -53,5 +55,6 @@
       <br>
       <button type="submit" class="btn btn-lg btn-success mb-5">Cadastrar</button>
     </div>
-  </form>
+  </div>
 </div>
+</form>
