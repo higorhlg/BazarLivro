@@ -18,9 +18,9 @@ export class CriarAnuncioComponent implements OnInit {
     sipnose:[null]
   })
 
-  onSubmit(){
-
-}
+  onSubmit(e){
+    console.log(e);
+  }
   constructor(private fb:FormBuilder) {
     
 
@@ -29,16 +29,6 @@ export class CriarAnuncioComponent implements OnInit {
    }
 
 
-   isValid(campo){
-
-        return this.anuncioForm.get(campo).valid &&  this.anuncioForm.get(campo).touched
-
-   }
-   isInvalid(campo){
-   return !this.anuncioForm.get(campo).valid &&  this.anuncioForm.get(campo).touched
-
-
-   }
 
   ngOnInit() {
   }

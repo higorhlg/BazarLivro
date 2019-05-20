@@ -1,4 +1,4 @@
-<form [formGroup]="formForm" >
+<form (ngSubmit)="onSubmit(form1)" #form1="ngForm" >
 
   <div class="container" style="height: 100%;">
     <h1 class="mt-5">Minha Conta</h1>
@@ -6,46 +6,68 @@
       <h3 class="mt-5">Dados Cadastrais</h3>
       <div class="form-group">
         <label for="inputAddress">Nome Completo</label>
-        <input [ngClass]="{'is-valid': isValid('nomeCompleto'),'is-invalid': isInvalid('nomeCompleto')}" formControlName="nomeCompleto" type="text" class="form-control" id="inputAddress">
+        <input required #nome="ngModel" [(ngModel)]="novouser.nome" name="nome"  pattern="[A-Za-z]*"  type="text" class="form-control" id="inputAddress">
+        <div [hidden]="nome.valid || nome.pristine" class="alert alert-danger"> O nome deve conter apenas letras </div>  
+
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
           <label >Data Nascimento</label>
-          <input [ngClass]="{'is-valid': isValid('dataNascimento'),'is-invalid': isInvalid('dataNascimento')}" formControlName="dataNascimento" type="date" class="form-control">
-        </div>
+          <input type="text" required #dataNascimento="ngModel" [(ngModel)]="novouser.datanasc" name="dataNascimento" class="form-control" id="dataNascimento" 
+          pattern="^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$" placeholder="DD/MM/AAAA">
+          <div [hidden]="dataNascimento.valid || dataNascimento.pristine" class="alert alert-danger"> A data deve estar no formato AA/MM/AAAA </div>  
+          </div>
         <div class="form-group col-md-6">
           <label for="inputPassword4">CPF</label>
-          <input [ngClass]="{'is-valid': isValid('CPF'),'is-invalid': isInvalid('CPF')}" formControlName="CPF" type="text" class="form-control">
-        </div>
+          <input type="text" required #CPF="ngModel" [(ngModel)]="novouser.cpf"
+        class="form-control" id="CPF" name="CPF"
+        pattern="[0-9]{3}[0-9]{3}[0-9]{3}[0-9]{2}" placeholder="">
+        <div [hidden]="CPF.valid || CPF.pristine" class="alert alert-danger"> O cpf deve conter apenas números</div>
+      </div>
       </div>
       <div class="form-group">
         <label for="inputAddress2">Endereço</label>
-        <input [ngClass]="{'is-valid': isValid('endereco'),'is-invalid': isInvalid('endereco')}" formControlName="endereco" type="text" class="form-control" >
+        <input type="text" class="form-control" required #Endereco="ngModel" [(ngModel)]="novouser.endereco"
+        id="Endereco" name="Endereco"
+        pattern="([A-Za-z]+[0-9])*"  placeholder="">
+        <div [hidden]="Endereco.valid || Endereco.pristine" class="alert alert-danger"> O endereço pode conter apenas letras e números</div>
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
         <label >Nome de usuário</label>
-        <input [ngClass]="{'is-valid': isValid('nomeDeUsuario'),'is-invalid': isInvalid('nomeDeUsuario')}" formControlName="nomeDeUsuario" type="text" class="form-control">
-      </div>
+        <input type="text" class="form-control" required #NomeUsuario="ngModel" [(ngModel)]="novouser.usuario"
+        id="NomeUsuario" name="NomeUsuario"
+          pattern="/^[a-zA-Z0-9]+([_ -]?[a-zA-Z0-9])*$/" maxlength=15  placeholder="">
+        <div [hidden]="NomeUsuario.valid || NomeUsuario.pristine" class="alert alert-danger"> O nome de usuario pode conter apenas letras e numeros</div>
+    </div>
       <div class="form-group col-md-6">
-        <label >Password</label>
-        <input [ngClass]="{'is-valid': isValid('senha'),'is-invalid': isInvalid('senha')}" formControlName="senha" type="password" class="form-control">
+        <label >Senha</label>
+        <input type="password" class="form-control" required #Senha="ngModel" [(ngModel)]="novouser.senha"
+        id="Senha" name="Senha" maxlength="12" minlength=8
+          placeholder="8 a 10 caracteres">
+        <div [hidden]="Senha.valid || Senha.pristine" class="alert alert-danger"> A senha deve ter no mínimo 8 caracteres</div>
       </div>
     </div>
     <div class="form-row">
       <div class="form-group col-md-6">
         <label >Email</label>
-        <input [ngClass]="{'is-valid': isValid('email'),'is-invalid': isInvalid('email')}" formControlName="email" type="email" class="form-control">
-      </div>
+        <input type="email" class="form-control" required #Email="ngModel" [(ngModel)]="novouser.email"
+        id="Email" name="Email"
+        pattern="/^[a-z0-9.]+@[a-z0-9]+\.[a-z]+\.([a-z]+)?$/i" placeholder="">
+        <div [hidden]="Email.valid || Email.pristine" class="alert alert-danger"> Email inválido</div>
+        </div>
       <div class="form-group col-md-6">
         <label >Telefone</label>
-        <input [ngClass]="{'is-valid': isValid('telefone'),'is-invalid': isInvalid('telefone')}" formControlName="telefone" type="text" class="form-control">
+
+        <input type="text" class="form-control" required #Telefone="ngModel" [(ngModel)]="novouser.telefone"
+        id="Telefone" name="Telefone"
+        placeholder="">
       </div>
     </div>
     <div class="form-row">
       <div class="form-group col-md-12">
         <label >Celular</label>
-        <input [ngClass]="{'is-valid': isValid('celular'),'is-invalid': isInvalid('celular')}" formControlName="celular" type="text" class="form-control">
+        <input type="text" class="form-control">
       </div> 
     </div>
     <div class="form-row">
