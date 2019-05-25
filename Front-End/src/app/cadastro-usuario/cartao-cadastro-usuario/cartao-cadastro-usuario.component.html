@@ -1,10 +1,10 @@
-
+{{user | json}}
   <form (ngSubmit)="onSubmit(form1)" #form1="ngForm">
 
       <div class="form-group">
           <label for="nome">Nome Completo*</label>
 
-          <input type="text" required #nome="ngModel" [(ngModel)]="novouser.nome" name="nome" class="form-control" id="nome"  
+          <input type="text" required #nome="ngModel" [(ngModel)]="user.nome" name="nome" class="form-control" id="nome"  
             pattern="[A-Za-z]*" placeholder="">
           <div [hidden]="nome.valid || nome.pristine" class="alert alert-danger"> O nome deve conter apenas letras </div>  
       </div>
@@ -12,7 +12,7 @@
       <div class="form-group">
           <label for="datanasc">Data Nascimento(DD/MM/AAAA)*</label>
 
-          <input type="text" required #dataNascimento="ngModel" [(ngModel)]="novouser.datanasc" name="dataNascimento" class="form-control" id="dataNascimento" 
+          <input type="text" required #dataNascimento="ngModel" [(ngModel)]="user.datanasc" name="dataNascimento" class="form-control" id="dataNascimento" 
             pattern="^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$" placeholder="DD/MM/AAAA">
             <div [hidden]="dataNascimento.valid || dataNascimento.pristine" class="alert alert-danger"> A data deve estar no formato AA/MM/AAAA </div>  
       </div>
@@ -21,7 +21,7 @@
       <div class="form-group">
         <label for="cpf">CPF(Somente números)*</label>
 
-        <input type="text" required #CPF="ngModel" [(ngModel)]="novouser.cpf"
+        <input type="text" required #CPF="ngModel" [(ngModel)]="user.cpf"
         class="form-control" id="CPF" name="CPF"
         pattern="[0-9]{3}[0-9]{3}[0-9]{3}[0-9]{2}" placeholder="">
         <div [hidden]="CPF.valid || CPF.pristine" class="alert alert-danger"> O cpf deve conter apenas números</div>
@@ -31,7 +31,7 @@
       <div class="form-group">
         <label for="Endereco">Endereço*</label>
 
-        <input type="text" class="form-control" required #Endereco="ngModel" [(ngModel)]="novouser.endereco"
+        <input type="text" class="form-control" required #Endereco="ngModel" [(ngModel)]="user.endereco"
         id="Endereco" name="Endereco"
         pattern="([A-Za-z]+[0-9])*"  placeholder="">
         <div [hidden]="Endereco.valid || Endereco.pristine" class="alert alert-danger"> O endereço pode conter apenas letras e números</div>
@@ -40,7 +40,7 @@
       <div class="form-group">
           <label for="NomeUsuario">Nome de usuário*</label>
 
-          <input type="text" class="form-control" required #NomeUsuario="ngModel" [(ngModel)]="novouser.usuario"
+          <input type="text" class="form-control" required #NomeUsuario="ngModel" [(ngModel)]="user.usuario"
           id="NomeUsuario" name="NomeUsuario"
             pattern="/^[a-zA-Z0-9]+([_ -]?[a-zA-Z0-9])*$/" maxlength=15  placeholder="">
           <div [hidden]="NomeUsuario.valid || NomeUsuario.pristine" class="alert alert-danger"> O nome de usuario pode conter apenas letras e numeros</div>
@@ -49,7 +49,7 @@
       <div class="form-group">
         <label for="Telefone">Telefone*</label>
 
-        <input type="text" class="form-control" required #Telefone="ngModel" [(ngModel)]="novouser.telefone"
+        <input type="text" class="form-control" required #Telefone="ngModel" [(ngModel)]="user.telefone"
         id="Telefone" name="Telefone"
         placeholder="">
       </div>
@@ -57,7 +57,7 @@
       <div class="form-group">
         <label for="exampleInputEmail1">Email*</label>
 
-        <input type="email" class="form-control" required #Email="ngModel" [(ngModel)]="novouser.email"
+        <input type="email" class="form-control" required #Email="ngModel" [(ngModel)]="user.email"
         id="Email" name="Email"
         pattern="/^[a-z0-9.]+@[a-z0-9]+\.[a-z]+\.([a-z]+)?$/i" placeholder="">
         <div [hidden]="Email.valid || Email.pristine" class="alert alert-danger"> Email inválido</div>
@@ -65,7 +65,7 @@
       <div class="form-group">
         <label for="exampleInputEmail1">Senha</label>
 
-        <input type="password" class="form-control" required #Senha="ngModel" [(ngModel)]="novouser.senha"
+        <input type="password" class="form-control" required #Senha="ngModel" [(ngModel)]="user.senha"
         id="Senha" name="Senha" maxlength="12" minlength=8
           placeholder="8 a 10 caracteres">
         <div [hidden]="Senha.valid || Senha.pristine" class="alert alert-danger"> A senha deve ter no mínimo 8 caracteres</div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'model/usuario.model';
 
 @Component({
   selector: 'app-cartao-cadastro-usuario',
@@ -18,7 +19,11 @@ export class CartaoCadastroUsuarioComponent implements OnInit {
     email:'',
     senha:''
   }
-  constructor() { }
+  public aux:any = {}
+  public user: User
+  constructor() {
+    this.user = new User
+  }
 
   ngOnInit() {
   }
