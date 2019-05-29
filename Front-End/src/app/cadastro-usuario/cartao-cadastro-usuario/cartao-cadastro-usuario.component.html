@@ -12,7 +12,7 @@
       <div class="form-group">
           <label for="datanasc">Data Nascimento(DD/MM/AAAA)*</label>
 
-          <input type="text" required #dataNascimento="ngModel" [(ngModel)]="user.datanasc" name="dataNascimento" class="form-control" id="dataNascimento" 
+          <input type="text" required #dataNascimento="ngModel" [(ngModel)]="user.datanascimento" name="dataNascimento" class="form-control" id="dataNascimento" 
             pattern="^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$" placeholder="DD/MM/AAAA">
             <div [hidden]="dataNascimento.valid || dataNascimento.pristine" class="alert alert-danger"> A data deve estar no formato AA/MM/AAAA </div>  
       </div>
