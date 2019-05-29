@@ -5,7 +5,7 @@
           <label for="nome">Nome Completo*</label>
 
           <input type="text" required #nome="ngModel" [(ngModel)]="user.nome" name="nome" class="form-control" id="nome"  
-            pattern="[A-Za-z]*" placeholder="">
+            pattern="^([ \u00c0-\u01ffa-zA-Z'])+$" placeholder="">
           <div [hidden]="nome.valid || nome.pristine" class="alert alert-danger"> O nome deve conter apenas letras </div>  
       </div>
 
@@ -33,7 +33,7 @@
 
         <input type="text" class="form-control" required #Endereco="ngModel" [(ngModel)]="user.endereco"
         id="Endereco" name="Endereco"
-        pattern="([A-Za-z]+[0-9])*"  placeholder="">
+        pattern="^(RUA|Rua|R.|AVENIDA|Avenida|AV.|TRAVESSA|Travessa|TRAV.|Trav.) ([a-zA-Z_\s]+)[, ]+(\d+)\s?([-/\da-zDA-Z\\ ]+)?$"  placeholder="">
         <div [hidden]="Endereco.valid || Endereco.pristine" class="alert alert-danger"> O endereço pode conter apenas letras e números</div>
       </div>
 
@@ -42,16 +42,17 @@
 
           <input type="text" class="form-control" required #NomeUsuario="ngModel" [(ngModel)]="user.usuario"
           id="NomeUsuario" name="NomeUsuario"
-            pattern="/^[a-zA-Z0-9]+([_ -]?[a-zA-Z0-9])*$/" maxlength=15  placeholder="">
+            pattern="^(?=.*[a-zA-Z])(?=.*[a-zA-Z0-9]).{3,20}$" maxlength=15  placeholder="">
           <div [hidden]="NomeUsuario.valid || NomeUsuario.pristine" class="alert alert-danger"> O nome de usuario pode conter apenas letras e numeros</div>
-      </div>
+      </div>  
 
       <div class="form-group">
         <label for="Telefone">Telefone*</label>
 
         <input type="text" class="form-control" required #Telefone="ngModel" [(ngModel)]="user.telefone"
-        id="Telefone" name="Telefone"
+        pattern="[0-9]{2}9[93|92|96|81][0-9]{7}" id="Telefone" name="Telefone"
         placeholder="">
+        <div [hidden]="Telefone.valid || Telefone.pristine" class="alert alert-danger"> O telefone deve conter apenas numeros</div>
       </div>
 
       <div class="form-group">
@@ -59,11 +60,11 @@
 
         <input type="email" class="form-control" required #Email="ngModel" [(ngModel)]="user.email"
         id="Email" name="Email"
-        pattern="/^[a-z0-9.]+@[a-z0-9]+\.[a-z]+\.([a-z]+)?$/i" placeholder="">
+        pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?" placeholder="">
         <div [hidden]="Email.valid || Email.pristine" class="alert alert-danger"> Email inválido</div>
       </div>
       <div class="form-group">
-        <label for="exampleInputEmail1">Senha</label>
+        <label for="exampleInputEmail1">Senha*</label>
 
         <input type="password" class="form-control" required #Senha="ngModel" [(ngModel)]="user.senha"
         id="Senha" name="Senha" maxlength="12" minlength=8
