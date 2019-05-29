@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'model/usuario.model';
+import { User } from 'model/usuario.model'; 
+import { CadastroUsuarioService } from '../../service/cadastro-usuario.service';
 
 @Component({
   selector: 'app-cartao-cadastro-usuario',
@@ -7,28 +8,20 @@ import { User } from 'model/usuario.model';
   styleUrls: ['./cartao-cadastro-usuario.component.scss']
 })
 export class CartaoCadastroUsuarioComponent implements OnInit {
-  
-  novouser = {
-    nome:'',
-    datanascimento:'',
-    cpf:'',
-    endereco:'',
-    usuario:'',
-    telefone:'',
-    celular:'',
-    email:'',
-    senha:''
-  }
+
   public aux:any = {}
   public user: User
-  constructor() {
-    this.user = new User
+  constructor(private service: CadastroUsuarioService) {
+    this.user = new User()
   }
 
+  cadastrar(): void {
+    this.service.save(this.user).subscribe(usr=>{
+      alert(`Usuário criado com sucesso`)
+      this.user = new User()
+    })
+    console.log(this.user)
+  }
   ngOnInit() {
-  }
-
-  onSubmit(e){
-    console.log(e);
   }
 }

@@ -19,6 +19,8 @@ import { RodapeComponent } from './rodape/rodape.component';
 
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { CriarAnuncioDirective } from './criar-anuncio/criar-anuncio.directive';
+import { CadastroUsuarioService } from './service/cadastro-usuario.service';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,17 +35,19 @@ import { CriarAnuncioDirective } from './criar-anuncio/criar-anuncio.directive';
     CarrosselOfertasDeCreditoComponent,
     NavBarComponent,
     RodapeComponent,
-    CriarAnuncioDirective,
+    CriarAnuncioDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     FormsModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
-    CookieService
+    CookieService,
+    CadastroUsuarioService
   ],
   bootstrap: [AppComponent]
 })
