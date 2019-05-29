@@ -7,18 +7,7 @@ import { User } from 'model/usuario.model';
   styleUrls: ['./cartao-cadastro-usuario.component.scss']
 })
 export class CartaoCadastroUsuarioComponent implements OnInit {
-  
-  novouser = {
-    nome:'',
-    datanascimento:'',
-    cpf:'',
-    endereco:'',
-    usuario:'',
-    telefone:'',
-    celular:'',
-    email:'',
-    senha:''
-  }
+
   public aux:any = {}
   public user: User
   constructor() {
