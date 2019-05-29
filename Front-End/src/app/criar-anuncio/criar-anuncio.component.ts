@@ -10,13 +10,7 @@ import { templateJitUrl } from '@angular/compiler';
 export class CriarAnuncioComponent implements OnInit {
 
 
-  anuncioForm = this.fb.group({
-    titulo:[null,[Validators.required,]],
-    ISBN:[null,[Validators.required]],
-    preco:["1",[Validators.required]],
-    autor:[null,[Validators.required,]],
-    sipnose:[null]
-  })
+
 
   onSubmit(e){
     console.log(e);
