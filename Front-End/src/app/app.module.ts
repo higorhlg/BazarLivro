@@ -19,8 +19,8 @@ import { RodapeComponent } from './rodape/rodape.component';
 
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { CriarAnuncioDirective } from './criar-anuncio/criar-anuncio.directive';
-import { CadastroUsuarioService } from './service/cadastro-usuario.service';
 import { HttpClientModule } from '@angular/common/http';
+import { UsuarioService } from './service/usuario.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,8 +46,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
   ],
   providers: [
-    CookieService,
-    CadastroUsuarioService
+    CookieService
   ],
   bootstrap: [AppComponent]
 })

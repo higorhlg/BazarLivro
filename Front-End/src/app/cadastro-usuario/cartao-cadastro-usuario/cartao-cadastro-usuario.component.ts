@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'model/usuario.model'; 
-import { CadastroUsuarioService } from '../../service/cadastro-usuario.service';
+import { UsuarioService } from 'src/app/service/usuario.service';
 
 @Component({
   selector: 'app-cartao-cadastro-usuario',
@@ -9,9 +9,9 @@ import { CadastroUsuarioService } from '../../service/cadastro-usuario.service';
 })
 export class CartaoCadastroUsuarioComponent implements OnInit {
 
-  public aux:any = {}
+  // public aux:any = {}
   public user: User
-  constructor(private service: CadastroUsuarioService) {
+  constructor(private service: UsuarioService) {
     this.user = new User()
   }
 

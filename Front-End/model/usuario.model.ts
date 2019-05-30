@@ -1,4 +1,3 @@
-import { UsuarioService } from 'src/app/usuario.service';
 
 export class User {
     _id: object;
