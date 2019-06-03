@@ -9,11 +9,14 @@ import { api } from 'src/environments/environment';
 })
 export class UsuarioService {
 
-  constructor(private http: HttpClient) { }
-  public save(user: User): Observable<User> {
+  constructor(private http: HttpClient) { } 
+  public create(user: User): Observable<User> {
     return this.http.post<User>(`${api.url}/users`, user);
   }
 
+  public login(user: User): Observable<User>{
+    return this.http.post<User>(`${api.url}/users/authenticate`, user)
+  }
   public getAll(): Observable<User[]> {
     return this.http.get<User[]>(`${api.url}/users`);
   }
