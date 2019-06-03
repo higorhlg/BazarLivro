@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'model/usuario.model'; 
 import { UsuarioService } from 'src/app/service/usuario.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cartao-cadastro-usuario',
@@ -9,9 +10,8 @@ import { UsuarioService } from 'src/app/service/usuario.service';
 })
 export class CartaoCadastroUsuarioComponent implements OnInit {
 
-  // public aux:any = {}
   public user: User
-  constructor(private service: UsuarioService) {
+  constructor(private service: UsuarioService, private router: Router) {
     this.user = new User()
   }
 
@@ -19,6 +19,7 @@ export class CartaoCadastroUsuarioComponent implements OnInit {
     this.service.save(this.user).subscribe(usr=>{
       alert(`Usuário criado com sucesso`)
       this.user = new User()
+      this.router.navigate(['/login'])
     })
     console.log(this.user)
   }

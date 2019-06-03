@@ -6,13 +6,14 @@ import { CriarAnuncioComponent } from './criar-anuncio/criar-anuncio.component';
 import { TelaPrincipalComponent } from './tela-principal/tela-principal.component';
 import { MinhaContaComponent } from './minha-conta/minha-conta.component';
 
-const routes: Routes = [
+export const routes: Routes = [
+  {path: '', redirectTo: '/login', pathMatch: 'full'},
   {
     path: 'cadastro-usuario',
     component: CadastroUsuarioComponent
   },
   {
-    path: '',
+    path: 'login',
     component: LoginComponent
   },
   {
