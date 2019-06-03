@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Login } from 'model/login.model';
 import { AuthService } from 'src/app/service/auth.service';
 import { UsuarioService } from 'src/app/service/usuario.service';
+import { User } from 'model/usuario.model';
 
 @Component({
   selector: 'app-cartao-login',
@@ -10,13 +10,13 @@ import { UsuarioService } from 'src/app/service/usuario.service';
 })
 export class CartaoLoginComponent implements OnInit {
   
-  public login: Login
+  public user: User
   constructor(private auth: AuthService, private usuarioService: UsuarioService) {
-    this.login = new Login
+    this.user = new User
   }
 
   logIn(){
-    this.auth.logIn(this.login)
+    this.auth.logIn(this.user)
   }
 
   ngOnInit() {

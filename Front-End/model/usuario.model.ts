@@ -10,4 +10,5 @@ export class User {
     email: string;
     telefone: string;
     profile?: string[];
+    accessToken: string;
 }
