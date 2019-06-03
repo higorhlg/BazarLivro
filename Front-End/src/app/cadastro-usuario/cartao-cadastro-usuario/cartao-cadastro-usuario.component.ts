@@ -23,6 +23,13 @@ export class CartaoCadastroUsuarioComponent implements OnInit {
     })
     console.log(this.user)
   }
+  onSubmit(form1){
+    if(form1.valid)
+      this.cadastrar()
+    else
+      alert("Dado(s) inválido(s)")
+    //console.log(form1.valid)
+  }
   ngOnInit() {
   }
 }

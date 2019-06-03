@@ -22,6 +22,7 @@ import { CriarAnuncioDirective } from './criar-anuncio/criar-anuncio.directive';
 import { HttpClientModule } from '@angular/common/http';
 import { UsuarioService } from './service/usuario.service';
 import { RouterModule } from '@angular/router';
+import { ExibirTransacoesComponent } from './exibir-transacoes/exibir-transacoes.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +37,8 @@ import { RouterModule } from '@angular/router';
     CarrosselOfertasDeCreditoComponent,
     NavBarComponent,
     RodapeComponent,
-    CriarAnuncioDirective
+    CriarAnuncioDirective,
+    ExibirTransacoesComponent
   ],
   imports: [
     BrowserModule,

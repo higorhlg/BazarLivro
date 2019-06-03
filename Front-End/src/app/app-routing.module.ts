@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { CriarAnuncioComponent } from './criar-anuncio/criar-anuncio.component';
 import { TelaPrincipalComponent } from './tela-principal/tela-principal.component';
 import { MinhaContaComponent } from './minha-conta/minha-conta.component';
+import { ExibirTransacoesComponent } from './exibir-transacoes/exibir-transacoes.component';
 
 export const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -23,6 +24,10 @@ export const routes: Routes = [
   {
     path: 'tela-inicial',
     component: TelaPrincipalComponent
+  },
+  {
+    path: 'transacoes',
+    component: ExibirTransacoesComponent
   },
   {
     path: 'minha-conta',
