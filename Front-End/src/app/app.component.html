@@ -1,2 +1,3 @@
-<app-nav-bar *ngIf="navbar"></app-nav-bar>
+<app-nav-bar *ngIf="autenticado"></app-nav-bar>
 <router-outlet></router-outlet>
+<app-rodape *ngIf="autenticado"></app-rodape>
