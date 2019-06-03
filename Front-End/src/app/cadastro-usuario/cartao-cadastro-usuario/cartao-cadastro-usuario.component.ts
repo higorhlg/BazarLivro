@@ -16,7 +16,7 @@ export class CartaoCadastroUsuarioComponent implements OnInit {
   }
 
   cadastrar(): void {
-    this.service.save(this.user).subscribe(usr=>{
+    this.service.create(this.user).subscribe(usr=>{
       alert(`Usuário criado com sucesso`)
       this.user = new User()
       this.router.navigate(['/login'])
