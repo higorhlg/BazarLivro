@@ -26,4 +26,8 @@ export class AuthService {
     return usuario
   }
 
+  delCookie(){
+    this.cookie.remove('usuario')
+  }
+
 }
