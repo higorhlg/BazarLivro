@@ -19,6 +19,14 @@ export class CartaoLoginComponent implements OnInit {
     this.auth.logIn(this.user)
   }
 
+  onSubmit(form1){
+    if(form1.valid)
+      this.logIn()
+    else
+      alert("Dado(s) inválido(s)")
+    //console.log(form1.valid)
+  }
+
   ngOnInit() {
   }
 

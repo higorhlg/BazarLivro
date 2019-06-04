@@ -1,21 +1,25 @@
 
   <div class="text-center">
     
-    <form class="form-signin">
+    <form (ngSubmit)="onSubmit(form1)" #form1="ngForm">
       <img src="../../assets/icons/books.png" >
     <h1 class="h3 mb-3 font-weight-normal">BazarLivros</h1>
     {{user | json}}
     <label for="inputEmail" class="sr-only">Email</label>
-    <input type="email" id="inputEmail" name="inputEmail" class="form-control" placeholder="Email" #inputEmail="ngModel" [(ngModel)]="user.email" required="" autofocus="">
+    <input type="email" id="inputEmail" name="inputEmail" class="form-control" placeholder="Email" #inputEmail="ngModel" [(ngModel)]="user.email" required autofocus=""
+    pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?">
+    <div [hidden]="inputEmail.valid || inputEmail.pristine" class="alert alert-danger"> Email inválido</div>
     <label for="inputPassword" class="sr-only">Senha</label>
-    <input type="password" id="inputPassword" name="inputPassword" class="form-control" placeholder="Senha" #inputPassword="ngModel" [(ngModel)]="user.senha" required="">
+    <input type="password" id="inputPassword" name="inputPassword" class="form-control" placeholder="Senha" #inputPassword="ngModel" [(ngModel)]="user.senha" required
+    maxlength="12" minlength=8>
+    <div [hidden]="inputPassword.valid || inputPassword.pristine" class="alert alert-danger"> Senha inválida</div>
     <div class="checkbox mb-3">
       <label>
        <a href="">Esqueceu sua senha?</a>        
       </label>
       
     </div>
-    <button (click)="logIn()" class="btn btn-lg btn-primary btn-block" type="submit" routerLink = '/tela-inicial'>Entrar</button>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" >Entrar</button>
     <button class="btn btn-lg btn-success btn-block" type="submit" routerLink = '/cadastro-usuario'>Cadastrar</button>
   </form>
 </div>
