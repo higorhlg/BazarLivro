@@ -12,8 +12,7 @@ export const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
   {
     path: 'cadastro-usuario',
-    component: CadastroUsuarioComponent,
-    canActivate: [AuthGuardService]
+    component: CadastroUsuarioComponent
   },
   {
     path: 'login',
