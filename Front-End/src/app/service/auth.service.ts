@@ -39,6 +39,10 @@ export class AuthService {
     this.mostrarMenu.emit(false)
   }
 
+  getUsuarioLogado(){
+    return this.usuarioLogado
+  }
+
   verificaUsuarioLogado(){
     if(this.getCookie()){
       this.usuarioAutenticado = true
