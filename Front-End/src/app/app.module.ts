@@ -23,6 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { UsuarioService } from './service/usuario.service';
 import { RouterModule } from '@angular/router';
 import { ExibirTransacoesComponent } from './exibir-transacoes/exibir-transacoes.component';
+import { AuthGuardService } from './service/auth-guard.service';
+import { AuthService } from './service/auth.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +52,9 @@ import { ExibirTransacoesComponent } from './exibir-transacoes/exibir-transacoes
     RouterModule.forRoot(routes)
   ],
   providers: [
-    CookieService
+    CookieService,
+    AuthGuardService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

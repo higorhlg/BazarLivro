@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { AuthService } from './service/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -6,7 +7,15 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'BazarLivros';
-  autenticado = true;
+  autenticado = false;
+
+  constructor(private authService: AuthService){}
+
+  ngOnInit(){
+    this.authService.mostrarMenu.subscribe(mostrar =>{
+      this.autenticado = mostrar
+    })
+  }
 }
