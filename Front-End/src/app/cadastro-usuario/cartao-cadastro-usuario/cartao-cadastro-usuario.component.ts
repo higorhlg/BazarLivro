@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./cartao-cadastro-usuario.component.scss']
 })
 export class CartaoCadastroUsuarioComponent implements OnInit {
-
+  mensagem: string
   public user: User
   constructor(private service: UsuarioService, private router: Router) {
     this.user = new User()
@@ -17,11 +17,16 @@ export class CartaoCadastroUsuarioComponent implements OnInit {
 
   cadastrar(): void {
     this.service.create(this.user).subscribe(usr=>{
-      alert(`Usuário criado com sucesso`)
+      alert(`Seja bem-vindo(a) ${usr.nome} sua conta foi criada com sucesso`)
       this.user = new User()
       this.router.navigate(['/login'])
+    },
+    response =>{
+      if(response.error){
+        alert(`Essa conta já existente`)
+      }
     })
-    console.log(this.user)
+    // console.log(this.user)
   }
   onSubmit(form1){
     if(form1.valid)
