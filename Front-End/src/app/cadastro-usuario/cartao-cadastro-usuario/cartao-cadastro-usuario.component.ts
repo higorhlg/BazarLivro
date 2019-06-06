@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'model/usuario.model'; 
 import { UsuarioService } from 'src/app/service/usuario.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cartao-cadastro-usuario',
@@ -8,19 +9,31 @@ import { UsuarioService } from 'src/app/service/usuario.service';
   styleUrls: ['./cartao-cadastro-usuario.component.scss']
 })
 export class CartaoCadastroUsuarioComponent implements OnInit {
-
-  // public aux:any = {}
+  mensagem: string
   public user: User
-  constructor(private service: UsuarioService) {
+  constructor(private service: UsuarioService, private router: Router) {
     this.user = new User()
   }
 
   cadastrar(): void {
-    this.service.save(this.user).subscribe(usr=>{
-      alert(`Usuário criado com sucesso`)
+    this.service.create(this.user).subscribe(usr=>{
+      alert(`Seja bem-vindo(a) ${usr.nome} sua conta foi criada com sucesso`)
       this.user = new User()
+      this.router.navigate(['/login'])
+    },
+    response =>{
+      if(response.error){
+        alert(`Essa conta já existente`)
+      }
     })
-    console.log(this.user)
+    // console.log(this.user)
+  }
+  onSubmit(form1){
+    if(form1.valid)
+      this.cadastrar()
+    else
+      alert("Dado(s) inválido(s)")
+    //console.log(form1.valid)
   }
   ngOnInit() {
   }

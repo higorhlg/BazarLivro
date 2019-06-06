@@ -7,20 +7,20 @@
       <h3 class="mt-5">Dados Cadastrais</h3>
       <div class="form-group">
         <label for="inputAddress">Nome Completo</label>
-        <input required #nome="ngModel" [(ngModel)]="novouser.nome" name="nome"  pattern="[A-Za-z]*"  type="text" class="form-control" id="inputAddress">
+        <input required #nome="ngModel" [(ngModel)]="usuario_logado.nome" name="nome"  pattern="[A-Za-z]*"  type="text" class="form-control" id="inputAddress">
         <div [hidden]="nome.valid || nome.pristine" class="alert alert-danger"> O nome deve conter apenas letras </div>  
 
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
           <label >Data Nascimento</label>
-          <input type="text" required #dataNascimento="ngModel" [(ngModel)]="novouser.datanasc" name="dataNascimento" class="form-control" id="dataNascimento" 
+          <input type="text" required #dataNascimento="ngModel" [(ngModel)]="usuario_logado.dataNascimento" name="dataNascimento" class="form-control" id="dataNascimento" 
           pattern="^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$" placeholder="DD/MM/AAAA">
           <div [hidden]="dataNascimento.valid || dataNascimento.pristine" class="alert alert-danger"> A data deve estar no formato AA/MM/AAAA </div>  
           </div>
         <div class="form-group col-md-6">
           <label for="inputPassword4">CPF</label>
-          <input type="text" required #CPF="ngModel" [(ngModel)]="novouser.cpf"
+          <input type="text" required #CPF="ngModel" [(ngModel)]="usuario_logado.cpf"
         class="form-control" id="CPF" name="CPF"
         pattern="[0-9]{3}[0-9]{3}[0-9]{3}[0-9]{2}" placeholder="">
         <div [hidden]="CPF.valid || CPF.pristine" class="alert alert-danger"> O cpf deve conter apenas números</div>
@@ -28,7 +28,7 @@
       </div>
       <div class="form-group">
         <label for="inputAddress2">Endereço</label>
-        <input type="text" class="form-control" required #Endereco="ngModel" [(ngModel)]="novouser.endereco"
+        <input type="text" class="form-control" required #Endereco="ngModel" [(ngModel)]="usuario_logado.endereco"
         id="Endereco" name="Endereco"
         pattern="([A-Za-z]+[0-9])*"  placeholder="">
         <div [hidden]="Endereco.valid || Endereco.pristine" class="alert alert-danger"> O endereço pode conter apenas letras e números</div>
@@ -36,14 +36,14 @@
       <div class="form-row">
         <div class="form-group col-md-6">
         <label >Nome de usuário</label>
-        <input type="text" class="form-control" required #NomeUsuario="ngModel" [(ngModel)]="novouser.usuario"
+        <input type="text" class="form-control" required #NomeUsuario="ngModel" [(ngModel)]="usuario_logado.usuario"
         id="NomeUsuario" name="NomeUsuario"
           pattern="/^[a-zA-Z0-9]+([_ -]?[a-zA-Z0-9])*$/" maxlength=15  placeholder="">
         <div [hidden]="NomeUsuario.valid || NomeUsuario.pristine" class="alert alert-danger"> O nome de usuario pode conter apenas letras e numeros</div>
     </div>
       <div class="form-group col-md-6">
         <label >Senha</label>
-        <input type="password" class="form-control" required #Senha="ngModel" [(ngModel)]="novouser.senha"
+        <input type="password" class="form-control" required #Senha="ngModel" [(ngModel)]="usuario_logado.senha"
         id="Senha" name="Senha" maxlength="12" minlength=8
           placeholder="8 a 10 caracteres">
         <div [hidden]="Senha.valid || Senha.pristine" class="alert alert-danger"> A senha deve ter no mínimo 8 caracteres</div>
@@ -52,7 +52,7 @@
     <div class="form-row">
       <div class="form-group col-md-6">
         <label >Email</label>
-        <input type="email" class="form-control" required #Email="ngModel" [(ngModel)]="novouser.email"
+        <input type="email" class="form-control" required #Email="ngModel" [(ngModel)]="usuario_logado.email"
         id="Email" name="Email"
         pattern="/^[a-z0-9.]+@[a-z0-9]+\.[a-z]+\.([a-z]+)?$/i" placeholder="">
         <div [hidden]="Email.valid || Email.pristine" class="alert alert-danger"> Email inválido</div>
@@ -60,7 +60,7 @@
       <div class="form-group col-md-6">
         <label >Telefone</label>
 
-        <input type="text" class="form-control" required #Telefone="ngModel" [(ngModel)]="novouser.telefone"
+        <input type="text" class="form-control" required #Telefone="ngModel" [(ngModel)]="usuario_logado.telefone"
         id="Telefone" name="Telefone"
         placeholder="">
       </div>
@@ -76,119 +76,10 @@
     </div>
     <div class="text-center">
       <br>
-      <button type="submit" class="btn btn-lg btn-success mb-5">Cadastrar</button>
+      <button type="submit" class="btn btn-lg btn-success mb-5">Salvar</button>
     </div>
   </div>
 </div>
 </form>
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 
-
-    <title>Criar Conta</title>
-  </head>
-
-  <body>
-  
-	      <!-- Capa padrão -->
-
-      <!--  <img class="h-50 card-img-top" src="5capalivro.png" alt="Card image cap"> -->
-
-
-       <div class="card bg-light text-white">
-          <img class="h-50 card-img-top" src="5capalivro.png" alt="Card image">
-          <div class="card-img-overlay">
-             <nav class="navbar navbar-expand-lg  bg-light justify-content-end bg-transparent">
-             <!-- menus -->
-          
-              <form class="form-inline my-2 my-lg-0">
-              <div class="dropdown">
-               <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-               Minha Conta
-               </button>
-
-               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-               <a class="dropdown-item" href="CriarAnuncio.html">Cadastrar Anúncio</a>
-               <a class="dropdown-item" href="#">Transações</a>
-               <a class="dropdown-item" href="AlterarDados.html">Alterar Dados Cadastrais</a>
-
-                
-              
-               </div>
-
-
-               
-            </div>
-           </form>
-          </nav>
-          </div>
-      </div>
-
-
-	<div class="container" style="height: 100%;">
-		<h2 class="mt-5">Minha Conta</h2>
-		<h3 class="mt-5">Dados Cadastrais</h3>
-		<div class="form-group">
-		  <label for="inputAddress">Nome Completo</label>
-		  <input type="text" class="form-control" id="inputAddress">
-		</div>
-		<div class="form-row">
-		  <div class="form-group col-md-6">
-			<label >Data Nascimento</label>
-			<input type="date" class="form-control">
-		  </div>
-		  <div class="form-group col-md-6">
-			<label for="inputPassword4">CPF</label>
-			<input type="text" class="form-control">
-		  </div>
-		</div>
-		<div class="form-group">
-		  <label for="inputAddress2">Endereço</label>
-		  <input type="text" class="form-control" >
-		</div>
-		<div class="form-row">
-		  <div class="form-group col-md-6">
-			<label >Nome de usuário</label>
-			<input type="text" class="form-control">
-		  </div>
-		  <div class="form-group col-md-6">
-			<label >Password</label>
-			<input type="password" class="form-control">
-		  </div>
-		</div>
-		<div class="form-row">
-		  <div class="form-group col-md-6">
-			<label >Email</label>
-			<input type="email" class="form-control">
-		  </div>
-		  <div class="form-group col-md-6">
-			<label >Telefone</label>
-			<input type="text" class="form-control">
-		  </div>
-		</div>
-		<div class="form-row">
-		  <div class="form-group col-md-12">
-			<label >Celular</label>
-			<input type="text" class="form-control">
-		  </div> 
-		</div>
-		<div class="form-row">
-		  <h4>Opção de Pagamento</h4>  
-		</div>
-		<div class="text-center">
-		  <br>
-		  <button type="submit" class="btn btn-lg btn-success mb-5">Alterar</button>
-		</div>
-	</div>
-	
-	
-
-
-</body>
-</html>
