@@ -11,7 +11,7 @@ export class AuthService {
 
   private usuarioAutenticado: boolean = false
   private usuarioLogado: User
-  private mostrarMenu = new EventEmitter<boolean>()
+  mostrarMenu = new EventEmitter<boolean>()
 
   constructor(private usuarioService: UsuarioService, private cookie: CookieService,
               private router: Router) {
@@ -28,9 +28,34 @@ export class AuthService {
     },
     response => {
       if(response.error){
-        console.log(response.error.message);
+        alert(`${response.error.message}`)
       }
     }) 
+  }
+
+  logOut(){
+    this.delCookie()
+    this.usuarioAutenticado = false
+    this.mostrarMenu.emit(false)
+  }
+
+  getUsuarioLogado(){
+    return this.usuarioLogado
+  }
+
+  verificaUsuarioLogado(){
+    if(this.getCookie()){
+      this.usuarioAutenticado = true
+      this.mostrarMenu.emit(true)
+    }
+    else{
+      this.usuarioAutenticado = false
+      this.mostrarMenu.emit(false)
+    }
+  }
+
+  usuarioEstaAutenticado(){
+    return this.usuarioAutenticado
   }
 
   setCookie(user: User){

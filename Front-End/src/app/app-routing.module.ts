@@ -6,6 +6,7 @@ import { CriarAnuncioComponent } from './criar-anuncio/criar-anuncio.component';
 import { TelaPrincipalComponent } from './tela-principal/tela-principal.component';
 import { MinhaContaComponent } from './minha-conta/minha-conta.component';
 import { ExibirTransacoesComponent } from './exibir-transacoes/exibir-transacoes.component';
+import { AuthGuardService } from './service/auth-guard.service';
 
 export const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -19,19 +20,23 @@ export const routes: Routes = [
   },
   {
     path: 'criar-anuncio',
-    component: CriarAnuncioComponent
+    component: CriarAnuncioComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'tela-inicial',
-    component: TelaPrincipalComponent
+    component: TelaPrincipalComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'transacoes',
-    component: ExibirTransacoesComponent
+    component: ExibirTransacoesComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'minha-conta',
-    component: MinhaContaComponent
+    component: MinhaContaComponent,
+    canActivate: [AuthGuardService]
   }
 ];
 

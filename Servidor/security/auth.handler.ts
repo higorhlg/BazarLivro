@@ -19,6 +19,7 @@ export const authenticate: restify.RequestHandler = (req, resp, next) =>{
                     expiresIn: '1h'
                 })
                 resp.json({
+                    _id : user._id,
                     nome: user.nome,
                     usuario: user.usuario,
                     email: user.email,
@@ -40,6 +41,7 @@ export const authenticate: restify.RequestHandler = (req, resp, next) =>{
                 },
                 environment.security.apiSecret)
                 resp.json({
+                    _id : user._id,
                     nome: user.nome,
                     usuario: user.usuario,
                     email: user.email,
