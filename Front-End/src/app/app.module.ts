@@ -18,7 +18,6 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { RodapeComponent } from './rodape/rodape.component';
 
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { CriarAnuncioDirective } from './criar-anuncio/criar-anuncio.directive';
 import { HttpClientModule } from '@angular/common/http';
 import { UsuarioService } from './service/usuario.service';
 @NgModule({
@@ -34,8 +33,7 @@ import { UsuarioService } from './service/usuario.service';
     CarrosselOfertasQuentesComponent,
     CarrosselOfertasDeCreditoComponent,
     NavBarComponent,
-    RodapeComponent,
-    CriarAnuncioDirective
+    RodapeComponent
   ],
   imports: [
     BrowserModule,

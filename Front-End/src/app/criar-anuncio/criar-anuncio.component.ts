@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl , FormGroup ,FormBuilder, Validators} from '@angular/forms';
-import { templateJitUrl } from '@angular/compiler';
+import {Validators, FormBuilder} from '@angular/forms';
 
 @Component({
   selector: 'app-criar-anuncio',
@@ -9,20 +8,20 @@ import { templateJitUrl } from '@angular/compiler';
 })
 export class CriarAnuncioComponent implements OnInit {
 
-
-
-
-  onSubmit(e){
-    console.log(e);
+  novoanuncio = {
+    titulo:'',
+    isbn:'',
+    preco:'',
+    autor:'',
+    sinopse:'',
+    disponibilidade_troca:'',
+    descricao:'',
+    imagem:''
   }
-  constructor(private fb:FormBuilder) {
-    
-
-
+  
+  constructor() {
 
    }
-
-
 
   ngOnInit() {
   }
