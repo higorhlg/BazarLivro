@@ -1,9 +1,13 @@
-export class Transacao {
+export class Anuncio {
     _id: object;
-    comprador: object;
-    vendedor: object;
-    anuncio: object;
-    data: any;
-    estado: string;
-
+    title: string;
+    sinopsis: string;
+    isbn: string;
+    nameAuthor: string;
+    price: number;
+    availableForExchange: boolean
+    user: object
+    announcementDescription: string
+    photo: string
+    activityStatus: string
 }
