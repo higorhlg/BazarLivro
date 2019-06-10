@@ -5,9 +5,11 @@
     <h1 class="mt-5">Minha Conta - Alterar Dados</h1>
     <div class="mt-5">
       <h3 class="mt-5">Dados Cadastrais</h3>
+
+      {{usuario_logado.nome}}
       <div class="form-group">
         <label for="inputAddress">Nome Completo</label>
-        <input required #nome="ngModel" [(ngModel)]="usuario_logado.nome" name="nome"  pattern="[A-Za-z]*"  type="text" class="form-control" id="inputAddress">
+        <input required #nome="ngModel" [(ngModel)]="usuario_logado.nome" name="nome"  pattern="^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$"  type="text" class="form-control" id="inputAddress">
         <div [hidden]="nome.valid || nome.pristine" class="alert alert-danger"> O nome deve conter apenas letras </div>  
 
       </div>
@@ -30,7 +32,7 @@
         <label for="inputAddress2">Endereço</label>
         <input type="text" class="form-control" required #Endereco="ngModel" [(ngModel)]="usuario_logado.endereco"
         id="Endereco" name="Endereco"
-        pattern="([A-Za-z]+[0-9])*"  placeholder="">
+        pattern="^[\w'\-,.][^_!¡?÷?¿/\\+=@#$%ˆ&*{}|~<>;:[\]]{2,}$"  placeholder="">
         <div [hidden]="Endereco.valid || Endereco.pristine" class="alert alert-danger"> O endereço pode conter apenas letras e números</div>
       </div>
       <div class="form-row">

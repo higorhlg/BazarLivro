@@ -11,17 +11,17 @@ import { User } from 'model/usuario.model';
 })
 export class MinhaContaComponent implements OnInit {
 
-  novouser = {
-    nome:'',
-    datanascimento:'',
-    cpf:'',
-    endereco:'',
-    usuario:'',
-    telefone:'',
-    celular:'',
-    email:'',
-    senha:''
-  }
+  // novouser = {
+  //   nome:'',
+  //   datanascimento:'',
+  //   cpf:'',
+  //   endereco:'',
+  //   usuario:'',
+  //   telefone:'',
+  //   celular:'',
+  //   email:'',
+  //   senha:''
+  // }
 
   usuario_logado : User
   constructor(private user_service :UsuarioService, auth_service : AuthService) { 

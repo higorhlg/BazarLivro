@@ -37,7 +37,8 @@ import { AuthService } from './service/auth.service';
     CarrosselOfertasQuentesComponent,
     CarrosselOfertasDeCreditoComponent,
     NavBarComponent,
-    RodapeComponent
+    RodapeComponent,
+    ExibirTransacoesComponent
   ],
   imports: [
     BrowserModule,
