@@ -1,7 +1,7 @@
 export class Anuncio {
     _id: object;
     title: string;
-    sinopsis: string;
+    synopsis: string;
     isbn: string;
     nameAuthor: string;
     price: number;
