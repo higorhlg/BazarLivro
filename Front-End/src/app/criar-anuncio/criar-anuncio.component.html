@@ -1,17 +1,18 @@
 <form (ngSubmit)="onSubmit(form1)" #form1="ngForm">
   <div class="container" style="height: 100%;">
     <h1 class="mt-5">Cadastrar Anúncio</h1>
+    {{anuncio | json}}
     <div class="mt-5">
       <div class="form-group">
         <label for="inputTitulo">Título</label>
-        <input required #titulo="ngModel" [(ngModel)]="novoanuncio.titulo" name="titulo" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ\- ]+" type="text"
+        <input required #titulo="ngModel" [(ngModel)]="anuncio.title" name="titulo" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ\- ]+" type="text"
           class="form-control" id="inputTitulo" placeholder="O Pequeno Príncipe">
         <div [hidden]="titulo.valid || titulo.pristine" class="alert alert-danger"> O título deve conter apenas letras
         </div>
       </div>
       <div class="form-group">
         <label for="inputISBN">ISBN</label>
-        <input required #isbn="ngModel" [(ngModel)]="novoanuncio.isbn" name="isbn"
+        <input required #isbn="ngModel" [(ngModel)]="anuncio.isbn" name="isbn"
           pattern="^(?:ISBN(?:-10)?:? )?(?=[0-9X]{10}$|(?=(?:[0-9]+[- ]){3})[- 0-9X]{13}$)[0-9]{1,5}[- ]?[0-9]+[- ]?[0-9]+[- ]?[0-9X]$"
            type="text" class="form-control" id="inputISBN"
           placeholder="***********">
@@ -20,11 +21,11 @@
       </div>
       <div class="form-group">
         <label for="inputPreco">Preço</label>
-        <input type="number" class="form-control" id="inputPreco" step="0.50" placeholder="R$ 10,00">
+        <input type="number" #inputPreco="ngModel" [(ngModel)]="anuncio.price" class="form-control" name="inputPreco" id="inputPreco" step="0.50" placeholder="R$ 10,00">
       </div>
       <div class="form-group">
         <label for="inputAutor">Autor</label>
-        <input required #autor="ngModel" [(ngModel)]="novoanuncio.autor" name="autor" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ\- ]+"  type="text"
+        <input required #autor="ngModel" [(ngModel)]="anuncio.nameAuthor" name="autor" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ\- ]+"  type="text"
           class="form-control" id="inputAutor"
           placeholder="Antoine de Saint-Exupéry">
         <div [hidden]="autor.valid || autor.pristine" class="alert alert-danger"> O nome do autor deve conter apenas
@@ -32,7 +33,7 @@
       </div>
       <div class="form-group">
         <label for="inputSinopse">Sinopse</label>
-        <textarea required #sinopse="ngModel" [(ngModel)]="novoanuncio.sinopse" name="sinopse" pattern="([A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+[0-9])*"
+        <textarea required #sinopse="ngModel" [(ngModel)]="anuncio.synopsis" name="sinopse" pattern="([A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+[0-9])*"
           class="form-control" id="inputSinopse" rows="3"
           placeholder="Um piloto cai com seu avião no deserto e ali encontra uma criança loura e frágil. Ela diz ter vindo de um pequeno planeta distante. E ali, na convivência com o piloto perdido, os dois repensam os seus valores e encontram o sentido da vida."></textarea>
         <div [hidden]="sinopse.valid || sinopse.pristine" class="alert alert-danger"> A sinopse deve conter apenas
@@ -41,19 +42,19 @@
       <label for="inputDisponibilidadeTroca">Disponibilidade de Troca</label>
       <div class="checkbox">
         <label class="checkbox-inline no_indent" for="inputSim">
-          <input type="radio" name="exampleRadios" id="inputSim" value="option1" checked>
+          <input type="radio" #exampleRadios="ngModel" [(ngModel)]="anuncio.availableForExchange" name="exampleRadios" id="inputSim" value="1" checked>
           Sim
         </label>
       </div>
       <div class="checkbox">
         <label class="checkbox-inline no_indent" for="inputNao">
-          <input type="radio" name="exampleRadios" id="inputNao" value="option2">
+          <input type="radio" #exampleRadios="ngModel" [(ngModel)]="anuncio.availableForExchange" name="exampleRadios" id="inputNao" value="0">
           Não
         </label>
       </div>
       <div class="form-group">
         <label for="inputDescricao">Descrição do Anúncio</label>
-        <textarea required #descricao="ngModel" [(ngModel)]="novoanuncio.descricao" name="descricao" pattern="([A-Za-z]+[0-9])*" class="form-control" id="inputDescricao" rows="3"
+        <textarea required #descricao="ngModel" [(ngModel)]="anuncio.announcementDescription" name="descricao" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ\- ]+" class="form-control" id="inputDescricao" rows="3"
           placeholder="Nesta clássica história que marcou gerações de leitores em todo o mundo, um piloto cai com seu avião no deserto do Saara e encontra um pequeno príncipe, que o leva a uma jornada filosófica e poética através de planetas que encerram a solidão humana. A edição conta com a clássica tradução do poeta imortal dom Marcos Barbosa, e é a versão mais consagrada da obra, publicada no Brasil desde 1952. "></textarea>
         <div [hidden]="descricao.valid || descricao.pristine" class="alert alert-danger"> A descrição deve conter apenas
           letras, espaços e números</div>
@@ -61,7 +62,7 @@
       <div class="form-group">
         <form action="upload.php" method="post" enctype="multipart/form-data">
           Selecione uma imagem
-          <input type="file" class="btn btn-primary" name="fileToUpload" id="fileToUpload">
+          <input type="file" class="btn btn-primary" #fileToUpload="ngModel" [(ngModel)]="anuncio.photo" name="fileToUpload" id="fileToUpload">
         </form>
       </div>
       <div class="text-center">

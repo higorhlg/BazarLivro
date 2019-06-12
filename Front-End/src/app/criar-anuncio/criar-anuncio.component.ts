@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Validators, FormBuilder} from '@angular/forms';
+import { Anuncio } from 'model/anuncio.model';
+import { AnuncioService } from '../service/anuncio.service';
+import { AuthService } from '../service/auth.service';
 
 @Component({
   selector: 'app-criar-anuncio',
@@ -8,21 +11,30 @@ import {Validators, FormBuilder} from '@angular/forms';
 })
 export class CriarAnuncioComponent implements OnInit {
 
-  novoanuncio = {
-    titulo:'',
-    isbn:'',
-    preco:'',
-    autor:'',
-    sinopse:'',
-    disponibilidade_troca:'',
-    descricao:'',
-    imagem:''
-  }
+  public anuncio: Anuncio
   
-  constructor() {
-
+  constructor(private anuncioService: AnuncioService, private authService: AuthService) {
+    this.anuncio = new Anuncio()
+    this.anuncio.isbn = 'ISBN '
+    this.anuncio.user = this.authService.getCookie()['_id']
    }
 
   ngOnInit() {
+  }
+
+  cadastrar(){
+    this.anuncioService.create(this.anuncio).subscribe(anuncio =>{
+      this.anuncio = new Anuncio()
+      console.log(this.anuncio.user)
+    })
+  }
+
+  onSubmit(form1){
+    if(form1.valid){
+      this.cadastrar()
+    }
+    else{
+      alert("Dados inválidos")
+    }
   }
 }

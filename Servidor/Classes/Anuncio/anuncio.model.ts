@@ -30,7 +30,8 @@ const announcementSchema = new mongoose.Schema({
         //maxlength: 13,
         unique: true,
         required: false,
-        match: /((978[\--– ])?[0-9][0-9\--– ]{10}[\--– ][0-9xX])|((978)?[0-9]{9}[0-9Xx])/
+        // match: /((978[\--– ])?[0-9][0-9\--– ]{10}[\--– ][0-9xX])|((978)?[0-9]{9}[0-9Xx])/
+        match: /^(?:ISBN(?:-10)?:? )?(?=[0-9X]{10}$|(?=(?:[0-9]+[- ]){3})[- 0-9X]{13}$)[0-9]{1,5}[- ]?[0-9]+[- ]?[0-9]+[- ]?[0-9X]$/
     },
     nameAuthor:{
         type: String,
@@ -58,7 +59,8 @@ const announcementSchema = new mongoose.Schema({
     activityStatus:{
         type: String,
         required: true,
-        enum: ['Ativo', 'Inativo', 'Pausado']
+        enum: ['Ativo', 'Inativo', 'Pausado'],
+        default: 'Ativo'
     },
     user:{
         type: mongoose.Schema.Types.ObjectId,
