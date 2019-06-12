@@ -1,3 +1,35 @@
-<p>
-  exibir-transacoes works!
-</p>
+<div class=" bg-dark">
+  <table class="table table-dark table-hover">
+      <thead>
+        <tr>
+            <th scope="col">Anuncio</th>
+            <th scope="col">Vendedor</th>
+            <th scope="col">Comprador</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Data</th>
+
+<!--       
+            <th scope="col"></th>
+            <th scope="col"></th> -->
+  
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let t of transacoes">
+          
+            <td scope="row">{{t.anuncio.title}}</td>
+            <td scope="row">{{t.vendedor.nome}}</td> 
+            <td scope="row">{{t.comprador.nome}}</td> 
+            <td scope="row">{{t.estado}}</td>
+            <td scope="row">{{t.data}}</td>
+
+            <!-- <td scope="row">
+                  <span (click)="" data-toggle="modal" data-target="#modalAltera" ><fa name="pencil"></fa></span>
+              </td>
+            <td scope="row">
+                <span routerLink="vendas" (click)=""><fa name="trash"></fa></span>
+              </td> -->
+        </tr>
+      
+      </tbody>
+</table>
