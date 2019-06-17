@@ -25,6 +25,7 @@ import { ExibirTransacoesComponent } from './exibir-transacoes/exibir-transacoes
 import { AuthGuardService } from './service/auth-guard.service';
 import { AuthService } from './service/auth.service';
 import { CarrinhoComponent } from './carrinho/carrinho.component';
+import { ExibirAnuncioComponent } from './exibir-anuncio/exibir-anuncio.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +41,8 @@ import { CarrinhoComponent } from './carrinho/carrinho.component';
     NavBarComponent,
     RodapeComponent,
     ExibirTransacoesComponent,
-    CarrinhoComponent
+    CarrinhoComponent,
+    ExibirAnuncioComponent
   ],
   imports: [
     BrowserModule,
