@@ -7,6 +7,7 @@ import { TelaPrincipalComponent } from './tela-principal/tela-principal.componen
 import { MinhaContaComponent } from './minha-conta/minha-conta.component';
 import { ExibirTransacoesComponent } from './exibir-transacoes/exibir-transacoes.component';
 import { AuthGuardService } from './service/auth-guard.service';
+import { CarrinhoComponent} from './carrinho/carrinho.component'
 
 export const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -37,6 +38,10 @@ export const routes: Routes = [
     path: 'minha-conta',
     component: MinhaContaComponent,
     canActivate: [AuthGuardService]
+  },
+  {
+    path: 'carrinho',
+    component: CarrinhoComponent
   }
 ];
 

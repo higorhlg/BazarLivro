@@ -24,6 +24,7 @@ import { RouterModule } from '@angular/router';
 import { ExibirTransacoesComponent } from './exibir-transacoes/exibir-transacoes.component';
 import { AuthGuardService } from './service/auth-guard.service';
 import { AuthService } from './service/auth.service';
+import { CarrinhoComponent } from './carrinho/carrinho.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +39,8 @@ import { AuthService } from './service/auth.service';
     CarrosselOfertasDeCreditoComponent,
     NavBarComponent,
     RodapeComponent,
-    ExibirTransacoesComponent
+    ExibirTransacoesComponent,
+    CarrinhoComponent
   ],
   imports: [
     BrowserModule,
