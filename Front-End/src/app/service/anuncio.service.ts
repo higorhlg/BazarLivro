@@ -14,4 +14,12 @@ export class AnuncioService {
   public create(anuncio: Anuncio): Observable<Anuncio>{
     return this.http.post<Anuncio>(`${api.url}/announcements`, anuncio)
   }
+  public createWithImage(anuncio: any): Observable<Anuncio>{
+    return this.http.post<Anuncio>(`${api.url}/announcements`, anuncio)
+  }
+
+
+
+
+
 }

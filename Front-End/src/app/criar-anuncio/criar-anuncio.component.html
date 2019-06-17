@@ -33,7 +33,7 @@
       </div>
       <div class="form-group">
         <label for="inputSinopse">Sinopse</label>
-        <textarea required #sinopse="ngModel" [(ngModel)]="anuncio.synopsis" name="sinopse" pattern="([A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+[0-9])*"
+        <textarea required #sinopse="ngModel" [(ngModel)]="anuncio.synopsis" name="sinopse" pattern="^[\w'\-,.][^_!¡?÷?¿/\\+=@#$%ˆ&*{}|~<>;:[\]]{2,}$"
           class="form-control" id="inputSinopse" rows="3"
           placeholder="Um piloto cai com seu avião no deserto e ali encontra uma criança loura e frágil. Ela diz ter vindo de um pequeno planeta distante. E ali, na convivência com o piloto perdido, os dois repensam os seus valores e encontram o sentido da vida."></textarea>
         <div [hidden]="sinopse.valid || sinopse.pristine" class="alert alert-danger"> A sinopse deve conter apenas
@@ -60,10 +60,8 @@
           letras, espaços e números</div>
       </div>
       <div class="form-group">
-        <form action="upload.php" method="post" enctype="multipart/form-data">
           Selecione uma imagem
           <input type="file" class="btn btn-primary" #fileToUpload="ngModel" [(ngModel)]="anuncio.photo" name="fileToUpload" id="fileToUpload">
-        </form>
       </div>
       <div class="text-center">
         <br>
