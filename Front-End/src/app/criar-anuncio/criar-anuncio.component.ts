@@ -22,6 +22,14 @@ export class CriarAnuncioComponent implements OnInit {
   ngOnInit() {
   }
 
+  // cadastrar(){
+  //   this.anuncioService.create(this.anuncio).subscribe(anuncio =>{
+  //     this.anuncio = new Anuncio()
+  //     console.log(this.anuncio.user)
+  //   })
+  // }
+
+
   cadastrar(){
     this.anuncioService.create(this.anuncio).subscribe(anuncio =>{
       this.anuncio = new Anuncio()
@@ -30,11 +38,18 @@ export class CriarAnuncioComponent implements OnInit {
   }
 
   onSubmit(form1){
+
+
+    console.log(this.anuncio);
     if(form1.valid){
-      this.cadastrar()
+      // this.cadastrar()
     }
     else{
       alert("Dados inválidos")
     }
   }
+
+
+
+
 }
