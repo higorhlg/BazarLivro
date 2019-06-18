@@ -27,8 +27,7 @@ const announcementSchema = new mongoose.Schema({
     isbn:{
         type: String,
         //minlength: 13,
-        //maxlength: 13,
-        unique: true,
+        //maxlength: 13
         required: false,
         // match: /((978[\--– ])?[0-9][0-9\--– ]{10}[\--– ][0-9xX])|((978)?[0-9]{9}[0-9Xx])/
         match: /^(?:ISBN(?:-10)?:? )?(?=[0-9X]{10}$|(?=(?:[0-9]+[- ]){3})[- 0-9X]{13}$)[0-9]{1,5}[- ]?[0-9]+[- ]?[0-9]+[- ]?[0-9X]$/

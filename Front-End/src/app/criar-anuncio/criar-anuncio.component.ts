@@ -49,7 +49,13 @@ export class CriarAnuncioComponent implements OnInit {
     
     this.anuncioService.create(this.anuncio).subscribe(anuncio =>{
       this.anuncio = new Anuncio()
+      alert(`${this.authService.getCookie()['nome']} seu anúncio foi criado com sucesso`)
       console.log(this.anuncio.user)
+    },
+    response =>{
+      if(response.error){
+        alert(`Essa conta já existente`)
+      }
     })
   }
 

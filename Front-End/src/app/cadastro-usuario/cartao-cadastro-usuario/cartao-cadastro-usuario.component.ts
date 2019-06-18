@@ -23,7 +23,7 @@ export class CartaoCadastroUsuarioComponent implements OnInit {
     },
     response =>{
       if(response.error){
-        alert(`Essa conta já existente`)
+        alert(`Essa conta já está em uso. Tente outra`)
       }
     })
     // console.log(this.user)
