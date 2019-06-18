@@ -8,33 +8,33 @@ import { Anuncio } from 'model/anuncio.model';
   styleUrls: ['./carrossel-ofertas-quentes.component.scss']
 })
 export class CarrosselOfertasQuentesComponent implements OnInit {
-  linhaCarrosselInicial = [{
-    src: "../../../assets/img/1.png",
-    descricao: "Harry Porco",
-    preco: "R$199.99"
-  },
-  {
-    src: "../../../assets/img/3.png",
-    descricao: "A corna",
-    preco: "R$199.99"
-  },
-  {
-    src: "../../../assets/img/1.png",
-    descricao: "Harry Porco",
-    preco: "R$199.99"
-  },
-  {
-    src: "../../../assets/img/3.png",
-    descricao: "A corna",
-    preco: "R$199.99"
-  },
+//   linhaCarrosselInicial = [{
+//     src: "../../../assets/img/1.png",
+//     descricao: "Harry Porco",
+//     preco: "R$199.99"
+//   },
+//   {
+//     src: "../../../assets/img/3.png",
+//     descricao: "A corna",
+//     preco: "R$199.99"
+//   },
+//   {
+//     src: "../../../assets/img/1.png",
+//     descricao: "Harry Porco",
+//     preco: "R$199.99"
+//   },
+//   {
+//     src: "../../../assets/img/3.png",
+//     descricao: "A corna",
+//     preco: "R$199.99"
+//   },
 
 
 
 
 
-]
-// linhaCarrosselInicial : Array<Anuncio> = []
+// ]
+linhaCarrosselInicial : Array<Anuncio> = []
 
 
 
@@ -99,10 +99,9 @@ linhasCarrossel =[
     anuncioService.getAll().subscribe( res => {
       this.anuncios = res
       console.log(this.anuncios)
-      // this.anuncios.forEach(element => {
-      //   this.linhaCarrosselInicial.append(element)
-      // });
-      //this.linhaCarrosselInicial = this.anuncios
+
+      this.linhaCarrosselInicial = this.anuncios
+
     })
   }
 

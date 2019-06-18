@@ -24,6 +24,7 @@ export class CriarAnuncioComponent implements OnInit {
     this.anuncio = new Anuncio()
     this.anuncio.isbn = 'ISBN '
     this.anuncio.user = this.authService.getCookie()['_id']
+    this.anuncio.photo = null
    }
 
   ngOnInit() {
@@ -37,24 +38,10 @@ export class CriarAnuncioComponent implements OnInit {
   // }
 
   pic_file : any
-  fileName :any
-  filePreview : any
-  pic_base64 : any
+  
   onFileSelected(event){
     this.pic_file = event.target.files[0]
     
-    let reader = new FileReader();
-    if (event.target.files && event.target.files.length > 0) {
-
-      reader.readAsDataURL(this.pic_file);
-      reader.onload = () => {
-
-        this.fileName = this.pic_file + " " + this.pic_file.type;
-        this.filePreview = 'data:image/png' + ';base64,' + reader.result.slice(0,100);
-        this.pic_base64 = reader.result.toString()
-        console.log(reader.result.slice(0,1000))
-      };
-    }
   }
 
 
@@ -82,14 +69,17 @@ export class CriarAnuncioComponent implements OnInit {
     .subscribe(res => {
       //let test = res.valueOf.arguments
       this.anuncio.photo = res['data']['display_url']
+      console.log(this.anuncio);
+      
+
+      if(form1.valid){
+        this.cadastrar()
+      }
+      else{
+        alert("Dados inválidos")
+      }
     })
-    console.log(this.anuncio);
-    if(form1.valid){
-      this.cadastrar()
-    }
-    else{
-      alert("Dados inválidos")
-    }
+   
   }
 
 
