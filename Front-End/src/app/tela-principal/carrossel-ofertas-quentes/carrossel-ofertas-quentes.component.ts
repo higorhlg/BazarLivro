@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AnuncioService } from 'src/app/service/anuncio.service';
+import { Anuncio } from 'model/anuncio.model';
 
 @Component({
   selector: 'app-carrossel-ofertas-quentes',
@@ -32,6 +34,7 @@ export class CarrosselOfertasQuentesComponent implements OnInit {
 
 
 ]
+// linhaCarrosselInicial : Array<Anuncio> = []
 
 
 
@@ -91,8 +94,17 @@ linhasCarrossel =[
 ]
 
 
-
-  constructor() { }
+  anuncios : Array<Anuncio> = []
+  constructor(private anuncioService:AnuncioService) { 
+    anuncioService.getAll().subscribe( res => {
+      this.anuncios = res
+      console.log(this.anuncios)
+      // this.anuncios.forEach(element => {
+      //   this.linhaCarrosselInicial.append(element)
+      // });
+      //this.linhaCarrosselInicial = this.anuncios
+    })
+  }
 
   ngOnInit() {
   }

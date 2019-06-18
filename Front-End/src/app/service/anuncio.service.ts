@@ -18,6 +18,10 @@ export class AnuncioService {
     return this.http.post<Anuncio>(`${api.url}/announcements`, anuncio)
   }
 
+  public getAll() : Observable<Anuncio[]>{
+    return this.http.get<Anuncio[]>(`${api.url}/announcements`)
+  }
+
 
 
 

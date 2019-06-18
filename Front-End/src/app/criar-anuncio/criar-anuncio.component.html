@@ -61,7 +61,7 @@
       </div>
       <div class="form-group">
           Selecione uma imagem
-          <input type="file" class="btn btn-primary" #fileToUpload="ngModel" [(ngModel)]="anuncio.photo" name="fileToUpload" id="fileToUpload">
+          <input type="file" required class="btn btn-primary" (change)="onFileSelected($event)" name="fileToUpload" id="fileToUpload">
       </div>
       <div class="text-center">
         <br>
