@@ -42,7 +42,7 @@ export class CriarAnuncioComponent implements OnInit {
 
     console.log(this.anuncio);
     if(form1.valid){
-      // this.cadastrar()
+      this.cadastrar()
     }
     else{
       alert("Dados inválidos")
