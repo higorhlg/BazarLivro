@@ -8,6 +8,7 @@ import { MinhaContaComponent } from './minha-conta/minha-conta.component';
 import { ExibirTransacoesComponent } from './exibir-transacoes/exibir-transacoes.component';
 import { AuthGuardService } from './service/auth-guard.service';
 import { CarrinhoComponent} from './carrinho/carrinho.component'
+import { ExibirAnuncioComponent } from './exibir-anuncio/exibir-anuncio.component';
 
 export const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -42,7 +43,12 @@ export const routes: Routes = [
   {
     path: 'carrinho',
     component: CarrinhoComponent
-  }
+  },
+  {
+    path: 'exibir-anuncio',
+    component: ExibirAnuncioComponent,
+    canActivate: [AuthGuardService]
+  },
 ];
 
 @NgModule({
