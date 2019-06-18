@@ -3,15 +3,15 @@
   <div class="mt-5">
     <h3 class="mt-5">Titulos adicionados ao carrinho</h3>
     <!-- LISTA DE PRODUTOS DO CARRINHO -->
-    <ul class="list-group bg-light">
+    <ul class="list-group bg-light" *ngFor="let anuncio of anuncios">
       <li class="list-group-item">
         <div class="container-4  text-dark align-self-start">
           <div class="row">
             <div class="col-1">
               <img src="1.png" alt="..." class="img-thumbnail">
             </div>
-            <div class="col-1">
-              <label>Titulo</label>
+            <div class="col-1" >
+              <label>{{anuncios.title}}</label>
               <label>Autor</label>
               <label>Preço</label>
             </div>

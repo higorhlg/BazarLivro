@@ -40,7 +40,7 @@
                                     <div class="separator clear-left">
                                         <p class="btn-add">
                                             <i class="fa fa-shopping-cart"></i>
-                                            <a href="http://www.jquery2dotnet.com" class="hidden-sm">Adicionar ao carrinho</a>
+                                            <a (click)="addCarrinho(item)" routerLink='/tela-inicial' class="hidden-sm">Adicionar ao carrinho</a>
                                         </p>
                                         <p class="btn-details">
                                             <i class="fa fa-list"></i>
@@ -64,7 +64,7 @@
                                 <div class="info">
                                     <div class="row">
                                         <div class="price col-md-6">
-                                            <h5>{{item.announcementDescription}}</h5>
+                                            <h5>{{item.title}}</h5>
                                             <h5 class="price-text-color">{{item.price}}</h5>
                                         </div>
                                             <div class="rating hidden-sm col-md-6">

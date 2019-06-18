@@ -10,7 +10,7 @@ import { CarrinhoService } from '../service/carrinho.service';
 export class CarrinhoComponent implements OnInit {
   anuncios: Array<Anuncio> = []
   constructor(private carrinhoService: CarrinhoService) {
-    
+    this.anuncios = this.carrinhoService.retornaAnuncios()
    }
   
   ngOnInit() {
