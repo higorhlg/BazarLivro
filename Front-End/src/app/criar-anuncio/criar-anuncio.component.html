@@ -5,7 +5,7 @@
     <div class="mt-5">
       <div class="form-group">
         <label for="inputTitulo">Título</label>
-        <input required #titulo="ngModel" [(ngModel)]="anuncio.title" name="titulo" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ\- ]+" type="text"
+        <input required #titulo="ngModel" [(ngModel)]="anuncio.title" name="titulo" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ.!$%=+?:,\- ]+" type="text"
           class="form-control" id="inputTitulo" placeholder="O Pequeno Príncipe">
         <div [hidden]="titulo.valid || titulo.pristine" class="alert alert-danger"> O título deve conter apenas letras
         </div>
@@ -21,7 +21,7 @@
       </div>
       <div class="form-group">
         <label for="inputPreco">Preço</label>
-        <input type="number" #inputPreco="ngModel" [(ngModel)]="anuncio.price" class="form-control" name="inputPreco" id="inputPreco" step="0.50" placeholder="R$ 10,00">
+        <input type="number" #inputPreco="ngModel"  [(ngModel)]="anuncio.price" min="0" class="form-control" name="inputPreco" id="inputPreco" step="0.01" placeholder="R$ 10,00" oninput="validity.valid||(value='');">
       </div>
       <div class="form-group">
         <label for="inputAutor">Autor</label>
