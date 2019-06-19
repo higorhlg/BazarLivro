@@ -26,6 +26,7 @@ import { AuthGuardService } from './service/auth-guard.service';
 import { AuthService } from './service/auth.service';
 import { CarrinhoComponent } from './carrinho/carrinho.component';
 import { ExibirAnuncioComponent } from './exibir-anuncio/exibir-anuncio.component';
+import { OpcoesPagamamentoComponent } from './opcoes-pagamamento/opcoes-pagamamento.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +43,8 @@ import { ExibirAnuncioComponent } from './exibir-anuncio/exibir-anuncio.componen
     RodapeComponent,
     ExibirTransacoesComponent,
     CarrinhoComponent,
-    ExibirAnuncioComponent
+    ExibirAnuncioComponent,
+    OpcoesPagamamentoComponent
   ],
   imports: [
     BrowserModule,

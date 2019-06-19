@@ -9,9 +9,20 @@ import { ExibirTransacoesComponent } from './exibir-transacoes/exibir-transacoes
 import { AuthGuardService } from './service/auth-guard.service';
 import { CarrinhoComponent} from './carrinho/carrinho.component'
 import { ExibirAnuncioComponent } from './exibir-anuncio/exibir-anuncio.component';
+import { OpcoesPagamamentoComponent } from './opcoes-pagamamento/opcoes-pagamamento.component';
 
 export const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
+  
+  
+  {
+    path: 'opcoes-pagamento',
+    component: OpcoesPagamamentoComponent,
+    canActivate: [AuthGuardService]
+  }, 
+ 
+
+  
   {
     path: 'cadastro-usuario',
     component: CadastroUsuarioComponent
@@ -45,11 +56,14 @@ export const routes: Routes = [
     component: CarrinhoComponent,
     canActivate: [AuthGuardService]
   },
+
   {
     path: 'exibir-anuncio',
     component: ExibirAnuncioComponent,
     canActivate: [AuthGuardService]
-  },
+  }, 
+ 
+
 ];
 
 @NgModule({
