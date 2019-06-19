@@ -54,7 +54,7 @@ export class CriarAnuncioComponent implements OnInit {
     },
     response =>{
       if(response.error){
-        alert(`Essa conta já existente`)
+        alert(`Esse anúncio já existente`)
       }
     })
   }
@@ -76,7 +76,7 @@ export class CriarAnuncioComponent implements OnInit {
       //let test = res.valueOf.arguments
       this.anuncio.photo = res['data']['display_url']
       console.log(this.anuncio);
-      
+      console.log(res)
 
       if(form1.valid){
         this.cadastrar()

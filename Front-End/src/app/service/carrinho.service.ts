@@ -10,10 +10,7 @@ import { Observable } from 'rxjs';
 export class CarrinhoService {
   anuncios: Array<Anuncio> = []
   addAnuncios(item) {
-    if(this.anuncios.includes(item)){
-      console.log(`Item ${item.title} já no carrinho`)
-    }
-    else {this.anuncios.push(item)  }
+    
   }
   constructor(private authService: AuthService, private cookie:CookieService) { 
   }

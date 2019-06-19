@@ -8,34 +8,26 @@
         <div class="container-4  text-dark align-self-start">
           <div class="row">
             <div class="col-1">
-              <img src="1.png" alt="..." class="img-thumbnail">
+              <img src={{anuncio.photo}} alt="..." class="img-thumbnail">
             </div>
-            <div class="col-1" >
-              <label>{{anuncios.title}}</label>
-              <label>Autor</label>
+            <div >
+              <label>Título</label>
+              <div >
+                  <label>{{anuncio.title}}</label>
+              </div>
+              <label>Vendedor</label>
+              <div >
+                  <label>{{anuncio.user.nome}}</label>
+              </div>
               <label>Preço</label>
+              <div >
+                  <label>R$ {{anuncio.price}}</label>
+              </div>
             </div>
             <div class="col pull-right">
-              <button type="button" class="btn btn-danger pull-right">Cancelar</button>
+              <button (click)="removerItem()" type="button" class="btn btn-danger pull-right">Cancelar</button>
             </div>
 
-          </div>
-        </div>
-      </li>
-      <li class="list-group-item">
-        <div class="container-4  text-dark align-self-start">
-          <div class="row">
-            <div class="col-1">
-              <img src="2.png" alt="..." class="img-thumbnail">
-            </div>
-            <div class="col-1">
-              <label>Titulo</label>
-              <label>Autor</label>
-              <label>Preço</label>
-            </div>
-            <div class="col pull-right">
-              <button type="button" class="btn btn-danger pull-right">Cancelar</button>
-            </div>
           </div>
         </div>
       </li>
@@ -52,7 +44,7 @@
             <label>Preço da Compra</label>
           </div>
           <div class="col-3">
-            <label>$$$$$</label>
+            <label>{{total()}}</label>
           </div>
         </div>
         <div class="row">
@@ -60,7 +52,7 @@
             <label>Valor do Desconto</label>
           </div>
           <div class="col-3">
-            <label>$$$$$</label>
+            <label>{{desconto}}</label>
           </div>
         </div>
         <div class="row">
@@ -68,15 +60,16 @@
             <label>Preço Total</label>
           </div>
           <div class="col-3">
-            <label>$$$$$</label>
+            <label>{{total() - desconto}}</label>
           </div>
         </div>
       </div>
       <!-- BOTAO -->
       <div class="text-center">
         <br>
-        <button type="submit" class="btn btn-lg btn-success mb-5">Confirmar Compra</button>
+        <button (click)="vender()" type="submit" class="btn btn-lg btn-success mb-5">Confirmar Compra</button>
       </div>
     </div>
   </div>
+  {{transacao | json}}
 </div>

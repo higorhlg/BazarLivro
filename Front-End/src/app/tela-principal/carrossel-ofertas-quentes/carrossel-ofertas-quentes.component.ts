@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AnuncioService } from 'src/app/service/anuncio.service';
 import { Anuncio } from 'model/anuncio.model';
 import { CarrinhoService } from 'src/app/service/carrinho.service';
+import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-carrossel-ofertas-quentes',
@@ -36,11 +37,22 @@ export class CarrosselOfertasQuentesComponent implements OnInit {
 
 // ]
 linhaCarrosselInicial : Array<Anuncio> = []
-carrinho: Array<Anuncio> = []
+carrinho: Array<Anuncio> = [] 
 addCarrinho(item){
-  this.carrinho.push(item)
-  this.carrinhoService.addAnuncios(item)
-  this.carrinhoService.setCookie(this.carrinho)
+  if(this.carrinho.includes(item)){
+    alert(`Item ${item.title} já no carrinho`)
+  }
+  else {
+    if(this.authService.getCookie()['nome'] === item.user.nome){
+      alert(`${this.authService.getCookie()['nome']} não pode comprar de anúncio feito por você`)
+    }
+    else{
+      console.log('adicionado')
+      this.carrinho.push(item)
+      this.carrinhoService.setCookie(this.carrinho)
+    }
+  }
+  // this.carrinhoService.addAnuncios(item)
 }
 
 
@@ -102,7 +114,7 @@ linhasCarrossel =[
 
 
   anuncios : Array<Anuncio> = []
-  constructor(private anuncioService:AnuncioService, private carrinhoService: CarrinhoService) { 
+  constructor(private anuncioService:AnuncioService, private carrinhoService: CarrinhoService, private authService: AuthService) { 
     anuncioService.getAll().subscribe( res => {
       this.anuncios = res
       console.log(this.anuncios)
