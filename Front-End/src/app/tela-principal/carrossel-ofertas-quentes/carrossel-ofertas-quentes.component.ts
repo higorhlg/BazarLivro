@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { AnuncioService } from 'src/app/service/anuncio.service';
 import { Anuncio } from 'model/anuncio.model';
 import { CarrinhoService } from 'src/app/service/carrinho.service';
-import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-carrossel-ofertas-quentes',
@@ -10,118 +9,38 @@ import { AuthService } from 'src/app/service/auth.service';
   styleUrls: ['./carrossel-ofertas-quentes.component.scss']
 })
 export class CarrosselOfertasQuentesComponent implements OnInit {
-//   linhaCarrosselInicial = [{
-//     src: "../../../assets/img/1.png",
-//     descricao: "Harry Porco",
-//     preco: "R$199.99"
-//   },
-//   {
-//     src: "../../../assets/img/3.png",
-//     descricao: "A corna",
-//     preco: "R$199.99"
-//   },
-//   {
-//     src: "../../../assets/img/1.png",
-//     descricao: "Harry Porco",
-//     preco: "R$199.99"
-//   },
-//   {
-//     src: "../../../assets/img/3.png",
-//     descricao: "A corna",
-//     preco: "R$199.99"
-//   },
 
-
-
-
-
-// ]
 linhaCarrosselInicial : Array<Anuncio> = []
-carrinho: Array<Anuncio> = [] 
+linhasCarrossel : Array<Anuncio> = []
+carrinho: Array<Anuncio> = []
 addCarrinho(item){
-  if(this.carrinho.includes(item)){
-    alert(`Item ${item.title} já no carrinho`)
-  }
-  else {
-    if(this.authService.getCookie()['nome'] === item.user.nome){
-      alert(`${this.authService.getCookie()['nome']} não pode comprar de anúncio feito por você`)
-    }
-    else{
-      console.log('adicionado')
-      this.carrinho.push(item)
-      this.carrinhoService.setCookie(this.carrinho)
-    }
-  }
-  // this.carrinhoService.addAnuncios(item)
+  this.carrinho.push(item)
+  this.carrinhoService.addAnuncios(item)
+  this.carrinhoService.setCookie(this.carrinho)
 }
 
 
 
-linhasCarrossel =[
-  [{
-    src: "../../../assets/img/1.png",
-    descricao: "Harry Porco",
-    preco: "R$199.99"
-  },
-  {
-    src: "../../../assets/img/3.png",
-    descricao: "A corna",
-    preco: "R$199.99"
-  },
-  {
-    src: "../../../assets/img/1.png",
-    descricao: "Harry Porco",
-    preco: "R$199.99"
-  },
-  {
-    src: "../../../assets/img/3.png",
-    descricao: "A corna",
-    preco: "R$199.99"
-  },
-
-
-
-
-
-],
-[{
-  src: "../../../assets/img/1.png",
-  descricao: "Harry Porco",
-  preco: "R$199.99"
-},
-{
-  src: "../../../assets/img/3.png",
-  descricao: "A corna",
-  preco: "R$199.99"
-},
-{
-  src: "../../../assets/img/1.png",
-  descricao: "Harry Porco",
-  preco: "R$199.99"
-},
-{
-  src: "../../../assets/img/3.png",
-  descricao: "A corna",
-  preco: "R$199.99"
-},
-
-
-
-
-
-]
-]
-
-
   anuncios : Array<Anuncio> = []
-  constructor(private anuncioService:AnuncioService, private carrinhoService: CarrinhoService, private authService: AuthService) { 
+  constructor(private anuncioService:AnuncioService, private carrinhoService: CarrinhoService) { 
     anuncioService.getAll().subscribe( res => {
       this.anuncios = res
-      console.log(this.anuncios)
+      this.linhaCarrosselInicial = this.anuncios.slice(0,4)
+      this.carregar_carrosel(this.anuncios)
 
-      this.linhaCarrosselInicial = this.anuncios
 
     })
+  }
+
+  carregar_carrosel(conteudo){
+    const chunk_size = 4
+
+    for (let j=chunk_size; j < conteudo.length ;j+=chunk_size){
+      let tempArray = conteudo.slice(j,j+chunk_size)
+      this.linhasCarrossel.push(tempArray)
+    }
+    console.log(this.linhaCarrosselInicial)
+    console.log(this.linhasCarrossel)
   }
 
   ngOnInit() {

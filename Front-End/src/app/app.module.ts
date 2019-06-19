@@ -13,7 +13,6 @@ import { CookieService } from 'angular2-cookie/services/cookies.service';
 import { CartaoLoginComponent } from './login/cartao-login/cartao-login.component';
 import { CartaoCadastroUsuarioComponent } from './cadastro-usuario/cartao-cadastro-usuario/cartao-cadastro-usuario.component';
 import { CarrosselOfertasQuentesComponent } from './tela-principal/carrossel-ofertas-quentes/carrossel-ofertas-quentes.component';
-import { CarrosselOfertasDeCreditoComponent } from './tela-principal/carrossel-ofertas-de-credito/carrossel-ofertas-de-credito.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { RodapeComponent } from './rodape/rodape.component';
 
@@ -37,7 +36,6 @@ import { ExibirAnuncioComponent } from './exibir-anuncio/exibir-anuncio.componen
     CartaoLoginComponent,
     CartaoCadastroUsuarioComponent,
     CarrosselOfertasQuentesComponent,
-    CarrosselOfertasDeCreditoComponent,
     NavBarComponent,
     RodapeComponent,
     ExibirTransacoesComponent,
