@@ -32,6 +32,10 @@ addCarrinho(item){
     })
   }
 
+  exibir_anuncio(item){
+    console.log(item)
+  }
+
   carregar_carrosel(conteudo){
     const chunk_size = 4
 

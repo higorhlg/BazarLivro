@@ -44,7 +44,7 @@
                                         </p>
                                         <p class="btn-details">
                                             <i class="fa fa-list"></i>
-                                            <a href="http://www.jquery2dotnet.com" class="hidden-sm">Ver detalhes</a>
+                                            <a  (click)="exibir_anuncio(item)" routerlink='' class="hidden-sm">Ver detalhes</a>
                                         </p>
                                     </div>
                                     <div class="clearfix"></div>
@@ -78,11 +78,11 @@
                                         <div class="separator clear-left">
                                             <p class="btn-add">
                                                 <i class="fa fa-shopping-cart"></i>
-                                                <a href="http://www.jquery2dotnet.com" class="hidden-sm">Adicionar ao carrinho</a>
+                                                <a (click)="addCarrinho(item)" routerlink =''class="hidden-sm">Adicionar ao carrinho</a>
                                             </p>
                                             <p class="btn-details">
                                                 <i class="fa fa-list"></i>
-                                                <a href="http://www.jquery2dotnet.com" class="hidden-sm">Ver detalhes</a>
+                                                <a  (click)="exibir_anuncio(item)" routerLink='' class="hidden-sm">Ver detalhes</a>
                                             </p>
                                         </div>
                                         <div class="clearfix"></div>
