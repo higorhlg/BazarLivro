@@ -36,12 +36,14 @@ export class CarrinhoComponent implements OnInit {
   
   total(): number {
     let resultado = 0
-    for (let index = 0; index < this.anuncios.length; index++) {
-      if(this.anuncios[index].availableForExchange === true)
-        this.anuncios[index].availableForExchange = "SIM"
-      if(this.anuncios[index].availableForExchange === false)
-        this.anuncios[index].availableForExchange = "NÃO"
-      resultado += this.anuncios[index].price
+    if(this.anuncios){
+      for (let index = 0; index < this.anuncios.length; index++) {
+        if(this.anuncios[index].availableForExchange === true)
+          this.anuncios[index].availableForExchange = "SIM"
+        if(this.anuncios[index].availableForExchange === false)
+          this.anuncios[index].availableForExchange = "NÃO"
+        resultado += this.anuncios[index].price
+      }
     }
     // console.log(resultado)
     return resultado
@@ -49,15 +51,18 @@ export class CarrinhoComponent implements OnInit {
 
   vender(){
     this.transacao = new Transacao
-    for (let index = 0; index < this.anuncios.length; index++) {
-      this.transacao.anuncio = this.anuncios[index]._id
-      console.log(this.anuncios[index]._id)
-      this.transacao.comprador = this.authService.getCookie()['_id']
-      this.transacao.vendedor = this.anuncios[index].user._id
-      this.transacaoService.save(this.anuncios[index]).subscribe(transacao=>{
-        this.transacao = new Transacao
-        alert(`${this.authService.getCookie()['nome']} sua compra foi finalizada com sucesso`)
-      })
+    if(this.anuncios){
+
+      for (let index = 0; index < this.anuncios.length; index++) {
+        this.transacao.anuncio = this.anuncios[index]._id
+        console.log(this.anuncios[index]._id)
+        this.transacao.comprador = this.authService.getCookie()['_id']
+        this.transacao.vendedor = this.anuncios[index].user._id
+        this.transacaoService.save(this.anuncios[index]).subscribe(transacao=>{
+          this.transacao = new Transacao
+          alert(`${this.authService.getCookie()['nome']} sua compra foi finalizada com sucesso`)
+        })
+      }
     }
   }
 

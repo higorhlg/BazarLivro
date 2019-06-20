@@ -8,27 +8,33 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CarrinhoService {
-  anuncios: Array<Anuncio> = []
-  addAnuncios(item) {
-    
-  }
-  constructor(private authService: AuthService, private cookie:CookieService) { 
+
+  constructor(private cookie:CookieService) {
   }
 
-  public retornaAnuncios(): Anuncio[]{
-    return this.anuncios
-  }
 
   setCookie(anuncio: Anuncio[]){
     this.cookie.putObject('anuncio', anuncio)
   }
 
-  getCookie(){
-    return this.cookie.getObject('anuncio')
+  getCookie(): any[] | any{
+    if(this.cookie.getObject('anuncio') !== undefined){
+      return this.cookie.getObject('anuncio')
+    }
+    return new Array
   }
 
   delCookie(){
     this.cookie.remove('anuncio')
+  }
+
+  contarItens(){
+    let total = 0
+    let cookie = this.getCookie()
+    for (const iterator of cookie) {
+      total += 1
+    }
+    return total
   }
 
   

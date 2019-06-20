@@ -10,8 +10,10 @@ import { CarrinhoService } from '../service/carrinho.service';
 })
 export class NavBarComponent implements OnInit {
 
+  
   constructor(private router: Router, private authService: AuthService, private carrinhoService: CarrinhoService) { }
-
+  
+  itensCarrinho = this.carrinhoService.contarItens()
   ngOnInit() {
   }
 
