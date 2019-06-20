@@ -38,13 +38,13 @@
                                         </div>
                                     </div>
                                     <div class="separator clear-left">
-                                        <p class="btn-add">
+                                        <p class="btn-add" (click)="addCarrinho(item)" >
                                             <i class="fa fa-shopping-cart"></i>
-                                            <a (click)="addCarrinho(item)" routerLink='/tela-inicial' class="hidden-sm">Adicionar ao carrinho</a>
+                                            <a  routerLink='/tela-inicial' class="hidden-sm">Adicionar ao carrinho</a>
                                         </p>
-                                        <p class="btn-details">
+                                        <p class="btn-details" (click)="exibir_anuncio(item)" >
                                             <i class="fa fa-list"></i>
-                                            <a  (click)="exibir_anuncio(item)" routerLink='/tela-inicial' class="hidden-sm">Ver detalhes</a>
+                                            <a   routerLink='/tela-inicial' class="hidden-sm">Ver detalhes</a>
                                         </p>
                                     </div>
                                     <div class="clearfix"></div>
@@ -76,13 +76,13 @@
                                             </div>
                                         </div>
                                         <div class="separator clear-left">
-                                            <p class="btn-add">
+                                            <p class="btn-add" (click)="addCarrinho(item)">
                                                 <i class="fa fa-shopping-cart"></i>
-                                                <a (click)="addCarrinho(item)" routerLink ='/tela-inicial' class="hidden-sm">Adicionar ao carrinho</a>
+                                                <a routerLink ='/tela-inicial' class="hidden-sm">Adicionar ao carrinho</a>
                                             </p>
-                                            <p class="btn-details">
+                                            <p class="btn-details" (click)="exibir_anuncio(item)">
                                                 <i class="fa fa-list"></i>
-                                                <a  (click)="exibir_anuncio(item)" routerLink='/tela-inicial' class="hidden-sm">Ver detalhes</a>
+                                                <a   routerLink='/tela-inicial' class="hidden-sm">Ver detalhes</a>
                                             </p>
                                         </div>
                                         <div class="clearfix"></div>

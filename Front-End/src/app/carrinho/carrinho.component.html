@@ -44,7 +44,7 @@
 							<td><a routerLink="/tela-inicial" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Comprando</a></td>
 							<td colspan="2" class="hidden-xs"></td>
 							<td class="hidden-xs text-center"><strong>Total R$ {{total()}}</strong></td>
-							<td><a href="#" class="btn btn-success btn-block">Finalizar Compra <i class="fa fa-angle-right"></i></a></td>
+							<td><a (click)="vender()"  class="btn btn-success btn-block">Finalizar Compra <i class="fa fa-angle-right"></i></a></td>
 						</tr>
 					</tfoot>
 				</table>

@@ -78,7 +78,6 @@ linhasCarrossel : Array<Anuncio> = []
   }
 
   ngOnInit() {
-    this.carrinhoService.contarItens()
   }
 
 }

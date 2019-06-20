@@ -13,8 +13,8 @@ export class NavBarComponent implements OnInit {
   
   constructor(private router: Router, private authService: AuthService, private carrinhoService: CarrinhoService) { }
   
-  itensCarrinho = this.carrinhoService.contarItens()
-  ngOnInit() {
+  public itensCarrinho = this.carrinhoService.contarItens() 
+  ngOnInit() { 
   }
 
   logOut(){

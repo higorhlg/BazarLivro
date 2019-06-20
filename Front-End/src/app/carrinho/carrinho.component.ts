@@ -4,6 +4,7 @@ import { CarrinhoService } from '../service/carrinho.service';
 import { Transacao } from 'model/transacao.model';
 import { AuthService } from '../service/auth.service';
 import { TransacaoService } from '../service/transacao.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-carrinho',
@@ -13,7 +14,8 @@ import { TransacaoService } from '../service/transacao.service';
 export class CarrinhoComponent implements OnInit {
   anuncios: any
   transacao: Transacao
-  constructor(private carrinhoService: CarrinhoService, private authService: AuthService, private transacaoService: TransacaoService) {
+  item: any
+  constructor(private carrinhoService: CarrinhoService, private authService: AuthService, private transacaoService: TransacaoService, private route: Router) {
     this.anuncios = this.carrinhoService.getCookie()
     this.total()
    }
@@ -22,10 +24,6 @@ export class CarrinhoComponent implements OnInit {
     this.anuncios = this.carrinhoService.getCookie()
     console.log(this.anuncios)
     this.total()
-    // this.transacao = new Transacao
-    // this.transacao.anuncio = this.anuncios[0]._id
-    // this.transacao.comprador = this.authService.getCookie()['_id']
-    // this.transacao.vendedor = this.anuncios[0].user._id
   }
 
   removerItem(item) {
@@ -50,19 +48,20 @@ export class CarrinhoComponent implements OnInit {
   }
 
   vender(){
-    this.transacao = new Transacao
     if(this.anuncios){
-
-      for (let index = 0; index < this.anuncios.length; index++) {
-        this.transacao.anuncio = this.anuncios[index]._id
-        console.log(this.anuncios[index]._id)
+      for (const iterator of this.anuncios) {
+        this.transacao = new Transacao
+        this.transacao.anuncio = iterator._id
         this.transacao.comprador = this.authService.getCookie()['_id']
-        this.transacao.vendedor = this.anuncios[index].user._id
-        this.transacaoService.save(this.anuncios[index]).subscribe(transacao=>{
+        this.transacao.vendedor = iterator.user._id
+        this.transacaoService.save(this.transacao).subscribe(tr =>{
+          let transacao: any = tr
+          alert(`O vendedor ${transacao.vendedor.nome} agradece a sua compra ${transacao.comprador.nome}`)
           this.transacao = new Transacao
-          alert(`${this.authService.getCookie()['nome']} sua compra foi finalizada com sucesso`)
+          this.route.navigate(['/opcoes-pagamento'])
         })
       }
+      this.carrinhoService.delCookie()
     }
   }
 
