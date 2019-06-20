@@ -12,10 +12,10 @@ import { TransacaoService } from '../service/transacao.service';
 })
 export class CarrinhoComponent implements OnInit {
   anuncios: any
-  desconto: number = 4
   transacao: Transacao
   constructor(private carrinhoService: CarrinhoService, private authService: AuthService, private transacaoService: TransacaoService) {
     this.anuncios = this.carrinhoService.getCookie()
+    this.total()
    }
   
   ngOnInit() {
@@ -28,8 +28,8 @@ export class CarrinhoComponent implements OnInit {
     // this.transacao.vendedor = this.anuncios[0].user._id
   }
 
-  removerItem() {
-    this.anuncios.pop()
+  removerItem(item) {
+    let teste = this.anuncios.splice(item,1)
     this.carrinhoService.setCookie(this.anuncios)
     console.log(this.anuncios)
   }
@@ -37,6 +37,10 @@ export class CarrinhoComponent implements OnInit {
   total(): number {
     let resultado = 0
     for (let index = 0; index < this.anuncios.length; index++) {
+      if(this.anuncios[index].availableForExchange === true)
+        this.anuncios[index].availableForExchange = "SIM"
+      if(this.anuncios[index].availableForExchange === false)
+        this.anuncios[index].availableForExchange = "NÃO"
       resultado += this.anuncios[index].price
     }
     // console.log(resultado)

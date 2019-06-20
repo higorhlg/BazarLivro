@@ -1,75 +1,51 @@
-<div class="container" style="height: 100%;">
-  <h1 class="mt-5">Carrinho</h1>
-  <div class="mt-5">
-    <h3 class="mt-5">Titulos adicionados ao carrinho</h3>
-    <!-- LISTA DE PRODUTOS DO CARRINHO -->
-    <ul class="list-group bg-light" *ngFor="let anuncio of anuncios">
-      <li class="list-group-item">
-        <div class="container-4  text-dark align-self-start">
-          <div class="row">
-            <div class="col-1">
-              <img src={{anuncio.photo}} alt="..." class="img-thumbnail">
-            </div>
-            <div >
-              <label>Título</label>
-              <div >
-                  <label>{{anuncio.title}}</label>
-              </div>
-              <label>Vendedor</label>
-              <div >
-                  <label>{{anuncio.user.nome}}</label>
-              </div>
-              <label>Preço</label>
-              <div >
-                  <label>R$ {{anuncio.price}}</label>
-              </div>
-            </div>
-            <div class="col pull-right">
-              <button (click)="removerItem()" type="button" class="btn btn-danger pull-right">Cancelar</button>
-            </div>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 
-          </div>
-        </div>
-      </li>
-    </ul>
-    <!-- FIM DA LISTA -->
-
-
-    <!-- TOTAL -->
-    <div class="text-center pull-md">
-      <br>
-      <div class="container-4 bg-light text-dark mb-5">
-        <div class="row ">
-          <div class="col-3">
-            <label>Preço da Compra</label>
-          </div>
-          <div class="col-3">
-            <label>{{total()}}</label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-3">
-            <label>Valor do Desconto</label>
-          </div>
-          <div class="col-3">
-            <label>{{desconto}}</label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-3">
-            <label>Preço Total</label>
-          </div>
-          <div class="col-3">
-            <label>{{total() - desconto}}</label>
-          </div>
-        </div>
-      </div>
-      <!-- BOTAO -->
-      <div class="text-center">
-        <br>
-        <button (click)="vender()" type="submit" class="btn btn-lg btn-success mb-5">Confirmar Compra</button>
-      </div>
-    </div>
-  </div>
-  {{transacao | json}}
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container">
+	<table id="cart" class="table table-hover table-condensed">
+    				<thead>
+						<tr>
+							<th style="width:50%">Livros</th>
+							<th style="width:10%">Preço</th>
+							<th style="width:8%">Vendedor</th>
+							<th style="width:22%" class="text-center">Disponível para troca</th>
+							<th style="width:10%"></th>
+						</tr>
+					</thead>
+					<tbody *ngFor="let anuncio of anuncios">
+						<tr>
+							<td data-th="Livros">
+								<div class="row">
+									<div class="col-sm-2 hidden-xs"><img src={{anuncio.photo}} alt={{anuncio.title}} class="img-responsive"/></div>
+									<div class="col-sm-10">
+										<h4 class="nomargin">{{anuncio.title}}</h4>
+										<p>{{anuncio.synopsis}}</p>
+									</div>
+								</div>
+							</td>
+							<td data-th="Preço">R$ {{anuncio.price}}</td>
+							<td data-th="Vendedor">
+                				{{anuncio.user.nome}}
+							</td>
+							<td data-th="Disponível para troca" class="text-center">{{anuncio.availableForExchange}}</td>
+							<td class="actions" data-th="">
+								<button (click)="removerItem(anuncio)" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i> Remover</button>								
+							</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr class="visible-xs">
+							<td class="text-center"><strong>Total 1.99</strong></td>
+						</tr>
+						<tr>
+							<td><a routerLink="/tela-inicial" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Comprando</a></td>
+							<td colspan="2" class="hidden-xs"></td>
+							<td class="hidden-xs text-center"><strong>Total R$ {{total()}}</strong></td>
+							<td><a href="#" class="btn btn-success btn-block">Finalizar Compra <i class="fa fa-angle-right"></i></a></td>
+						</tr>
+					</tfoot>
+				</table>
 </div>
