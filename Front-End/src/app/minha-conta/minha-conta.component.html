@@ -6,7 +6,7 @@
     <div class="mt-5">
       <h3 class="mt-5">Dados Cadastrais</h3>
 
-      {{usuario_logado.nome}}
+      <!-- {{usuario_logado.nome}} -->
       <div class="form-group">
         <label for="inputAddress">Nome Completo</label>
         <input required #nome="ngModel" [(ngModel)]="usuario_logado.nome" name="nome"  pattern="^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$"  type="text" class="form-control" id="inputAddress">
@@ -78,7 +78,10 @@
     </div>
     <div class="text-center">
       <br>
-      <button type="submit" class="btn btn-lg btn-success mb-5">Salvar</button>
+      <button type="submit" class="btn btn-lg btn-success mb-5">
+        <i class="fa fa-save"></i>
+        Salvar
+      </button>
     </div>
   </div>
 </div>

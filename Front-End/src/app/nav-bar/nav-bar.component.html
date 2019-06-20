@@ -1,18 +1,23 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-dark">
   <div>
         <button class="btn btn-secondary btn-lg ml-1 mr-1" type="button" routerLink="/tela-inicial" >
+          <i class="fa fa-home" ></i>
           Página Inicial
         </button>
         <button class="btn btn-secondary btn-lg ml-1 mr-1" type="button" routerLink="/criar-anuncio">
+          <i class="fa fa-plus" ></i>
           Cadastrar Anúncio
         </button>
         <button class="btn btn-secondary btn-lg ml-1 mr-1" type="button" routerLink="/carrinho" >
-          Carrinho 
+          <i class="fa fa-shopping-cart"></i>
+          Carrinho <!-- {{itensCarrinho}} -->
         </button>
         <button class="btn btn-secondary btn-lg ml-1 mr-1" type="button" routerLink="/minha-conta" >
+          <i class="fa fa-user-circle" ></i>
           Minha conta 
         </button>
         <button class="btn btn-secondary btn-lg ml-1 mr-1" type="button" routerLink="/transacoes">
+          <i class="fa fa-history" ></i>
             Histórico de Transações
         </button>
          
@@ -20,7 +25,10 @@
   <ul class="navbar-nav ml-auto">
       <li class="nav-item">
           <div>
-              <button type="button"  (click) = "logOut()" class="btn btn-danger btn-lg" >Sair</button>
+              <button type="button"  (click) = "logOut()" class="btn btn-danger btn-lg" >
+                <i class="fa fa-sign-out"></i> 
+                Sair
+              </button>
           </div>
       </li>
   </ul>
