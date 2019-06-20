@@ -3,7 +3,7 @@
         <div class="row">
         <div class="row">
             <div class="col-md-9">
-                <h2>Ofertas Quentes</h2>
+                <h2>Ofertas</h2>
             </div>
             <div class="col-md-11">
                 <!-- Controls -->
@@ -44,7 +44,7 @@
                                         </p>
                                         <p class="btn-details">
                                             <i class="fa fa-list"></i>
-                                            <a href="http://www.jquery2dotnet.com" class="hidden-sm">Ver detalhes</a>
+                                            <a  (click)="exibir_anuncio(item)" routerlink='' class="hidden-sm">Ver detalhes</a>
                                         </p>
                                     </div>
                                     <div class="clearfix"></div>
@@ -65,7 +65,7 @@
                                     <div class="row">
                                         <div class="price col-md-6">
                                             <h5>{{item.title}}</h5>
-                                            <h5 class="price-text-color">{{item.price}}</h5>
+                                            <h5 class="price-text-color"> R$ {{item.price}}</h5>
                                         </div>
                                             <div class="rating hidden-sm col-md-6">
                                                 <i class="price-text-color fa fa-star"></i>
@@ -78,11 +78,11 @@
                                         <div class="separator clear-left">
                                             <p class="btn-add">
                                                 <i class="fa fa-shopping-cart"></i>
-                                                <a href="http://www.jquery2dotnet.com" class="hidden-sm">Adicionar ao carrinho</a>
+                                                <a (click)="addCarrinho(item)" routerlink =''class="hidden-sm">Adicionar ao carrinho</a>
                                             </p>
                                             <p class="btn-details">
                                                 <i class="fa fa-list"></i>
-                                                <a href="http://www.jquery2dotnet.com" class="hidden-sm">Ver detalhes</a>
+                                                <a  (click)="exibir_anuncio(item)" routerLink='' class="hidden-sm">Ver detalhes</a>
                                             </p>
                                         </div>
                                         <div class="clearfix"></div>
