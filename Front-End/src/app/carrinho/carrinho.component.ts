@@ -30,6 +30,7 @@ export class CarrinhoComponent implements OnInit {
     let teste = this.anuncios.splice(item,1)
     this.carrinhoService.setCookie(this.anuncios)
     console.log(this.anuncios)
+    
   }
   
   total(): number {
@@ -63,6 +64,11 @@ export class CarrinhoComponent implements OnInit {
       }
       this.carrinhoService.delCookie()
     }
+  }
+  verifica_carrinho():boolean{
+    let x = false
+    if(this.anuncios.length === 0) return false
+    else return true
   }
 
 }

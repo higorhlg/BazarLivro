@@ -5,6 +5,7 @@
 
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 <div class="container">
+	
 	<table id="cart" class="table table-hover table-condensed">
     				<thead>
 						<tr>
@@ -15,6 +16,7 @@
 							<th style="width:10%"></th>
 						</tr>
 					</thead>
+
 					<tbody *ngFor="let anuncio of anuncios">
 						<tr>
 							<td data-th="Livros">
@@ -25,6 +27,7 @@
 										<p>{{anuncio.synopsis}}</p>
 									</div>
 								</div>
+							
 							</td>
 							<td data-th="Preço">R$ {{anuncio.price}}</td>
 							<td data-th="Vendedor">
@@ -48,4 +51,8 @@
 						</tr>
 					</tfoot>
 				</table>
+
+				<div [hidden]= "verifica_carrinho()" align="center" class="bg-light text-primary">
+						<h3>Seu carrinho está vazio!</h3>
+				</div>
 </div>
