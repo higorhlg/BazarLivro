@@ -23,5 +23,8 @@ export class TransacaoService {
   public delete(transacao: Transacao): Observable<any> {
     return this.http.delete<Transacao>(`${api.url}/transactions/${transacao._id}`,);
   }
+  public getByUser(userId:string): Observable<Transacao[]>{
+    return this.http.get<Transacao[]>(`${api.url}/transactions/user/${userId}`)
+  }
 
 }

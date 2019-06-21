@@ -37,6 +37,8 @@ class TransactionRouter extends ModelRouter<Transaction>{
                 next(new NotFoundError('Comprador não encontrado'))
             }
         }).catch(next)
+
+
     
         User.findById({_id: req.body.vendedor}).then(user=>{
             if(user){
@@ -59,9 +61,29 @@ class TransactionRouter extends ModelRouter<Transaction>{
                 next(new NotFoundError('Anuncio não encontrado'))
             }
         }).catch(next)
+
+
     }
-    
+    findByUser = (req:restify.Request, resp: restify.Response, next:restify.Next)=>{
+        Transaction.find({comprador: req.params.id})
+        .populate('vendedor', ['nome'])
+        .populate('comprador', ['nome'])
+        .populate('anuncio', ['title', 'price'])
+        .then(user=>{
+            if(user){
+                console.log('comprador ok')
+                resp.json(user)
+                next()
+            }
+            else{
+                console.log('comprador não encontrado')
+                next(new NotFoundError('Comprador não encontrado'))
+            }
+        }).catch(next)
+    }
+
     applyRouter(application: restify.Server){
+        application.get('/transactions/user/:id', this.findByUser)
         application.get('/transactions', /* authorizeNoProfile(), */ this.findAll) 
         application.get('/transactions/:id', /* authorizeNoProfile(), */[this.validateId, this.findById])
         application.post('/transactions', /* authorizeNoProfile(), */[this.validateId,this.saveTransacao])     

@@ -11,8 +11,17 @@ export class ExibirTransacoesComponent implements OnInit {
 
   transacoes : Transacao[]
   constructor(private t_service: TransacaoService, auth_service: AuthService) {
-    t_service.getAll().subscribe(t => {
+    t_service.getByUser(auth_service.getCookie()["_id"]).subscribe(t => {
+      
       this.transacoes = t
+      this.transacoes.forEach(i => {
+      let data = new Date(i.data)
+      let dataFormatada = data.getDate() + '/' + data.getMonth() + '/' + data.getFullYear()
+      let horaFormatada = data.getUTCHours() + ':' + data.getUTCMinutes()
+      i.data = dataFormatada + ' ' + horaFormatada
+      console.log(dataFormatada, horaFormatada)
+        
+      });
     })
   }
 
