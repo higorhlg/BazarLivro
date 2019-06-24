@@ -1,0 +1,16 @@
+.container, .container-fluid {
+    margin-top: 15px;
+}
+tr > td.media-left {
+    width: 72px !important;
+    height: 30px;
+    padding: 0 10px;
+    background-color: #eee;    
+}
+.table .media .media-body > span {
+   color: #999;
+}
+
+.table .media .media-body span strong {
+    color: #777;
+}

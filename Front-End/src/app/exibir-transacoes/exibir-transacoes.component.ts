@@ -10,16 +10,19 @@ import { AuthService } from '../service/auth.service';
 export class ExibirTransacoesComponent implements OnInit {
 
   transacoes : Transacao[]
+  data: Date
+  dataFormatada: string
+  horaFormatada: string
   constructor(private t_service: TransacaoService, auth_service: AuthService) {
     t_service.getByUser(auth_service.getCookie()["_id"]).subscribe(t => {
       
       this.transacoes = t
       this.transacoes.forEach(i => {
-      let data = new Date(i.data)
-      let dataFormatada = data.getDate() + '/' + data.getMonth() + '/' + data.getFullYear()
-      let horaFormatada = data.getUTCHours() + ':' + data.getUTCMinutes()
-      i.data = dataFormatada + ' ' + horaFormatada
-      console.log(dataFormatada, horaFormatada)
+      this.data = new Date(i.data)
+      this.dataFormatada = this.data.getDate() + '/' + this.data.getMonth() + '/' + this.data.getFullYear()
+      this.horaFormatada = this.data.getUTCHours() + ':' + this.data.getUTCMinutes()
+      i.data = this.dataFormatada + ' ' + this.horaFormatada
+      console.log(this.dataFormatada, this.horaFormatada)
         
       });
     })
