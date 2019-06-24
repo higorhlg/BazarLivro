@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-opcoes-pagamamento',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OpcoesPagamamentoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
+  emitirBoleto(){
+    this.router.navigate(['/emitir-boleto'])
+  }
+
+  cartaoCredito(){
+    this.router.navigate(['/pagamento-cartao'])
+  }
 }

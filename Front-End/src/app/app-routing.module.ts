@@ -1,3 +1,5 @@
+import { PagamentoCartaoComponent } from './pagamento-cartao/pagamento-cartao.component';
+import { EmitirBoletoComponent } from './emitir-boleto/emitir-boleto.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.component';
@@ -62,6 +64,18 @@ export const routes: Routes = [
     component: ExibirAnuncioComponent,
     canActivate: [AuthGuardService]
   }, 
+
+  {
+    path: 'emitir-boleto',
+    component: EmitirBoletoComponent,
+    canActivate: [AuthGuardService]
+  }, 
+
+  {
+    path: 'pagamento-cartao',
+    component: PagamentoCartaoComponent,
+    canActivate: [AuthGuardService]
+  },
  
 
 ];
@@ -72,3 +86,4 @@ export const routes: Routes = [
 })
 
 export class AppRoutingModule { }
+//emitir-boleto

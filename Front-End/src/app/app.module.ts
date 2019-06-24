@@ -26,6 +26,8 @@ import { AuthService } from './service/auth.service';
 import { CarrinhoComponent } from './carrinho/carrinho.component';
 import { ExibirAnuncioComponent } from './exibir-anuncio/exibir-anuncio.component';
 import { OpcoesPagamamentoComponent } from './opcoes-pagamamento/opcoes-pagamamento.component';
+import { EmitirBoletoComponent } from './emitir-boleto/emitir-boleto.component';
+import { PagamentoCartaoComponent } from './pagamento-cartao/pagamento-cartao.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +44,9 @@ import { OpcoesPagamamentoComponent } from './opcoes-pagamamento/opcoes-pagamame
     ExibirTransacoesComponent,
     CarrinhoComponent,
     ExibirAnuncioComponent,
-    OpcoesPagamamentoComponent
+    OpcoesPagamamentoComponent,
+    EmitirBoletoComponent,
+    PagamentoCartaoComponent
   ],
   imports: [
     BrowserModule,
