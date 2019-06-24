@@ -68,7 +68,7 @@ class TransactionRouter extends ModelRouter<Transaction>{
         Transaction.find({comprador: req.params.id})
         .populate('vendedor', ['nome'])
         .populate('comprador', ['nome'])
-        .populate('anuncio', ['title', 'price'])
+        .populate('anuncio', ['title', 'price', 'photo'])
         .then(user=>{
             if(user){
                 console.log('comprador ok')
