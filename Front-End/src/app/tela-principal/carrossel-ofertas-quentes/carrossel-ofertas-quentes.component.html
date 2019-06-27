@@ -21,7 +21,7 @@
                         <div *ngFor="let item of linhaCarrosselInicial" class="col-sm-3">
                             <div class="col-item">
                                 <div class="photo">
-                                    <img [src]="item.photo" class="img-responsive" alt="a"  />
+                                    <img [src]="item.photo" [style.width.px]="400" [style.height.px]="400" class="img-responsive" alt="a"  />
                                 </div>
                                 <div class="info">
                                     <div class="row">
@@ -59,7 +59,7 @@
                         <div *ngFor="let item of linhaCarrosselInicial" class="col-sm-3">
                             <div class="col-item">
                                 <div class="photo">
-                                    <img [src]="item.photo" class="img-responsive" alt="a" />
+                                    <img [src]="item.photo" [style.width.px]="400" [style.height.px]="400"  class="img-responsive" alt="a" />
                                 </div>
                                 <div class="info">
                                     <div class="row">

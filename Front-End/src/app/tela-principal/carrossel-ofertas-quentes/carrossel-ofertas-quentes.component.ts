@@ -58,6 +58,7 @@ linhasCarrossel : Array<Anuncio> = []
     else{
       this.carrinho.push(item)
       this.carrinhoService.setCookie(this.carrinho)
+      alert('Item adicionado ao carrinho')
       // console.log(this.carrinho)
     }
   }

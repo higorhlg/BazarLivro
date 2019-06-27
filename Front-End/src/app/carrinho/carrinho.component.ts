@@ -50,19 +50,8 @@ export class CarrinhoComponent implements OnInit {
 
   vender(){
     if(this.anuncios){
-      for (const iterator of this.anuncios) {
-        this.transacao = new Transacao
-        this.transacao.anuncio = iterator._id
-        this.transacao.comprador = this.authService.getCookie()['_id']
-        this.transacao.vendedor = iterator.user._id
-        this.transacaoService.save(this.transacao).subscribe(tr =>{
-          let transacao: any = tr
-          alert(`O vendedor ${transacao.vendedor.nome} agradece a sua compra ${transacao.comprador.nome}`)
-          this.transacao = new Transacao
-          this.route.navigate(['/opcoes-pagamento'])
-        })
-      }
-      this.carrinhoService.delCookie()
+      this.route.navigate(['/opcoes-pagamento'])
+      //this.carrinhoService.delCookie()
     }
   }
   verifica_carrinho():boolean{
