@@ -5,6 +5,7 @@ import { CarrinhoService } from '../service/carrinho.service';
 import { Transacao } from 'model/transacao.model';
 import { Anuncio } from 'model/anuncio.model';
 import { Router } from '@angular/router';
+import { AnuncioService } from '../service/anuncio.service';
 
 @Component({
   selector: 'app-pagamento-cartao',
@@ -15,6 +16,7 @@ export class PagamentoCartaoComponent implements OnInit {
   anuncios : Array<Anuncio>
   transacao : Transacao
   constructor(private authService : AuthService, private tService :TransacaoService,
+    private anuncioService:AnuncioService,
      private cService : CarrinhoService, private route : Router ) { 
     
   }
@@ -22,6 +24,7 @@ export class PagamentoCartaoComponent implements OnInit {
   vender(){
     this.anuncios = this.cService.getCookie()
     for (const iterator of this.anuncios) {
+      //this.anuncioService.delete(iterator)
       this.transacao = new Transacao
       this.transacao.anuncio = iterator._id
       this.transacao.comprador = this.authService.getCookie()['_id']
@@ -30,6 +33,7 @@ export class PagamentoCartaoComponent implements OnInit {
         let transacao: any = tr
         alert(`O vendedor ${transacao.vendedor.nome} agradece a sua compra ${transacao.comprador.nome}`)
         this.transacao = new Transacao
+        this.cService.delCookie()
         this.route.navigate(['/transacoes'])
       })
     }
