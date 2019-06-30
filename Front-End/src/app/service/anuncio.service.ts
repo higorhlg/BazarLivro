@@ -22,6 +22,10 @@ export class AnuncioService {
     return this.http.get<Anuncio[]>(`${api.url}/announcements`)
   }
 
+  public getByStatus():Observable<Anuncio[]>{
+    return this.http.get<Anuncio[]>(`${api.url}/announcements/status`)
+  }
+
   public delete(transacao: Anuncio): Observable<Anuncio> {
     return this.http.delete<Anuncio>(`${api.url}/announcements/${transacao._id}`,);
   }

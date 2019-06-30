@@ -21,7 +21,7 @@ class AnnouncementRouter extends ModelRouter<Announcement>{
         return query.populate('user', ['nome', 'email'])
     }
 
-    validateId = (req:restify.Request, resp: restify.Response, next:restify.Next)=>{
+    saveValidateId = (req:restify.Request, resp: restify.Response, next:restify.Next)=>{
         console.log('Entrou')
         User.findById({_id: req.body.user}).then(user=>{
             if(user){
@@ -37,7 +37,8 @@ class AnnouncementRouter extends ModelRouter<Announcement>{
     applyRouter(application: restify.Server){
         application.get('/announcements', /**authorizeNoProfile(),**/ this.findAll)
         application.get('/announcements/:id', /**authorizeNoProfile(),**/ [this.validateId, this.findById])
-        application.post('/announcements', /**authorizeNoProfile(),**/ [this.validateId, this.saveAnuncio])
+        application.get('/announcements/status', /**authorizeNoProfile(),**/ [ this.findByStatus])
+        application.post('/announcements', /**authorizeNoProfile(),**/ [this.saveValidateId, this.saveAnuncio])
         application.patch('/announcements/:id', /**authorizeNoProfile(),**/ [this.validateId, this.update])
         application.del('/announcements/:id', /**authorizeNoProfile(),**/ [this.validateId, this.delete])
     }

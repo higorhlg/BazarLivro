@@ -19,7 +19,7 @@ linhasCarrossel : Array<Anuncio> = []
 
   anuncios : Array<Anuncio> = []
   constructor(private anuncioService:AnuncioService, private carrinhoService: CarrinhoService, private authService: AuthService) { 
-    anuncioService.getAll().subscribe( res => {
+    anuncioService.getByStatus().subscribe( res => {
       this.anuncios = res
       this.linhaCarrosselInicial = this.anuncios.slice(0,4)
       this.carregar_carrosel(this.anuncios)

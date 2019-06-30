@@ -39,6 +39,9 @@ export abstract class ModelRouter<D extends mongoose.Document> extends Router {
     findById = (req: any, resp: any, next: any) => {
         this.model.findById(req.params.id).then(this.render(resp, next)).catch(next)
     }
+    findByStatus = (req: any, resp: any, next: any) => {
+        this.model.find({activityStatus: "Ativo"}).then(this.render(resp, next)).catch(next)
+    }
     save = (req: any, resp: any, next: any) => {
         let document = new this.model(req.body)
         document.save().then(this.render(resp, next)).catch(next)
