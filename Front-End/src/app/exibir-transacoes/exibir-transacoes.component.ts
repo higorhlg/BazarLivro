@@ -28,6 +28,11 @@ export class ExibirTransacoesComponent implements OnInit {
     })
   }
 
+  verifica_transacao(): boolean{
+    if(this.transacoes.length === 0) return false
+    else return true
+  }
+
   ngOnInit() {
   }
 
