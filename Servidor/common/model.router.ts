@@ -40,7 +40,8 @@ export abstract class ModelRouter<D extends mongoose.Document> extends Router {
         this.model.findById(req.params.id).then(this.render(resp, next)).catch(next)
     }
     findByStatus = (req: any, resp: any, next: any) => {
-        this.model.find({activityStatus: "Ativo"}).then(this.render(resp, next)).catch(next)
+        this.prepareAll(this.model.find({activityStatus: "Ativo"})).then(this.renderAll(resp, next))
+            .catch(next)
     }
     save = (req: any, resp: any, next: any) => {
         let document = new this.model(req.body)
@@ -72,6 +73,11 @@ export abstract class ModelRouter<D extends mongoose.Document> extends Router {
     update = (req: any, resp: any, next: any) => {
         const op = { runValidators: true, new: true }
         this.model.findByIdAndUpdate(req.params.id, req.body, op).then(this.render(resp, next))
+            .catch(next)
+    }
+    updateStatus = (req: any, resp: any, next: any) => {
+        const op = { runValidators: true, new: true }
+        this.model.findByIdAndUpdate(req.params.id, {activityStatus: 'Inativo'}, op).then(this.render(resp, next))
             .catch(next)
     }
     delete = (req: any, resp: any, next: any) => {

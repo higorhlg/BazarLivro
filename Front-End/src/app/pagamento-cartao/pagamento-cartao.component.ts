@@ -31,6 +31,9 @@ export class PagamentoCartaoComponent implements OnInit {
       this.transacao.vendedor = iterator.user._id
       this.tService.save(this.transacao).subscribe(tr =>{
         let transacao: any = tr
+        this.anuncioService.updateStatus(iterator._id).subscribe(ad =>{
+          console.log(ad)
+        })
         alert(`O vendedor ${transacao.vendedor.nome} agradece a sua compra ${transacao.comprador.nome}`)
         this.transacao = new Transacao
         this.cService.delCookie()

@@ -13,8 +13,17 @@ export class ExibirTransacoesComponent implements OnInit {
   data: Date
   dataFormatada: string
   horaFormatada: string
-  constructor(private t_service: TransacaoService, auth_service: AuthService) {
-    t_service.getByUser(auth_service.getCookie()["_id"]).subscribe(t => {
+  constructor(private t_service: TransacaoService, private auth_service: AuthService) {
+    this.exibirTransacao()
+  }
+
+  verifica_transacao(): boolean{
+    if(this.transacoes === undefined) return false
+    else return true
+  }
+
+  exibirTransacao(){
+    this.t_service.getByUser(this.auth_service.getCookie()["_id"]).subscribe(t => {
       
       this.transacoes = t
       this.transacoes.forEach(i => {
@@ -22,18 +31,14 @@ export class ExibirTransacoesComponent implements OnInit {
       this.dataFormatada = this.data.getDate() + '/' + this.data.getMonth() + '/' + this.data.getFullYear()
       this.horaFormatada = this.data.getUTCHours() + ':' + this.data.getUTCMinutes()
       i.data = this.dataFormatada + ' ' + this.horaFormatada
-      console.log(this.dataFormatada, this.horaFormatada)
+      // console.log(this.dataFormatada, this.horaFormatada)
         
       });
     })
   }
 
-  verifica_transacao(): boolean{
-    if(this.transacoes.length === 0) return false
-    else return true
-  }
-
   ngOnInit() {
+    this.exibirTransacao()
   }
 
 }

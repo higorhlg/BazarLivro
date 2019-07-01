@@ -3,8 +3,11 @@
     <h2>Boleto emitido com Sucesso!</h2>
   </div> 
   <div class="row">
-    <p>Para imprimir<a href="http://bootsnipp.com/iframe/n8poZ" target="_blank"> tela cheia</a>
-    <img class="visible-lg img-responsive" src="..\..\assets\img\BoletoBancario.png" alt="">
+    <!-- <p>Para imprimir<a routerLink='/emitir-boleto' (click)="imprimir()" target="_blank"> tela cheia</a> -->
+      <button class="btn" (click)="imprimir()">
+              Imprimir <i class="fa fa-print "></i><span class="badge badge-primary"></span>
+      </button>
+    <img class="visible-lg img-responsive" src="../../assets/img/BoletoBancario.png" alt="boleto">
   </div>
         
 
