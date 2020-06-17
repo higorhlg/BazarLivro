@@ -7,7 +7,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 Para a execução da aplicação web é necessário a instalação das dependências do projeto:
 `npm i`
 
-Após a instalação das dependências basta rodar o comando ng serve caso possua o angular instalado, ou npm start para executar a partir do angular instalado como dependência anteriomente.
+Após a instalação das dependências basta rodar o comando `ng serve` caso possua o angular instalado, ou `npm start` para executar a partir do angular instalado como dependência anteriomente.
 
 
 
