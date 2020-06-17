@@ -5,8 +5,8 @@ Bazar do Livro é uma aplicação web desenvolvida com o propósito de servir co
 <h2> Prévia Visual </h2>
 
 <p>
-<img width="49%" src="https://github.com/higorhlg/BazarLivro/src/login"/>
-<img width="49%" src="https://github.com/higorhlg/BazarLivro/src/home"/>
+<img width="49%" src="https://github.com/higorhlg/BazarLivro/blob/master/src/login.png"/>
+<img width="49%" src="https://github.com/higorhlg/BazarLivro/blob/master/src/home.png"/>
 </p>
 
 <h2> Como executar </h2>
