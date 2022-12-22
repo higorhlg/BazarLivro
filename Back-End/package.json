@@ -5,7 +5,7 @@
   "main": "dist/main.js",
   "dependencies": {
     "bcrypt": "^3.0.6",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "mongodb": "^3.2.2",
     "mongoose": "^5.4.19",
     "restify": "^8.2.0",
